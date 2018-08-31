@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-    </div>
+  
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
 
-body{font: 400 1em/1.5 "Neuton"; background: #090d00; color: rgba(255,255,255,.25); text-align: center; margin: 0 ;}
+body{
+  font: 400 1em/1.5 "Neuton";
+   background: #090d00;
+    color: rgba(255,255,255,.25);
+     text-align: center;
+      margin: 0 ;
+    }
 
 
 #app {

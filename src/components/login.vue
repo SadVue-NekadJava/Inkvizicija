@@ -13,6 +13,7 @@
 </div>
 
 <router-link to="/register">Register</router-link>
+<router-link to="/mainPage">mainPage</router-link>
 
 
   </form>

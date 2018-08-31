@@ -20,7 +20,7 @@ export default {
 
 .hello {
    font: 400 1em/1.5 "Neuton";
-    background: #090d00;
+  //  background:#090d00;
     color: rgba(255,255,255,.25);
      text-align: center;
     margin: 0 ;
