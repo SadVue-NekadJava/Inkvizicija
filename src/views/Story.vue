@@ -19,8 +19,8 @@ export default {
 
 <style scoped >
 
-body{
-position: absolute;
+/* .story{
+position: relative;
  min-height: 960px;
  background-image: url("../assets/paper.png");
  background-repeat: no-repeat;
@@ -32,6 +32,6 @@ margin:0 auto;
 h1{
 
   margin: 10px auto;
-}
+} */
 
 </style>
