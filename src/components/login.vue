@@ -2,13 +2,16 @@
   <div class="hello">
 
   <form class="">
+    <h3 v-if="logged">ULOGOVANI STE</h3>
+    <h3 v-if="notlogged">POGRESNI PODACI</h3>
     <label class="labela">Korisnicko ime</label><br>
-    <input class="unosi" type="text" name="" value=""><br>
+    <input v-model="username" class="unosi" type="text" name="" value=""><br>
     <label class="labela">Lozinka</label><br>
-    <input class="unosi" type="text" name="" value=""><br>
+    <input v-model="password" class="unosi" type="text" name="" value=""><br>
   <label class="prazan"></label><br>
     <div class="wrap">
-    <button class="clicker right">Uloguj se</button>
+    <button v-on:click.prevent="login" class="clicker right">Uloguj se</button>
+
     <div class="circle angled right"></div>
 </div>
 
@@ -22,15 +25,40 @@
 
 <script>
 export default {
-
-
+  data(){
+    return{
+      username:'',
+      password:'',
+      logged:false,
+      notlogged:false
+      }
+  },
+  methods:{
+    login(){
+      //console.log(this.username);
+      axios.post('http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js',{
+       username: this.username,
+       password: this.password
+      }).then(response => {
+        console.log(response.data.status);
+        if(response.data.status=='ok'){
+          this.logged = true;
+          this.notlogged = false;
+        }else{
+        this.notlogged = true;
+      }
+      });
+      }
+  }
 
 }
 </script>
 
 <style scoped lang="scss">
 
-
+h3{
+  color:white;
+}
 .unosi{
 margin: 30px;
 padding: 10px 50px;
