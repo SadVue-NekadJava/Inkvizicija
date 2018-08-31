@@ -16,7 +16,7 @@
 </div>
 
 <router-link to="/register">Register</router-link>
-<router-link to="/mainPage">mainPage</router-link>
+<!-- <router-link v-if="logged" to="/mainPage">mainPage</router-link> -->
 
 
   </form>
@@ -44,6 +44,7 @@ export default {
         if(response.data.status=='ok'){
           this.logged = true;
           this.notlogged = false;
+          this.$router.push('mainPage')
         }else{
         this.notlogged = true;
       }
