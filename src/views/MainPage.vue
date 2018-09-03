@@ -5,7 +5,10 @@
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
      <router-link to="/" class="gameMode">Exit</router-link>
-     <h3>Korisnik <span class="ime">{{name}}</span></h3>
+     <div class="user">
+     <h3>Korisnik: </h3>
+     <h3><span class="ime">{{name}}</span></h3>
+   </div>
   </div>
 </template>
 
@@ -41,11 +44,11 @@ export default {
 </script>
 
 <style scoped >
-h3{
+.user{
   color:white;
-  position:relative;
-  width: 100px;
-  margin-top: 300px;
+  position:absolute;
+  bottom: 100px;
+  left: 100px;
   opacity: 0.5;
 }
 .ime{

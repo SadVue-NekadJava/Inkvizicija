@@ -18,7 +18,10 @@
 <div id="h"></div>
   </div>
 
-
+  <div class="user">
+  <h3>Korisnik: </h3>
+  <h3><span class="ime">{{name}}</span></h3>
+  </div>
 
 
   </div>
@@ -30,6 +33,11 @@
 
 export default {
   name: 'story',
+  data(){
+    return{
+      name:this.$store.state.user
+    }
+  },
   components: {
 
   },
@@ -80,7 +88,17 @@ this.animacija();
 </script>
 
 <style scoped >
-
+.user{
+  color:white;
+  position:absolute;
+  bottom: 100px;
+  left: 100px;
+  opacity: 0.5;
+}
+.ime{
+  color: orange;
+  font-size:26px;
+}
 body{
   background:#e74c3c;
   color:white;
