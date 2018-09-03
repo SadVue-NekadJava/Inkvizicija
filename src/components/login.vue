@@ -2,6 +2,7 @@
   <div class="hello">
 
   <form class="">
+    <h3 v-if="registered">USPESNA REGISTRACIJA</h3>
     <h3 v-if="notlogged">POGRESNI PODACI</h3>
     <label class="labela">Korisnicko ime</label><br>
     <input v-model="username" class="unosi" type="text" name="" value=""><br>
@@ -15,9 +16,6 @@
 </div>
 
 <router-link to="/register">Register</router-link>
-<!-- <router-link v-if="logged" to="/mainPage">mainPage</router-link> -->
-
-
   </form>
   </div>
 </template>
@@ -49,8 +47,12 @@ export default {
       }
       });
       }
+  },
+  computed:{
+    registered(){
+      return this.$store.state.registered;
+    }
   }
-
 }
 </script>
 

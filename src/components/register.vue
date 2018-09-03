@@ -15,10 +15,6 @@
     <button v-on:click.prevent="register" class="clicker right">Registruj se</button>
     <div class="circle angled right"></div>
 </div>
-
-
-
-
   </form>
   </div>
 </template>
@@ -49,11 +45,21 @@ export default {
       }).then(response => {
         if(response.data.Korisnik=='registrovan'){
           this.$router.push('/')
+          this.$store.state.registered=true;
+          var self = this;
+            setTimeout(function(){
+                self.$store.state.registered = false;
+            }, 3000);
         }
 
       });
     }
       }
+  },
+  computed:{
+    registered(){
+      return this.$store.state.registered;
+    }
   }
 }
 </script>

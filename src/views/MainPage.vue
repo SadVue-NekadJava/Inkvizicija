@@ -5,21 +5,32 @@
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
      <router-link to="#" class="gameMode">Exit</router-link>
-
+     <h3>{{name}}</h3>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '../components/HelloWorld.vue'
-
+import LoginVue from '../components/login.vue'
 import RegisterVue from '../components/register.vue'
 export default {
   name: 'mainPage',
   components: {
     'hello-world':HelloWorld,
-    'register-vue':RegisterVue
+    'register-vue':RegisterVue,
+    'login-vue':LoginVue
+  },
+  data(){
+    return{
+      name:LoginVue.username,
+      newname:'bilo ko'
+    }
+  },
+  mounted(){
+    console.log(LoginVue);
   }
+
 }
 
 
