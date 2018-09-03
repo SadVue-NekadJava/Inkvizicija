@@ -5,7 +5,7 @@
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
      <router-link to="#" class="gameMode">Exit</router-link>
-     <h3>{{name}}</h3>
+     <h3>Welcome {{name}}</h3>
   </div>
 </template>
 
@@ -23,12 +23,16 @@ export default {
   },
   data(){
     return{
-      name:LoginVue.username,
-      newname:'bilo ko'
+      name:this.$store.state.user
     }
   },
   mounted(){
-    console.log(LoginVue);
+    console.log(this.$store.state.user);
+  },
+  computed:{
+    user(){
+      return this.$store.state.user;
+    }
   }
 
 }

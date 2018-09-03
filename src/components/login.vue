@@ -41,7 +41,8 @@ export default {
         if(response.data.status=='ok'){
           this.logged = true;
           this.notlogged = false;
-          this.$router.push('mainPage')
+          this.$router.push('mainPage');
+          this.$store.state.user = this.username;
         }else{
         this.notlogged = true;
       }
