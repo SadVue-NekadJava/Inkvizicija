@@ -2,7 +2,6 @@
   <div class="hello">
 
   <form class="">
-    <h3 v-if="logged">ULOGOVANI STE</h3>
     <h3 v-if="notlogged">POGRESNI PODACI</h3>
     <label class="labela">Korisnicko ime</label><br>
     <input v-model="username" class="unosi" type="text" name="" value=""><br>

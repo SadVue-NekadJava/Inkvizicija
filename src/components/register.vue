@@ -2,15 +2,17 @@
   <div class="hello">
 
   <form class="">
+    <h3 v-if="samePass">UNELI STE RAZLICITE LOZINKE ILI PREKRATKU LOZINKU !</h3>
+    <h3 v-if="blankUser">PRAZNO ILI POSTOJECE KORISNICKO IME !</h3>
     <label>Korisnicko ime</label><br>
-    <input class="unosi" type="text" name="" value=""><br>
+    <input v-model="username" class="unosi" type="text" name="" value=""><br>
     <label>Lozinka</label><br>
-    <input class="unosi" type="text" name="" value=""><br>
+    <input v-model="password1" class="unosi" type="password" name="" value=""><br>
 
-    <input class="unosi zadnji" type="text" name="" value=""><br>
+    <input v-model="password2" class="unosi zadnji" type="password" name="" value=""><br>
       <label>Potvrdi lozinku</label><br>
     <div class="wrap">
-    <button class="clicker right">Registruj se</button>
+    <button v-on:click.prevent="register" class="clicker right">Registruj se</button>
     <div class="circle angled right"></div>
 </div>
 
@@ -23,12 +25,43 @@
 
 <script>
 export default {
+  data(){
+    return{
+      username:'',
+      password1:'',
+      password2:'',
+      samePass:false,
+      blankUser:false
+      }
+  },
+  methods:{
+    register(){
+      if(this.password1 != this.password2 || this.password1.length<6){
+        this.samePass=true;
+        return;
+      }else if(this.username == ""){
+        this.blankUser=true;
+        return;
+      }else{
+      axios.post('http://739k121.mars-e1.mars-hosting.com/inkvizicija/register.js',{
+       username: this.username,
+       password1: this.password1
+      }).then(response => {
+        if(response.data.Korisnik=='registrovan'){
+          this.$router.push('/')
+        }
 
+      });
+    }
+      }
+  }
 }
 </script>
 
 <style scoped lang="scss">
-
+h3{
+  color:white;
+}
 .unosi{
 margin: 26px;
 padding: 10px 50px;
