@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="main">
 
      <hello-world class="neka"></hello-world>
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style scoped >
- .home{
+ .main{
 
 background-image: url("../assets/edited.jpg");
 background-repeat: no-repeat;

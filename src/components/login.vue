@@ -76,7 +76,7 @@ font-size: 20px;
  //position: absolute;
  top: 18%;
  left: 50%;
- width: 40em;
+ // width: 40em;
  margin: 0 auto;
  color: rgba(255,255,255,.25);
 }
@@ -97,7 +97,7 @@ font-size: 20px;
   //position: absolute;
   top: 18%;
   left: 50%;
-  width: 40em;
+  width: auto;
   margin: 0 auto;
   color: rgba(255,255,255,.25);
 }
@@ -119,7 +119,7 @@ a
  //position: absolute;
  top: 18%;
  left: 50%;
- width: 40em;
+ width: auto;
  margin: 0 auto;
  color: rgba(255,255,255,.25);
 }

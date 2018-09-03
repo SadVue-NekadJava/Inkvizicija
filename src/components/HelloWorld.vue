@@ -37,7 +37,7 @@ p {
 	//position: absolute;
 	top: 18%;
 	left: 50%;
-	width: 40em;
+	// width: 40em;
 	margin: 0 auto;
 
   span {
