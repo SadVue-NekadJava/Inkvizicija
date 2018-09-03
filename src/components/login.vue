@@ -6,7 +6,7 @@
     <label class="labela">Korisnicko ime</label><br>
     <input v-model="username" class="unosi" type="text" name="" value=""><br>
     <label class="labela">Lozinka</label><br>
-    <input v-model="password" class="unosi" type="text" name="" value=""><br>
+    <input v-model="password" class="unosi" type="password" name="" value=""><br>
   <label class="prazan"></label><br>
     <div class="wrap">
     <button v-on:click.prevent="login" class="clicker right">Uloguj se</button>
