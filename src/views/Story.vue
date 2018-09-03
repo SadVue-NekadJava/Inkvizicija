@@ -129,5 +129,12 @@ font-size: 30px;
   color: white;
 }
 
+.story{
+width: 100vw;
+height: 100vh;
+background-image: url('../assets/questionsBackground.jpg');
+background-repeat: no-repeat;
+background-size: cover;
 
+}
 </style>
