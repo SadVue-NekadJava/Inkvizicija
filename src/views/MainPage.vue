@@ -4,8 +4,8 @@
      <hello-world class="neka"></hello-world>
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
-     <router-link to="#" class="gameMode">Exit</router-link>
-     <h3>Welcome {{name}}</h3>
+     <router-link to="/" class="gameMode">Exit</router-link>
+     <h3>Korisnik <span class="ime">{{name}}</span></h3>
   </div>
 </template>
 
@@ -41,6 +41,17 @@ export default {
 </script>
 
 <style scoped >
+h3{
+  color:white;
+  position:relative;
+  width: 100px;
+  margin-top: 300px;
+  opacity: 0.5;
+}
+.ime{
+  color: orange;
+  font-size:26px;
+}
  .main{
 
 background-image: url("../assets/edited.jpg");
