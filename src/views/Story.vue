@@ -25,8 +25,7 @@
 </template>
 
 <script>
-// import animation from '../animation'
-let models = require('../animation');
+
 
 
 export default {
@@ -66,7 +65,7 @@ export default {
      window.setTimeout(function() {
        withOpacity();
      }, 500);
-     
+
    noOpacity();
  }
   },
