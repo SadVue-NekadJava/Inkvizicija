@@ -34,9 +34,44 @@ export default {
   components: {
 
   },
+  methods:{
+    animacija(){
+     var p = document.querySelector("p");
+     var html = p.innerHTML
+       .split("")
+       .map(function(val) {
+         return "<span class='letter'>" + val + "</span>";
+       })
+       .join("");
 
+     document.getElementById("h2").innerHTML = html;
+
+     var letter = document.getElementsByClassName("letter");
+
+     for (var i = 0; i < letter.length; i++) {
+       letter[i].style.transition = "opacity 800ms " + i * 10 + "ms";
+     }
+     function withOpacity() {
+       for (var i = 0; i < letter.length; i++) {
+         letter[i].style.opacity = 1;
+       }
+     }
+
+     function noOpacity() {
+       for (var i = 0; i < letter.length; i++) {
+         letter[i].style.opacity = 0;
+       }
+     }
+
+     window.setTimeout(function() {
+       withOpacity();
+     }, 500);
+     
+   noOpacity();
+ }
+  },
   mounted(){
-noOpacity();
+this.animacija();
 
 
   }
