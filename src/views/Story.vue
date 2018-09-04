@@ -40,7 +40,9 @@ export default {
   name: 'story',
   data(){
     return{
-      name:this.$store.state.user
+      name:this.$store.state.user,
+      level:this.$store.state.questionLevel,
+      questions:[]
     }
   },
   components: {
@@ -83,9 +85,16 @@ export default {
  }
   },
   mounted(){
-this.animacija();
-this.$store.state.showTransition=true;
+        this.animacija();
+        this.$store.state.showTransition=true;
 
+        axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
+                        {params:{ level: this.level }}
+                        ).then(response => {
+                          console.log(response);
+                            //this.questions = response.data;
+                          //  console.log(this.questions[0].question);
+                         });
 
   }
 }

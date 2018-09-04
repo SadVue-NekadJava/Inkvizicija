@@ -8,6 +8,8 @@ export default new Vuex.Store({
     registered:false,
     user:"",
     showTransition:true
+    showTransition:true,
+    questionLevel:1
   },
   mutations: {
 
