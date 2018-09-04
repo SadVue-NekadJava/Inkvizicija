@@ -72,8 +72,8 @@ background-position: center;
 
 #logfire {
     position:relative;
-    right: -97px;
-    bottom: 177px;
+    right: -105px;
+    bottom: 215px;
     height:400px;
     margin-top:181px
     }
