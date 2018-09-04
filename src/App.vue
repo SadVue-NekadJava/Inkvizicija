@@ -1,7 +1,7 @@
 <template>
   <div id="app">
    <router-view v-if="prikazi"/>
-    <transition v-if="!prikazi" name="router-anim" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+    <transition v-if="!prikazi" name="router-anim">
      <router-view/>
   </transition>
   </div>
@@ -39,10 +39,10 @@
 
 @keyframes going {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   to {
-    transform: translateX(-50px);
+    transform: translateY(150px);
     opacity: 0;
   }
 }
