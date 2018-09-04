@@ -28,13 +28,13 @@
 
 
 
-.router-anim-enter-active {
+/* .router-anim-enter-active {
   animation: coming 1s;
   animation-delay: .5s;
   opacity: 0;
-}
+} */
 .router-anim-leave-active {
-  animation: going 1s;
+  animation: going 2s;
 }
 
 @keyframes going {
@@ -42,20 +42,20 @@
     transform: translateY(0);
   }
   to {
-    transform: translateY(150px);
+    transform: translateY(250px);
     opacity: 0;
   }
 }
-@keyframes coming {
+/* @keyframes coming {
   from {
     transform: translateX(-50px);
     opacity: 0;
   }
   to {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 0.6;
   }
-}
+} */
 
 
 
