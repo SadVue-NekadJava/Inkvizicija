@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     registered:false,
     user:"",
-    showTransition:false
+    showTransition:true
   },
   mutations: {
 

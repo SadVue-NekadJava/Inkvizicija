@@ -32,7 +32,8 @@ export default {
   methods:{
 
  changeTransition(){
-    this.$store.state.showTransition=true;
+   console.log(this.$store.state.showTransition);
+    this.$store.state.showTransition=false;
 
 
  }
@@ -40,7 +41,7 @@ export default {
 
   },
   mounted(){
-    console.log(this.$store.state.user);
+    //console.log(this.$store.state.user);
   },
   computed:{
     user(){

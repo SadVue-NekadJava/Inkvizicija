@@ -1,11 +1,27 @@
 <template>
   <div id="app">
-   <router-view v-if="!showTransition"/>
-    <transition v-if="showTransition" name="router-anim" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+   <router-view v-if="false"/>
+    <transition v-if="true" name="router-anim" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
      <router-view/>
   </transition>
   </div>
 </template>
+
+<script>
+  export default{
+    data(){
+      return{
+        pokazi:this.$store.state.showTransition
+      }
+    },
+    computed:{
+      prikazi(){
+        return this.$store.state.showTransition;
+
+      }
+    }
+  }
+</script>
 
 <style >
 @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
