@@ -9,6 +9,11 @@
      <h3>Korisnik: </h3>
      <h3><span class="ime">{{name}}</span></h3>
    </div>
+   <div id="logfire">
+    <div id="flamegroup">
+           <div class="flame"></div>
+    </div>
+</div>​
   </div>
 </template>
 
@@ -53,6 +58,76 @@ export default {
 </script>
 
 <style scoped >
+.main{
+
+background-image: url("../assets/edited.jpg");
+background-repeat: no-repeat;
+
+min-height: 974px;
+background-size: cover;
+background-position: center;
+}
+
+
+
+#logfire {
+    position:relative;
+    right: -97px;
+    bottom: 177px;
+    height:400px;
+    margin-top:181px
+    }
+#flamegroup {
+    margin:0 auto;
+    position:relative;
+    top:100px;
+    width:100px;
+    height:136px;
+}
+
+.flame {
+    margin:0 auto;
+    position:absolute;
+    width:100px;
+    height:136px;
+    background:url(http://sitepointstatic.com/examples/css3/animation/flame-sprite.png?r=3) 0px 0px no-repeat;
+    animation: flicker .4s infinite;
+}
+
+@keyframes flicker { /* flame pulses */
+    0% {
+        background-position:0px 0px;
+        opacity:.8
+}
+    25% {
+        background-position:0px 0px;
+}
+    25.1% {
+        background-position:-100px 0px;
+}
+    50% {
+        background-position:-100px 0px;
+        opacity:.4
+}
+    50.1% {
+        background-position:-200px 0px;
+}
+    75% {
+        background-position:-200px 0px;
+
+}
+    75.1% {
+        background-position:-100px 0px;
+}
+    100% {
+        background-position:-100px 0px;
+        opacity:.8
+}
+}
+
+
+
+
 .user{
   color:white;
   position:absolute;
@@ -64,14 +139,7 @@ export default {
   color: orange;
   font-size:26px;
 }
- .main{
 
-background-image: url("../assets/edited.jpg");
-background-repeat: no-repeat;
-
-min-height: 974px;
-background-size: cover;
-}
 .neka{
 background: transparent;
 
@@ -81,6 +149,8 @@ background: transparent;
 
   font: 400 1em/1.5 "Neuton";
  letter-spacing: 0;
+ text-decoration: none;
+
  padding: .25em 0 .325em;
  display: block;
  margin: 0 auto;
@@ -94,7 +164,7 @@ background: transparent;
  //position: absolute;
  top: 18%;
  left: 50%;
- width:200px;
+ width:300px;
   /* 40em; */
  margin: 15px auto;
  color: rgba(255,255,255,.25);
