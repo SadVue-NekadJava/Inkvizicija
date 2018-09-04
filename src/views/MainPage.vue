@@ -41,6 +41,9 @@ export default {
     user(){
       return this.$store.state.user;
     }
+  },
+  beforeDestroy () {
+    this.$store.state.showTransition=true;
   }
 
 
