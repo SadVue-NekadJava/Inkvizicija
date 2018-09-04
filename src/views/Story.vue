@@ -94,6 +94,37 @@ this.$store.state.showTransition=true;
 </script>
 
 <style scoped >
+.story{
+animation-name: coming;
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
+
+@keyframes coming {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 button{
 
