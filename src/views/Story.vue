@@ -4,21 +4,16 @@
 
 <div class="wrap">
 <h2 class="animatedText" id="h2"></h2>
-
-<h6 >Lorem ipsum dolor sit amet,
-  consectetur adipiscing elit.
-   Sed eleifend urna quis justo condimentum,
-    vel rutrum erat scelerisque. Etiam suscipit
-     dui et tellus laoreet ultricies. Fusce porttitor
-      augue a nisi semper, ac vestibulum neque faucibus.
-       Fusce cursus et justo in interdum. In eget ultrices est. Nunc imperdiet.
-     </h6>
+<div>
+  <h6>{{check}}</h6>
+</div>
 
 
-<button type="button" name="button">Prvi</button>
-<button type="button" name="button">Drugi</button><br>
-<button type="button" name="button">Treci</button>
-<button type="button" name="button">Cetvrti</button>
+
+<button @click="pitanje" type="button" name="button">Prvi</button>
+<button @click="pitanje" type="button" name="button">Drugi</button><br>
+<button @click="pitanje" type="button" name="button">Treci</button>
+<button @click="pitanje" type="button" name="button">Cetvrti</button>
 <div id="div"></div>
 <div id="h"></div>
   </div>
@@ -40,13 +35,32 @@ export default {
   name: 'story',
   data(){
     return{
-      name:this.$store.state.user
+      name:this.$store.state.user,
+      level:this.$store.state.questionLevel,
+      questions:[],
+      number:this.$store.state.qstNum
     }
   },
   components: {
 
   },
+  computed:{
+    check(){
+      return  this.questions;
+    }
+  },
   methods:{
+    pitanje(){
+      this.$store.state.qstNum+=1;
+      console.log(this.$store.state.qstNum);
+      setTimeout(this.animacija,1000);
+      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
+                      {params:{ level: this.level }}
+                      ).then(response => {
+                          this.questions = response.data[this.$store.state.qstNum].question;
+                       });
+
+    },
     animacija(){
      var h6 = document.querySelector("h6");
      var html = h6.innerHTML
@@ -83,9 +97,21 @@ export default {
  }
   },
   mounted(){
-this.animacija();
-this.$store.state.showTransition=true;
+    setTimeout(this.animacija,3000);
+      //  this.animacija();
+        this.$store.state.showTransition=true;
 
+
+
+  },
+   created(){
+     axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
+                     {params:{ level: this.level }}
+                     ).then(response => {
+                      console.log(this.$store.state.qstNum);
+                         this.questions = response.data[this.$store.state.qstNum].question;
+                         //console.log(this.questions);
+                      });
 
   }
 }
