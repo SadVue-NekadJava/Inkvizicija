@@ -7,9 +7,9 @@ export default new Vuex.Store({
   state: {
     registered:false,
     user:"",
-    showTransition:true
     showTransition:true,
-    questionLevel:1
+    questionLevel:1,
+    qstNum:0
   },
   mutations: {
 
