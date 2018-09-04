@@ -10,10 +10,10 @@
 
 
 
-<button @click="pitanje" type="button" name="button">Prvi</button>
-<button @click="pitanje" type="button" name="button">Drugi</button><br>
-<button @click="pitanje" type="button" name="button">Treci</button>
-<button @click="pitanje" type="button" name="button">Cetvrti</button>
+<button @click="pitanje" type="button" name="button">{{answers[0].ans_text}}</button>
+<button @click="pitanje" type="button" name="button">{{answers[1].ans_text}}</button><br>
+<button @click="pitanje" type="button" name="button">{{answers[2].ans_text}}</button>
+<button @click="pitanje" type="button" name="button">{{answers[3].ans_text}}</button>
 <div id="div"></div>
 <div id="h"></div>
   </div>
@@ -38,7 +38,9 @@ export default {
       name:this.$store.state.user,
       level:this.$store.state.questionLevel,
       questions:[],
-      number:this.$store.state.qstNum
+      number:this.$store.state.qstNum,
+      answers:['A','B','C','D'],
+      array:['A','B','C','D']
     }
   },
   components: {
@@ -47,11 +49,34 @@ export default {
   computed:{
     check(){
       return  this.questions;
+    },
+    ans(){
+      return this.shuffle(this.array);
     }
   },
   methods:{
+     shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+
+      for (var i =0; i < currentIndex; i++) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      console.log(array);
+    //  return array;
+    },
     pitanje(){
       this.$store.state.qstNum+=1;
+      this.number = this.$store.state.qstNum;
       console.log(this.$store.state.qstNum);
       setTimeout(this.animacija,1000);
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
@@ -59,6 +84,12 @@ export default {
                       ).then(response => {
                           this.questions = response.data[this.$store.state.qstNum].question;
                        });
+                       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
+                                       {params:{ number: this.number+1 }}
+                                       ).then(response => {
+                                        this.answers = response.data;
+                                      //  this.answers = this.shuffle(this.answers);
+                                        });
 
     },
     animacija(){
@@ -105,6 +136,7 @@ export default {
 
   },
    created(){
+     //get question
      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
                      {params:{ level: this.level }}
                      ).then(response => {
@@ -112,6 +144,14 @@ export default {
                          this.questions = response.data[this.$store.state.qstNum].question;
                          //console.log(this.questions);
                       });
+      //get answers
+      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
+                      {params:{ number: this.number+1 }}
+                      ).then(response => {
+                      this.answers = response.data;
+                    //  this.shuffle(this.answers);
+                      console.log(this.answers);
+                       });
 
   }
 }
