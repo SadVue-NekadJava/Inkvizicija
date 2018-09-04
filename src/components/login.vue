@@ -43,7 +43,7 @@ export default {
           this.notlogged = false;
           this.$router.push('mainPage');
           this.$store.state.user = this.username;
-          this.$store.state.showTransition=false;
+
         }else{
         this.notlogged = true;
       }

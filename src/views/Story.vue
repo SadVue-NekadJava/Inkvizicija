@@ -84,6 +84,7 @@ export default {
   },
   mounted(){
 this.animacija();
+this.$store.state.showTransition=true;
 
 
   }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-   <router-view v-if="false"/>
-    <transition v-if="true" name="router-anim" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+   <router-view v-if="prikazi"/>
+    <transition v-if="!prikazi" name="router-anim" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
      <router-view/>
   </transition>
   </div>
@@ -11,13 +11,12 @@
   export default{
     data(){
       return{
-        pokazi:this.$store.state.showTransition
+        
       }
     },
     computed:{
       prikazi(){
         return this.$store.state.showTransition;
-
       }
     }
   }

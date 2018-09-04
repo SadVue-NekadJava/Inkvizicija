@@ -2,7 +2,7 @@
   <div class="main">
 
      <hello-world class="neka"></hello-world>
-    <label @click="changeTransition"> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
+    <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
      <router-link to="/" class="gameMode">Exit</router-link>
      <div class="user">
@@ -31,17 +31,11 @@ export default {
   },
   methods:{
 
- changeTransition(){
-   console.log(this.$store.state.showTransition);
-    this.$store.state.showTransition=false;
-
-
- }
 
 
   },
   mounted(){
-    //console.log(this.$store.state.user);
+    this.$store.state.showTransition=false;
   },
   computed:{
     user(){
