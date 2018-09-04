@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-  
-    <router-view/>
+   <router-view v-if="!showTransition"/>
+    <transition v-if="showTransition" name="router-anim" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+     <router-view/>
+  </transition>
   </div>
 </template>
 
-<style lang="scss">
+<style >
+@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
 
 body{
   font: 400 1em/1.5 "Neuton";

@@ -6,13 +6,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     registered:false,
-    user:""
+    user:"",
+    showTransition:false
   },
   mutations: {
 
   },
   actions: {
-    
+
 
   }
 })

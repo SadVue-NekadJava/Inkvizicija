@@ -5,14 +5,14 @@
 <div class="wrap">
 <h2 class="animatedText" id="h2"></h2>
 
-<p >Lorem ipsum dolor sit amet,
+<h6 >Lorem ipsum dolor sit amet,
   consectetur adipiscing elit.
    Sed eleifend urna quis justo condimentum,
     vel rutrum erat scelerisque. Etiam suscipit
      dui et tellus laoreet ultricies. Fusce porttitor
       augue a nisi semper, ac vestibulum neque faucibus.
        Fusce cursus et justo in interdum. In eget ultrices est. Nunc imperdiet.
-      </p>
+     </h6>
 
 
 <button type="button" name="button">Prvi</button>
@@ -48,8 +48,8 @@ export default {
   },
   methods:{
     animacija(){
-     var p = document.querySelector("p");
-     var html = p.innerHTML
+     var h6 = document.querySelector("h6");
+     var html = h6.innerHTML
        .split("")
        .map(function(val) {
          return "<span class='letter'>" + val + "</span>";
@@ -122,7 +122,7 @@ body{
 .wrap{
 
 }
-p{
+h6{
   width:30%;
   display:none;
 }
