@@ -14,6 +14,11 @@
        Fusce cursus et justo in interdum. In eget ultrices est. Nunc imperdiet.
       </p>
 
+
+<button type="button" name="button">Prvi</button>
+<button type="button" name="button">Drugi</button><br>
+<button type="button" name="button">Treci</button>
+<button type="button" name="button">Cetvrti</button>
 <div id="div"></div>
 <div id="h"></div>
   </div>
@@ -88,6 +93,17 @@ this.animacija();
 </script>
 
 <style scoped >
+
+button{
+
+  padding:20px 60px;
+  margin:40px 60px;
+}
+
+
+
+
+
 .user{
   color:white;
   position:absolute;
