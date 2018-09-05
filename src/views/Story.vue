@@ -1,6 +1,9 @@
 <template>
   <div class="story">
-
+    <div class="main">
+      <audio controls autoplay hidden>
+      <source src="../assets/questions.mp3" type="audio/mp3">
+      </audio>
 
 <div class="wrap">
 <h2 class="animatedText" id="h2"></h2>
@@ -26,12 +29,14 @@
   <h3><span class="ime">{{name}}</span></h3>
   </div>
 
-
+</div>
   </div>
 </template>
 
 <script>
-
+import HelloWorld from '../components/HelloWorld.vue'
+import LoginVue from '../components/login.vue'
+import RegisterVue from '../components/register.vue'
 
 
 export default {

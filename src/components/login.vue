@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-  
+
 
   <form class="">
     <h3 v-if="registered">USPESNA REGISTRACIJA</h3>
