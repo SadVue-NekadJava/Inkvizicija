@@ -52,8 +52,8 @@ export default {
   },
   created(){
     //check username
-    if(this.$store.state.user=='')
-    this.$router.push('/');
+    // if(this.$store.state.user=='')
+    // this.$router.push('/');
   }
 
 

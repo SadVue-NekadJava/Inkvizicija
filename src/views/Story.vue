@@ -4,7 +4,7 @@
 
 <div class="wrap">
 <h2 class="animatedText" id="h2"></h2>
-<div>
+<div class="preText">
   <h6>{{check}}</h6>
 </div>
 
@@ -148,8 +148,8 @@ export default {
   },
    created(){
     // check username
-     if(this.$store.state.user=='')
-     this.$router.push('/');
+     // if(this.$store.state.user=='')
+     // this.$router.push('/');
     // get question
      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
                      {params:{ level: this.level }}
@@ -179,21 +179,26 @@ export default {
 </script>
 
 <style scoped >
+
+
+
+
+
 .story{
 animation-name: coming;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-delay: 1s;
 }
 
 
 @keyframes coming {
   from {
-    transform: translateY(-100px);
+    transform: translateY(-200px);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
-    opacity: 0.6;
+    transform: translateY(0px);
+    opacity: 0.8;
   }
 }
 
@@ -213,11 +218,24 @@ animation-name: coming;
 
 button{
 
+  animation-name: dugme ;
+    animation-duration: 8s;
+    animation-delay: 2s;
   padding:20px 60px;
   margin:40px 60px;
 }
 
 
+@keyframes dugme {
+  from {
+
+    opacity: 0;
+  }
+  to {
+
+    opacity: 1;
+  }
+}
 
 
 
@@ -249,32 +267,14 @@ h6{
   font-size:1.3em;
 }
 
-button{
-  margin-top:20px;
-}
+
 #div{
   width:30%;
 }
 
-@keyframes bounce{
-  0%, 100% {
-        transform: translateX(-100px);
-    opacity:1;
-    /*ease-out cubic*/
-   /* animation-timing-function:cubic-bezier(.215, .61, .355, 1); */
-   animation-timing-function:ease-in;
-  }
 
-  50% {
-    transform: translateX(100px);
-    /*ease-in cubic*/
-    opacity:0;
-       /* animation-timing-function:cubic-bezier(.55, .055, .675, .19); */
-   animation-timing-function:ease-out;
-  }
-
-}
 .animatedText{
+  min-height: 230px;
 padding: 100px;
 font-size: 30px;
   color: white;
