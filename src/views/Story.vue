@@ -202,20 +202,6 @@ animation-name: coming;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 button{
 
   animation-name: dugme ;
@@ -274,8 +260,8 @@ h6{
 
 
 .animatedText{
-  min-height: 230px;
-padding: 100px;
+  min-height: 170px;
+padding: 70px;
 font-size: 30px;
   color: white;
 }
