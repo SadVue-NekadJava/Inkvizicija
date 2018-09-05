@@ -148,8 +148,8 @@ export default {
   },
    created(){
     // check username
-     // if(this.$store.state.user=='')
-     // this.$router.push('/');
+     if(this.$store.state.user=='')
+     this.$router.push('/');
     // get question
      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
                      {params:{ level: this.level }}
