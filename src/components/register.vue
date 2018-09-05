@@ -1,8 +1,6 @@
 <template>
   <div class="hello">
-    <audio controls autoplay hidden>
-    <source src="../assets/shortCut.mp3" type="audio/mp3">
-    </audio>
+
 
   <form class="">
     <h3 v-if="samePass">UNELI STE RAZLICITE LOZINKE ILI PREKRATKU LOZINKU !</h3>
