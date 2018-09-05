@@ -10,10 +10,12 @@
 
 
 
-<button @click="pitanje" type="button" name="button">{{answers[0].ans_text}}</button>
-<button @click="pitanje" type="button" name="button">{{answers[1].ans_text}}</button><br>
-<button @click="pitanje" type="button" name="button">{{answers[2].ans_text}}</button>
-<button @click="pitanje" type="button" name="button">{{answers[3].ans_text}}</button>
+<button @click="pitanje" type="button" name="button">{{answers[0]}}</button>
+<button @click="pitanje" type="button" name="button">{{answers[1]}}</button><br>
+<button @click="pitanje" type="button" name="button">{{answers[2]}}</button>
+<button @click="pitanje" type="button" name="button">{{answers[3]}}</button>
+
+
 <div id="div"></div>
 <div id="h"></div>
   </div>
@@ -38,9 +40,9 @@ export default {
       name:this.$store.state.user,
       level:this.$store.state.questionLevel,
       questions:[],
-      number:this.$store.state.qstNum,
+      number:0,
       answers:['A','B','C','D'],
-      array:['A','B','C','D']
+      size:0
     }
   },
   components: {
@@ -51,10 +53,23 @@ export default {
       return  this.questions;
     },
     ans(){
-      return this.shuffle(this.array);
+
     }
   },
   methods:{
+    getAnswers(){
+      //get answers
+      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
+                      {params:{ number: this.number }}
+                      ).then(response => {
+                        console.log(this.number);
+                        this.answers = [];
+                      for(var i = 0; i<4; i++){
+                        this.answers.push(response.data[i].ans_text);
+                      }
+                      this.shuffle(this.answers);
+                       });
+    },
      shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -71,25 +86,21 @@ export default {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
       }
-      console.log(array);
+      //console.log(array);
     //  return array;
     },
     pitanje(){
       this.$store.state.qstNum+=1;
-      this.number = this.$store.state.qstNum;
-      console.log(this.$store.state.qstNum);
+      if(this.$store.state.qstNum>=this.size)
+      return;
       setTimeout(this.animacija,1000);
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
                       {params:{ level: this.level }}
                       ).then(response => {
                           this.questions = response.data[this.$store.state.qstNum].question;
+                          this.number = response.data[this.$store.state.qstNum].qst_id;
                        });
-                       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
-                                       {params:{ number: this.number+1 }}
-                                       ).then(response => {
-                                        this.answers = response.data;
-                                      //  this.answers = this.shuffle(this.answers);
-                                        });
+      setTimeout(this.getAnswers,1500);
 
     },
     animacija(){
@@ -129,29 +140,35 @@ export default {
   },
   mounted(){
     setTimeout(this.animacija,3000);
+    setTimeout(this.getAnswers,1500);
       //  this.animacija();
         this.$store.state.showTransition=true;
-
-
-
   },
    created(){
-     //get question
+    // check username
+     if(this.$store.state.user=='')
+     this.$router.push('/');
+    // get question
      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
                      {params:{ level: this.level }}
                      ).then(response => {
-                      console.log(this.$store.state.qstNum);
+                       var temp = response.data;
+                       Object.size = function(obj) {
+                           var size = 0, key;
+                           for (key in obj) {
+                               if (obj.hasOwnProperty(key)) size++;
+                           }
+                           return size;
+                       };
+                       // Get the size of an object
+                      this.size = Object.size(temp);
+                         //console.log(this.size);
                          this.questions = response.data[this.$store.state.qstNum].question;
-                         //console.log(this.questions);
+                         this.number = response.data[this.$store.state.qstNum].qst_id;
+                         //console.log(this.number);
                       });
-      //get answers
-      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
-                      {params:{ number: this.number+1 }}
-                      ).then(response => {
-                      this.answers = response.data;
-                    //  this.shuffle(this.answers);
-                      console.log(this.answers);
-                       });
+
+
 
   }
 }

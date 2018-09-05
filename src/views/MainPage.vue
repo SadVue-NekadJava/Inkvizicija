@@ -49,6 +49,11 @@ export default {
   },
   beforeDestroy () {
     this.$store.state.showTransition=true;
+  },
+  created(){
+    //check username
+    if(this.$store.state.user=='')
+    this.$router.push('/');
   }
 
 
