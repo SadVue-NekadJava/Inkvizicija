@@ -15,8 +15,8 @@
 <button @click="pitanje" id="2" type="button" name="button" :value="answers[2]">{{answers[2]}}</button>
 <button @click="pitanje" id="3" type="button" name="button" :value="answers[3]">{{answers[3]}}</button>
 
-<h1 v-if="ans">TACNO !!!</h1>
-<h1 v-if="ansFalse">GRESKA !!!</h1>
+<h1 class="popup tacno"v-if="ans">TACNO !!!</h1>
+<h1 class="popup greska" v-if="ansFalse">GRESKA !!!</h1>
 <div id="div"></div>
 <div id="h"></div>
   </div>
@@ -213,9 +213,45 @@ export default {
 </script>
 
 <style scoped >
+.popup{
+  font-family: 'Cinzel', serif;
+letter-spacing: 3px;
+text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
 
-h1{
-  color:white;
+
+
+position: absolute;
+top: 464px;
+left: 850px;
+
+
+
+animation-name: iz;
+animation-duration: 1.5s;
+}
+@keyframes iz {
+  from {
+
+    opacity: 0;
+  transform: scale(0);
+  }
+  to {
+
+    opacity: 1;
+  transform: scale(3);
+  }
+}
+
+
+
+.tacno{
+
+  color: #d49d1e;
+}
+
+.greska{
+
+  color: red;
 }
 
 
@@ -258,10 +294,11 @@ button {
 button {
   display: inline-block;
   position: relative;
-  padding: 30px 58px;
+  /* padding: 30px 58px; */
   top: 0;
-  font-size: 30px;
-  font-family: "Open Sans", Helvetica;
+  font-size: 25px;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
   border-radius: 4px;
   border-bottom: 1px solid rgba( 28, 227, 125, 0.5 );
   background: transparent;
@@ -345,6 +382,13 @@ h6{
 
 
 .animatedText{
+  font-family: 'Cinzel', serif;
+letter-spacing: 4px;
+
+
+
+
+
   min-height: 170px;
 padding: 70px;
 font-size: 30px;
