@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+    <audio controls autoplay hidden>
+    <source src="../assets/shortCut.mp3" type="audio/mp3">
+    </audio>
 
   <form class="">
     <h3 v-if="registered">USPESNA REGISTRACIJA</h3>

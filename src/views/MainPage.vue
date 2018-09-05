@@ -1,5 +1,9 @@
 <template>
   <div class="main">
+    <audio controls autoplay hidden>
+    <source src="../assets/shortCut.mp3" type="audio/mp3">
+    </audio>
+
 
      <hello-world class="neka"></hello-world>
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
