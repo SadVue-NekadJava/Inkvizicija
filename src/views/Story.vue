@@ -10,10 +10,10 @@
 
 
 
-<button @click="pitanje" type="button" name="button">{{answers[0]}}</button>
-<button @click="pitanje" type="button" name="button">{{answers[1]}}</button><br>
-<button @click="pitanje" type="button" name="button">{{answers[2]}}</button>
-<button @click="pitanje" type="button" name="button">{{answers[3]}}</button>
+<button @click="pitanje($event)" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
+<button @click="pitanje" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
+<button @click="pitanje" type="button" name="button" :value="answers[2]">{{answers[2]}}</button>
+<button @click="pitanje" type="button" name="button" :value="answers[3]">{{answers[3]}}</button>
 
 
 <div id="div"></div>
@@ -62,7 +62,7 @@ export default {
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
                       {params:{ number: this.number }}
                       ).then(response => {
-                        console.log(this.number);
+                        //console.log(this.number);
                         this.answers = [];
                       for(var i = 0; i<4; i++){
                         this.answers.push(response.data[i].ans_text);
@@ -89,7 +89,9 @@ export default {
       //console.log(array);
     //  return array;
     },
-    pitanje(){
+    pitanje(e){
+      const buttonValue = e.target.value;
+      console.log(buttonValue);
       this.$store.state.qstNum+=1;
       if(this.$store.state.qstNum>=this.size)
       return;
@@ -146,8 +148,8 @@ export default {
   },
    created(){
     // check username
-     if(this.$store.state.user=='')
-     this.$router.push('/');
+     // if(this.$store.state.user=='')
+     // this.$router.push('/');
     // get question
      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
                      {params:{ level: this.level }}
