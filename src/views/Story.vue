@@ -10,10 +10,10 @@
 
 
 
-<button @click="pitanje" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
-<button @click="pitanje" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
-<button @click="pitanje" type="button" name="button" :value="answers[2]">{{answers[2]}}</button>
-<button @click="pitanje" type="button" name="button" :value="answers[3]">{{answers[3]}}</button>
+<button @click="pitanje" id="0" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
+<button @click="pitanje" id="1" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
+<button @click="pitanje" id="2" type="button" name="button" :value="answers[2]">{{answers[2]}}</button>
+<button @click="pitanje" id="3" type="button" name="button" :value="answers[3]">{{answers[3]}}</button>
 
 <h1 v-if="ans">TACNO !!!</h1>
 <h1 v-if="ansFalse">GRESKA !!!</h1>
@@ -59,6 +59,19 @@ export default {
     }
   },
   methods:{
+    hideButtons(id){
+      var btns = document.getElementsByName('button');
+      for(var i = 0;i<4;i++){
+        if(id != i)
+       btns[i].style.visibility = 'hidden';
+      }
+    },
+    showButtons(){
+      var btns = document.getElementsByName('button');
+      for(var i = 0;i<4;i++){
+       btns[i].style.visibility = 'visible';
+      }
+    },
     getAnswers(){
       //get answers
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
@@ -102,7 +115,10 @@ export default {
       this.ansFalse=false;
     },
     pitanje(e){
+      const buttonId = e.target.id;
       const buttonValue = e.target.value;
+      this.hideButtons(buttonId)
+      setTimeout(this.showButtons,1600);
       if(buttonValue==this.ansTrue){
       this.$store.state.correct=true;
       setTimeout(this.trueAnswer,1500);
