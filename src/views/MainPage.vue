@@ -9,11 +9,11 @@
      <h3>Korisnik: </h3>
      <h3><span class="ime">{{name}}</span></h3>
    </div>
-   <div id="logfire">
+   <!-- <div id="logfire"> -->
     <div id="flamegroup">
            <div class="flame"></div>
     </div>
-</div>​
+<!-- </div>​ -->
   </div>
 </template>
 
@@ -75,13 +75,7 @@ background-position: center;
 
 
 
-#logfire {
-    position:relative;
-    right: -105px;
-    bottom: 215px;
-    height:400px;
-    margin-top:181px
-    }
+
 #flamegroup {
     margin:0 auto;
     position:relative;
@@ -92,7 +86,9 @@ background-position: center;
 
 .flame {
     margin:0 auto;
-    position:absolute;
+    position: relative;
+    top: -150px;
+  left: 89px;
     width:100px;
     height:136px;
     background:url(http://sitepointstatic.com/examples/css3/animation/flame-sprite.png?r=3) 0px 0px no-repeat;
