@@ -10,12 +10,13 @@
 
 
 
-<button @click="pitanje($event)" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
+<button @click="pitanje" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
 <button @click="pitanje" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
 <button @click="pitanje" type="button" name="button" :value="answers[2]">{{answers[2]}}</button>
 <button @click="pitanje" type="button" name="button" :value="answers[3]">{{answers[3]}}</button>
 
-
+<h1 v-if="ans">TACNO !!!</h1>
+<h1 v-if="ansFalse">GRESKA !!!</h1>
 <div id="div"></div>
 <div id="h"></div>
   </div>
@@ -42,7 +43,8 @@ export default {
       questions:[],
       number:0,
       answers:['A','B','C','D'],
-      size:0
+      size:0,
+      ansFalse:false
     }
   },
   components: {
@@ -53,7 +55,7 @@ export default {
       return  this.questions;
     },
     ans(){
-
+      return this.$store.state.correct;
     }
   },
   methods:{
@@ -62,7 +64,11 @@ export default {
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
                       {params:{ number: this.number }}
                       ).then(response => {
-                        //console.log(this.number);
+                        for(var i = 0; i<4; i++){
+                          if(response.data[i].ans_true == 1)
+                          this.ansTrue = response.data[i].ans_text;
+                        }
+                        //console.log(this.ansTrue);
                         this.answers = [];
                       for(var i = 0; i<4; i++){
                         this.answers.push(response.data[i].ans_text);
@@ -89,9 +95,21 @@ export default {
       //console.log(array);
     //  return array;
     },
+    trueAnswer(){
+      this.$store.state.correct=false;
+    },
+    falseAnswer(){
+      this.ansFalse=false;
+    },
     pitanje(e){
       const buttonValue = e.target.value;
-      console.log(buttonValue);
+      if(buttonValue==this.ansTrue){
+      this.$store.state.correct=true;
+      setTimeout(this.trueAnswer,1500);
+    }else{
+      this.ansFalse=true;
+      setTimeout(this.falseAnswer,1500);
+    }
       this.$store.state.qstNum+=1;
       if(this.$store.state.qstNum>=this.size)
       return;
@@ -180,7 +198,9 @@ export default {
 
 <style scoped >
 
-
+h1{
+  color:white;
+}
 
 
 
