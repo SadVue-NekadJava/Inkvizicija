@@ -1,5 +1,5 @@
 <template>
-<div class="story">
+<div class="story"  @click="ugasi">
   <div class="main">
     <audio controls autoplay hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
@@ -23,14 +23,42 @@
       <h1 class="popup greska" v-if="ansFalse">GRESKA !!!</h1>
       <div id="div"></div>
       <div id="h"></div>
-    </div>
 
+</div>
     <div class="user">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
     </div>
 
   </div>
+
+
+
+
+  <div class="popup1" id="ugasi" >
+    <h3>Djordano Bruno</h3>
+    <p>Rodio se početkom 1548. godine u Noli blizu Napulja, u plemićkoj porodici.
+       Na krštenju je dobio ime Filipo.
+        Još kao dečak primljen je u školu dominikanskog samostana San Domeniko Mađore u Napulju.
+      </p>
+      <p>1565. godine, prima ruho dominikanskog iskušenika i uzima ime Đordano.
+        Nakon zaređenja upućen je na teološki fakultet gde studira sholastičku, antičku i arapsku filozofiju.
+      </p>
+      <p>
+        Posebno snažan uticaj na Bruna izvršilo je učenje Nikole Kuzanskog, a preko filozofa Frane Petrića, profesora na platonskoj akademiji u Ferari, upoznaje se s neoplatonizmom i pitagorejskim učenjem.
+      </p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
 </div>
 </template>
 
@@ -73,6 +101,23 @@ export default {
     }
   },
   methods: {
+
+    upali(){
+      var nesto=document.getElementById('wrap');
+  nesto.style.visibility="hidden";
+
+    },
+
+ugasi(){
+console.log("fadsd");
+  var nesto=document.getElementById('ugasi');
+  nesto.style.visibility="hidden";
+  var nesto2=document.getElementById('wrap');
+nesto2.style.visibility="visible";
+
+
+
+},
     stageEnd() {
       var sve = document.getElementById('wrap');
       sve.style.visibility = 'hidden';
@@ -206,6 +251,7 @@ export default {
     //setTimeout(this.getAnswers,1500);
     //  this.animacija();
     this.$store.state.showTransition = true;
+    this.upali();
   },
   created() {
     // check username
@@ -266,6 +312,90 @@ h1{color:white;}
     opacity: 0.8;
   }
 }
+
+.popup1 h3{
+  font: 400 1.5em/1.5 "Neuton";
+  letter-spacing: 0;
+  text-decoration: none;
+
+  padding: 1.35em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  display: inline-block;
+  color:white;
+
+}
+
+.popup1 p{
+  font: 400 1em/1.5 "Neuton";
+  letter-spacing: 0;
+  text-decoration: none;
+
+  padding: 1.35em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  display: inline-block;
+  color:white;
+
+}
+.popup1{
+  -webkit-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+-moz-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+  border-radius: 15px;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
+  position:absolute;
+  background: black;
+  opacity: 0.6;
+  top:40%;
+  left:50%;
+  width:500px;  /* adjust as per your needs */
+  height:800px;   /* adjust as per your needs */
+  margin-left:-250px;   /* negative half of width above */
+  margin-top:-250px;
+   /* animation-name: iz;
+  animation-duration: 1.5s; */
+}
+@keyframes iz {
+  from {
+    opacity: 0;
+  transform: scale(0);
+  }
+  to {
+    opacity: 0.5;
+  transform: scale(1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .popup {
   font-family: 'Cinzel', serif;
