@@ -245,7 +245,7 @@ export default {
   letter-spacing: 3px;
   text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
   position:absolute;
-  top:80%;
+  top:90%;
   left:50%;
   width:400px;  /* adjust as per your needs */
   height:400px;   /* adjust as per your needs */
@@ -261,7 +261,7 @@ export default {
   }
   to {
     opacity: 1;
-  transform: scale(3);
+  transform: scale(2);
   }
 }
 .tacno{
@@ -330,9 +330,6 @@ button:active {
   }
 }
 
-
-
-
 .user{
   color:white;
   position:absolute;
@@ -360,7 +357,6 @@ h6{
   opacity:0;
   font-size:1.3em;
 } */
-
 
 #div{
   width:30%;
