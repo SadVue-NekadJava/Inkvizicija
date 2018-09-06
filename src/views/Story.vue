@@ -47,7 +47,8 @@ export default {
       number:0,
       answers:['A','B','C','D'],
       size:0,
-      ansFalse:false
+      ansFalse:false,
+      singleQuestion:''
     }
   },
   components: {
@@ -55,7 +56,7 @@ export default {
   },
   computed:{
     check(){
-      return  this.questions;
+      return  this.singleQuestion;
     },
     ans(){
       return this.$store.state.correct;
@@ -81,13 +82,12 @@ export default {
     getAnswers(){
       //get answers
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js",
-                      {params:{ number: this.number }}
+                      {params:{ question: this.singleQuestion }}
                       ).then(response => {
                         for(var i = 0; i<4; i++){
                           if(response.data[i].ans_true == 1)
                           this.ansTrue = response.data[i].ans_text;
                         }
-                        //console.log(this.ansTrue);
                         this.answers = [];
                       for(var i = 0; i<4; i++){
                         this.answers.push(response.data[i].ans_text);
@@ -133,15 +133,18 @@ export default {
       setTimeout(this.falseAnswer,1500);
     }
       this.$store.state.qstNum+=1;
-      if(this.$store.state.qstNum>=this.size)
+      if(this.$store.state.qstNum>=5){
+      this.$router.push('/');
       return;
+    }
       setTimeout(this.animacija,1000);
-      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
-                      {params:{ level: this.level }}
-                      ).then(response => {
-                          this.questions = response.data[this.$store.state.qstNum].question;
-                          this.number = response.data[this.$store.state.qstNum].qst_id;
-                       });
+      this.singleQuestion = this.questions[this.$store.state.qstNum];
+      // axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js",
+      //                 {params:{ level: this.level }}
+      //                 ).then(response => {
+      //                     this.questions = response.data[this.$store.state.qstNum].question;
+      //                     this.number = response.data[this.$store.state.qstNum].qst_id;
+      //                  });
       setTimeout(this.getAnswers,1500);
 
     },
@@ -182,7 +185,7 @@ export default {
   },
   mounted(){
     setTimeout(this.animacija,3000);
-    setTimeout(this.getAnswers,1500);
+    //setTimeout(this.getAnswers,1500);
       //  this.animacija();
         this.$store.state.showTransition=true;
   },
@@ -204,13 +207,15 @@ export default {
                        };
                        // Get the size of an object
                       this.size = Object.size(temp);
-                         //console.log(this.size);
-                         this.questions = response.data[this.$store.state.qstNum].question;
-                         this.number = response.data[this.$store.state.qstNum].qst_id;
-                         //console.log(this.number);
+                         for(var i = 0; i<this.size; i++){
+                           this.questions.push(response.data[i].question);
+                         }
+                         this.shuffle(this.questions);
+
+                         this.singleQuestion = this.questions[this.$store.state.qstNum];
                       });
 
-
+                      setTimeout(this.getAnswers,1500);
 
   }
 }
