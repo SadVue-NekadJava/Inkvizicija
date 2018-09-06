@@ -22,11 +22,11 @@
 
      <router-link to="/story"  class="gameMode">Story Mode</router-link> <br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
-     <router-link to="/"   class="gameMode">Exit</router-link>
+     <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Exit</router-link></label>
      </div>
      <div class="user">
      <h3>Korisnik: </h3>
-     <h3><span class="ime">{{name}}</span></h3>
+     <h3><span class="ime">{{user}}</span></h3>
    </div>
    <!-- <div id="logfire"> -->
     <div id="flamegroup">
@@ -50,10 +50,14 @@ export default {
   },
   data(){
     return{
-      name:this.$store.state.user
+      name:window.localStorage.getItem('username')
     }
   },
   methods:{
+    izbrisiSid(){
+      window.localStorage.removeItem("sessionid");
+      window.localStorage.removeItem("username");
+    },
 
     upali(){
       var nesto=document.getElementById('upali');
@@ -62,7 +66,6 @@ export default {
     },
 
 ugasi(){
-console.log("fadsd");
   var nesto=document.getElementById('ugasi');
   nesto.style.visibility="hidden";
   var nesto2=document.getElementById('upali');
@@ -74,10 +77,13 @@ nesto2.style.visibility="visible";
   mounted(){
     this.$store.state.showTransition=false;
     this.upali();
+    if(window.localStorage.getItem("sessionid")==null)
+    this.$router.push('/');
+    //console.log(window.localStorage.getItem("sessionid"));
   },
   computed:{
     user(){
-      return this.$store.state.user;
+      return window.localStorage.getItem('username');
     }
   },
   beforeDestroy () {

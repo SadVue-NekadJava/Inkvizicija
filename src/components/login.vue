@@ -37,13 +37,16 @@ export default {
        username: this.username,
        password: this.password
       }).then(response => {
-        console.log(response.data.status);
+        var sid = response.data.sid;
+        window.localStorage.setItem("sessionid", sid);
+
         if(response.data.status=='ok'){
           this.logged = true;
           this.notlogged = false;
           this.$router.push('mainPage');
           this.$store.state.user = this.username;
-
+          window.localStorage.setItem("username", this.username);
+          console.log(window.localStorage.getItem('username'));
         }else{
         this.notlogged = true;
       }
