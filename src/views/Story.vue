@@ -1,5 +1,5 @@
 <template>
-<div class="story"  @click="ugasi">
+<div class="story"  @click.once="ugasi">
   <div class="main">
     <audio controls autoplay hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
