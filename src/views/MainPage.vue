@@ -17,9 +17,13 @@
     </p>
 </div>
      <hello-world class="neka"></hello-world>
-    <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
+     <div id="upali">
+
+
+     <router-link to="/story"  class="gameMode">Story Mode</router-link> <br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
-     <router-link to="/" class="gameMode">Exit</router-link>
+     <router-link to="/"   class="gameMode">Exit</router-link>
+     </div>
      <div class="user">
      <h3>Korisnik: </h3>
      <h3><span class="ime">{{name}}</span></h3>
@@ -51,16 +55,25 @@ export default {
   },
   methods:{
 
+    upali(){
+      var nesto=document.getElementById('upali');
+  nesto.style.visibility="hidden";
+
+    },
+
 ugasi(){
 console.log("fadsd");
   var nesto=document.getElementById('ugasi');
   nesto.style.visibility="hidden";
+  var nesto2=document.getElementById('upali');
+nesto2.style.visibility="visible";
 }
 
 
   },
   mounted(){
     this.$store.state.showTransition=false;
+    this.upali();
   },
   computed:{
     user(){
