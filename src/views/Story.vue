@@ -10,7 +10,9 @@
       <div class="preText">
         <h6>{{check}}</h6>
       </div>
+      <div id="timer">
 
+      </div>
       <!-- <button v-on:click="play" type="button">Click Me to Play Sound</button>
  <audio ref="audioElm" src="../assets/mainMenu.mp3"></audio> -->
 
@@ -29,7 +31,7 @@
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
     </div>
-
+<h1>{{vreme}}</h1>
   </div>
 
 
@@ -80,9 +82,11 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage: false,
+      timer:5,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
+      tacniOdgovori:0
 
     }
   },
@@ -98,25 +102,32 @@ export default {
     },
     stageOver() {
       return this.nextStage;
+    },
+    vreme(){
+      return this.timer;
     }
   },
   methods: {
+    smanjiVreme(){
+      this.timer--;
+    },
 
     upali(){
       var nesto=document.getElementById('wrap');
-  nesto.style.visibility="hidden";
+      nesto.style.visibility="hidden";
 
     },
 
-ugasi(){
-console.log("fadsd");
+    ugasi(){
   var nesto=document.getElementById('ugasi');
   nesto.style.visibility="hidden";
   var nesto2=document.getElementById('wrap');
-nesto2.style.visibility="visible";
+  nesto2.style.visibility="visible";
 
-
-
+  for(var i = 1; i<=this.timer; i++){
+    setTimeout(this.smanjiVreme,1000*i);
+  }
+  setTimeout(this.stageEnd,this.timer*1000);
 },
     stageEnd() {
       var sve = document.getElementById('wrap');
@@ -125,6 +136,13 @@ nesto2.style.visibility="visible";
       for (var i = 0; i < 4; i++) {
         btns[i].style.visibility = 'hidden';
         this.nextStage = true;
+        if(this.timer>0){
+        console.log(this.tacniOdgovori);
+
+        this.timer = 0;
+      }else{
+        console.log(this.tacniOdgovori);
+      }
       }
     },
     hideButtons(id) {
@@ -194,6 +212,7 @@ nesto2.style.visibility="visible";
         this.$store.state.correct = true;
         setTimeout(this.trueAnswer, 1500);
         this.tacno.play();
+        this.tacniOdgovori+=1;
       } else {
         this.ansFalse = true;
         setTimeout(this.falseAnswer, 1500);
@@ -247,6 +266,7 @@ nesto2.style.visibility="visible";
     }
   },
   mounted() {
+
     setTimeout(this.animacija, 3000);
     //setTimeout(this.getAnswers,1500);
     //  this.animacija();
@@ -256,9 +276,6 @@ nesto2.style.visibility="visible";
     this.$router.push('/');
   },
   created() {
-    // check username
-    // if(this.$store.state.user=='')
-    // this.$router.push('/');
     // get question
     axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js", {
       params: {
