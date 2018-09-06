@@ -1,7 +1,9 @@
 <template>
   <div class="story">
     <div class="main">
-
+      <audio controls autoplay hidden>
+      <source src="../assets/questions.mp3" type="audio/mp3">
+      </audio>
 <div class="wrap">
 <h2 class="animatedText" id="h2"></h2>
 <div class="preText">
