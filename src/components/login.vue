@@ -33,7 +33,6 @@ export default {
   },
   methods:{
     login(){
-      //console.log(this.username);
       axios.post('http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js',{
        username: this.username,
        password: this.password
@@ -75,10 +74,8 @@ font-size: 20px;
  border-top: 4px double rgba(255,255,255,.25);
  border-width: 4px 0;
  padding: 1.5em 0em;
- //position: absolute;
  top: 18%;
  left: 50%;
- // width: 40em;
  margin: 0 auto;
  color: rgba(255,255,255,.25);
 }
@@ -96,10 +93,9 @@ font-size: 20px;
   border: 4px double rgba(255,255,255,.25);
   border-width: 4px 0;
   padding: 1.5em 0em;
-  //position: absolute;
   top: 18%;
   left: 50%;
-  width: auto;
+  width: 350px;
   margin: 0 auto;
   color: rgba(255,255,255,.25);
 }
@@ -115,10 +111,9 @@ a
  text-transform: uppercase;
  letter-spacing: .5em;
  display: inline-block;
-
+text-decoration: none;
  border-width: 4px 0;
  padding: 1.5em 0em;
- //position: absolute;
  top: 18%;
  left: 50%;
  width: auto;
@@ -141,6 +136,8 @@ a:hover{
     margin-bottom: 0;
   }
 }
+
+
 
 .clicker{
    font: 400 1em/1.5 "Neuton";
@@ -191,7 +188,7 @@ a:hover{
 }
 
 .clicker:hover + .circle, .clicker:active + .circle {
-	  animation: rotator linear .8s infinite;
+	  animation: rotator linear 1.5s infinite;
 
 }
 

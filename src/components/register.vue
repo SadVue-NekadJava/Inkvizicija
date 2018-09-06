@@ -91,7 +91,7 @@ label{
   //position: absolute;
   top: 18%;
   left: 50%;
-  width: 40em;
+  width: 350px;
   margin: 0 auto;
   color: rgba(255,255,255,.25);
 }
@@ -163,7 +163,7 @@ label{
 }
 
 .clicker:hover + .circle, .clicker:active + .circle {
-	  animation: rotator linear .8s infinite;
+	  animation: rotator linear 1.5s infinite;
 
 }
 
