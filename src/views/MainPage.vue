@@ -1,9 +1,14 @@
 <template>
-  <div class="main">
+  <div class="main"  @click="ugasi">
     <audio controls autoplay hidden>
     <source src="../assets/mainMenu.mp3" type="audio/mp3">
     </audio>
+<div class="popup" id="ugasi" >
+  <p>Život i smrt
+Rodio se početkom 1548. godine u Noli blizu Napulja, u plemićkoj porodici. Na krštenju je dobio ime Filipo. Još kao dečak primljen je u školu dominikanskog samostana San Domeniko Mađore (San Domenico Maggiore) u Napulju. Uči humanističke nauke i dijalektiku. Tri godine kasnije, 1565. godine, prima ruho dominikanskog iskušenika i uzima ime Đordano. Nakon zaređenja upućen je na teološki fakultet gde studira sholastičku, antičku i arapsku filozofiju. Posebno snažan uticaj na Bruna izvršilo je učenje Nikole Kuzanskog, a preko filozofa Frane Petrića, profesora na platonskoj akademiji u Ferari, upoznaje se s neoplatonizmom i pitagorejskim učenjem.
 
+</p>
+</div>
      <hello-world class="neka"></hello-world>
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
      <router-link to="#" class="gameMode">Battle Mode</router-link><br>
@@ -39,6 +44,11 @@ export default {
   },
   methods:{
 
+ugasi(){
+console.log("fadsd");
+  var nesto=document.getElementById('ugasi');
+  nesto.style.visibility="hidden";
+}
 
 
   },
@@ -66,6 +76,63 @@ export default {
 </script>
 
 <style scoped >
+
+.popup p{
+  font: 400 1em/1.5 "Neuton";
+  letter-spacing: 0;
+  text-decoration: none;
+
+  padding: 2.35em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  display: inline-block;
+  color:white;
+
+}
+.popup{
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
+  position:absolute;
+  background: black;
+  opacity: 0.5;
+  top:40%;
+  left:50%;
+  width:500px;  /* adjust as per your needs */
+  height:800px;   /* adjust as per your needs */
+  margin-left:-250px;   /* negative half of width above */
+  margin-top:-250px;
+   animation-name: iz;
+  animation-duration: 1.5s;
+}
+@keyframes iz {
+  from {
+    opacity: 0;
+  transform: scale(0);
+  }
+  to {
+    opacity: 0.5;
+  transform: scale(1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .main{
 
 background-image: url("../assets/edited.jpg");
