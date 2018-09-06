@@ -93,12 +93,13 @@ console.log("fadsd");
 
 }
 .popup{
+  border-radius: 15px;
   font-family: 'Cinzel', serif;
   letter-spacing: 3px;
   text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
   position:absolute;
   background: black;
-  opacity: 0.5;
+  opacity: 0.6;
   top:40%;
   left:50%;
   width:500px;  /* adjust as per your needs */
