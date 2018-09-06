@@ -72,7 +72,7 @@ export default {
   name: 'story',
   data() {
     return {
-      name: this.$store.state.user,
+      name:window.localStorage.getItem('username'),
       level: this.$store.state.questionLevel,
       questions: [],
       number: 0,
@@ -252,6 +252,8 @@ nesto2.style.visibility="visible";
     //  this.animacija();
     this.$store.state.showTransition = true;
     this.upali();
+    if(window.localStorage.getItem("sessionid")==null)
+    this.$router.push('/');
   },
   created() {
     // check username

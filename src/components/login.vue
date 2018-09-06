@@ -57,6 +57,11 @@ export default {
     registered(){
       return this.$store.state.registered;
     }
+  },
+  mounted(){
+    if(window.localStorage.getItem('sessionid')!=null){
+      this.$router.push('mainPage');
+    }
   }
 }
 </script>
