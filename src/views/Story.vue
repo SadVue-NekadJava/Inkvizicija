@@ -1,9 +1,6 @@
 <template>
   <div class="story">
     <div class="main">
-      <audio controls autoplay hidden>
-      <source src="../assets/questions.mp3" type="audio/mp3">
-      </audio>
 
 <div class="wrap">
 <h2 class="animatedText" id="h2"></h2>
@@ -11,7 +8,8 @@
   <h6>{{check}}</h6>
 </div>
 
-
+<!-- <button v-on:click="play" type="button">Click Me to Play Sound</button>
+ <audio ref="audioElm" src="../assets/mainMenu.mp3"></audio> -->
 
 <button @click="pitanje" id="0" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
 <button @click="pitanje" id="1" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
@@ -64,6 +62,9 @@ export default {
     }
   },
   methods:{
+    play: function(event) {
+    this.$refs.audioElm.play();
+  },
     hideButtons(id){
       var btns = document.getElementsByName('button');
       for(var i = 0;i<4;i++){
@@ -218,56 +219,16 @@ export default {
 </script>
 
 <style scoped >
-.popup{
-  font-family: 'Cinzel', serif;
-letter-spacing: 3px;
-text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
-
-
-
-position: absolute;
-top: 464px;
-left: 850px;
-
-
-
-animation-name: iz;
-animation-duration: 1.5s;
-}
-@keyframes iz {
-  from {
-
-    opacity: 0;
-  transform: scale(0);
-  }
-  to {
-
-    opacity: 1;
-  transform: scale(3);
-  }
-}
-
-
-
-.tacno{
-
-  color: #d49d1e;
-}
-
-.greska{
-
-  color: red;
-}
-
-
-
 .story{
-animation-name: coming;
+  animation-name: coming;
   animation-duration: 3s;
   animation-delay: 1s;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/questionsBackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-
 @keyframes coming {
   from {
     transform: translateY(-200px);
@@ -279,7 +240,37 @@ animation-name: coming;
   }
 }
 
-/* Reset */
+.popup{
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
+  position:absolute;
+  top:80%;
+  left:50%;
+  width:400px;  /* adjust as per your needs */
+  height:400px;   /* adjust as per your needs */
+  margin-left:-200px;   /* negative half of width above */
+  margin-top:-200px;
+  animation-name: iz;
+  animation-duration: 1.5s;
+}
+@keyframes iz {
+  from {
+    opacity: 0;
+  transform: scale(0);
+  }
+  to {
+    opacity: 1;
+  transform: scale(3);
+  }
+}
+.tacno{
+  color: #d49d1e;
+}
+.greska{
+  color: red;
+}
+
 button {
   width: 300px;
   height: 100px;
@@ -294,12 +285,10 @@ button {
     animation-delay: 2s;
   margin:40px 60px;
 }
-
 /* Custom */
 button {
   display: inline-block;
   position: relative;
-  /* padding: 30px 58px; */
   top: 0;
   font-size: 25px;
   font-family: 'Cinzel', serif;
@@ -309,18 +298,15 @@ button {
   background: transparent;
   color: white;
   box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
-
   -webkit-transform: translateZ(0);
      -moz-transform: translateZ(0);
       -ms-transform: translateZ(0);
           transform: translateZ(0);
-
   -webkit-transition: all 0.2s ease;
      -moz-transition: all 0.2s ease;
       -ms-transition: all 0.2s ease;
           transition: all 0.2s ease;
 }
-
 button:hover {
   top: -10px;
   box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
@@ -330,21 +316,16 @@ button:hover {
       -ms-transform: rotateX(20deg);
           transform: rotateX(20deg);
 }
-
 button:active {
   top: 0px;
   box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
   background: rgba( 20, 224, 133, 1 );
 }
-
-
 @keyframes dugme {
   from {
-
     opacity: 0;
   }
   to {
-
     opacity: 1;
   }
 }
@@ -363,22 +344,22 @@ button:active {
   color: orange;
   font-size:26px;
 }
-body{
+/* body{
   background:#e74c3c;
   color:white;
-}
-.wrap{
+} */
+/* .wrap{
 
-}
+} */
 h6{
   width:30%;
   display:none;
 }
 
-.letter{
+/* .letter{
   opacity:0;
   font-size:1.3em;
-}
+} */
 
 
 #div{
@@ -388,25 +369,13 @@ h6{
 
 .animatedText{
   font-family: 'Cinzel', serif;
-letter-spacing: 4px;
-
-
-
-
-
+  letter-spacing: 4px;
   min-height: 170px;
-padding: 70px;
-font-size: 30px;
+  padding: 70px;
+  font-size: 30px;
   color: white;
   margin-top:0px;
 }
 
-.story{
-width: 100vw;
-height: 100vh;
-background-image: url('../assets/questionsBackground.jpg');
-background-repeat: no-repeat;
-background-size: cover;
 
-}
 </style>
