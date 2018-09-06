@@ -50,7 +50,10 @@ export default {
       answers:['A','B','C','D'],
       size:0,
       ansFalse:false,
-      singleQuestion:''
+      singleQuestion:'',
+       tacno:new Audio(require('../assets/bell.mp3')),
+       greska:new Audio(require('../assets/dungeonDoor.mp3')),
+
     }
   },
   components: {
@@ -65,9 +68,7 @@ export default {
     }
   },
   methods:{
-    play: function(event) {
-    this.$refs.audioElm.play();
-  },
+
     hideButtons(id){
       var btns = document.getElementsByName('button');
       for(var i = 0;i<4;i++){
@@ -130,9 +131,11 @@ export default {
       if(buttonValue==this.ansTrue){
       this.$store.state.correct=true;
       setTimeout(this.trueAnswer,1500);
+      this.tacno.play();
     }else{
       this.ansFalse=true;
       setTimeout(this.falseAnswer,1500);
+      this.greska.play();
     }
       this.$store.state.qstNum+=1;
       if(this.$store.state.qstNum>=5){
@@ -252,10 +255,10 @@ export default {
   letter-spacing: 3px;
   text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
   position:absolute;
-  top:90%;
+  top:77%;
   left:50%;
   width:400px;  /* adjust as per your needs */
-  height:400px;   /* adjust as per your needs */
+  height:200px;   /* adjust as per your needs */
   margin-left:-200px;   /* negative half of width above */
   margin-top:-200px;
   animation-name: iz;
