@@ -25,13 +25,17 @@
       <h1 class="popup greska" v-if="ansFalse">GRESKA !!!</h1>
       <div id="div"></div>
       <div id="h"></div>
+      <div class="vreme">
 
+
+<h1>{{vreme}}</h1>
+  </div>
 </div>
     <div class="user">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
     </div>
-<h1>{{vreme}}</h1>
+
   </div>
 
 
@@ -308,6 +312,43 @@ export default {
 </script>
 
 <style scoped >
+
+
+.vreme{
+  position:absolute;
+  background: black;
+  opacity: 0.4;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
+  animation: pulse 1s infinite;
+
+  }
+
+
+.vreme h1{
+  padding: 10px;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+
+  }
+  50% {
+    transform: scale(1.14);
+
+  }
+  100% {
+    transform: scale(1);
+
+  }
+}
+
+
+
+
 h1{color:white;}
 .story {
   animation-name: coming;
