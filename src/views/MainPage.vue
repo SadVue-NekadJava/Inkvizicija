@@ -4,10 +4,17 @@
     <source src="../assets/mainMenu.mp3" type="audio/mp3">
     </audio>
 <div class="popup" id="ugasi" >
-  <p>Život i smrt
-Rodio se početkom 1548. godine u Noli blizu Napulja, u plemićkoj porodici. Na krštenju je dobio ime Filipo. Još kao dečak primljen je u školu dominikanskog samostana San Domeniko Mađore (San Domenico Maggiore) u Napulju. Uči humanističke nauke i dijalektiku. Tri godine kasnije, 1565. godine, prima ruho dominikanskog iskušenika i uzima ime Đordano. Nakon zaređenja upućen je na teološki fakultet gde studira sholastičku, antičku i arapsku filozofiju. Posebno snažan uticaj na Bruna izvršilo je učenje Nikole Kuzanskog, a preko filozofa Frane Petrića, profesora na platonskoj akademiji u Ferari, upoznaje se s neoplatonizmom i pitagorejskim učenjem.
-
-</p>
+  <h3>Djordano Bruno</h3>
+  <p>Rodio se početkom 1548. godine u Noli blizu Napulja, u plemićkoj porodici.
+     Na krštenju je dobio ime Filipo.
+      Još kao dečak primljen je u školu dominikanskog samostana San Domeniko Mađore u Napulju.
+    </p>
+    <p>1565. godine, prima ruho dominikanskog iskušenika i uzima ime Đordano.
+      Nakon zaređenja upućen je na teološki fakultet gde studira sholastičku, antičku i arapsku filozofiju.
+    </p>
+    <p>
+      Posebno snažan uticaj na Bruna izvršilo je učenje Nikole Kuzanskog, a preko filozofa Frane Petrića, profesora na platonskoj akademiji u Ferari, upoznaje se s neoplatonizmom i pitagorejskim učenjem.
+    </p>
 </div>
      <hello-world class="neka"></hello-world>
     <label> <router-link to="/story" class="gameMode">Story Mode</router-link>  </label><br>
@@ -77,12 +84,28 @@ console.log("fadsd");
 
 <style scoped >
 
+.popup h3{
+  font: 400 1.5em/1.5 "Neuton";
+  letter-spacing: 0;
+  text-decoration: none;
+
+  padding: 1.35em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  display: inline-block;
+  color:white;
+
+}
+
 .popup p{
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
   text-decoration: none;
 
-  padding: 2.35em 0 .325em;
+  padding: 1.35em 0 .325em;
   display: block;
   margin: 0 auto;
   text-shadow: 0 0 80px rgba(255,255,255,.5);
