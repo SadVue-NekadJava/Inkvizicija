@@ -116,6 +116,15 @@ console.log("fadsd");
 
 }
 .popup{
+  -webkit-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+-moz-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+
+
+
+
+
+
   border-radius: 15px;
   font-family: 'Cinzel', serif;
   letter-spacing: 3px;
