@@ -4,12 +4,13 @@
     <audio controls autoplay loop hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
-    <h1 v-if="stageOver">Sledeca Faza</h1>
+<button id="krajFaze" v-if="stageOver">Sledeca Faza</button>
     <div class="wrap" id="wrap">
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>
       </div>
+
       <div>
         <h1>Poeni: {{poeni}}</h1>
         <h1>Zlato: {{zlato}}</h1>
@@ -32,6 +33,7 @@
         <h1>{{vreme}}</h1>
       </div>
     </div>
+
     <div class="user">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
@@ -79,7 +81,8 @@ export default {
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
       tacniOdgovori: 0,
       poen: window.localStorage.getItem('poeni'),
-      zlatnik: window.localStorage.getItem('zlato')
+      zlatnik: window.localStorage.getItem('zlato'),
+      processing: false
 
     }
   },
@@ -156,6 +159,7 @@ export default {
       for (var i = 0; i < 4; i++) {
         btns[i].style.visibility = 'visible';
       }
+      this.processing=false;
     },
     getAnswers() {
       //get answers
@@ -202,6 +206,8 @@ export default {
       this.ansFalse = false;
     },
     pitanje(e) {
+      if(this.processing===false){
+        this.processing=true;
       const buttonId = e.target.id;
       const buttonValue = e.target.value;
       this.hideButtons(buttonId)
@@ -215,25 +221,27 @@ export default {
         this.zlatnik+=1;
         window.localStorage.setItem('zlato', this.zlatnik);
         this.$store.state.correct = true;
-        setTimeout(this.trueAnswer, 1500);
+        setTimeout(this.trueAnswer, 1000);
         this.tacno.play();
         this.tacniOdgovori += 1;
 
       } else {
         this.ansFalse = true;
-        setTimeout(this.falseAnswer, 1500);
+        setTimeout(this.falseAnswer, 1000);
         this.greska.play();
       }
 
       if (this.$store.state.qstNum >= 5) {
-        setTimeout(this.showButtons, 1500);
-        setTimeout(this.stageEnd, 1500);
+        //setTimeout(this.showButtons, 1500);
+        setTimeout(this.stageEnd, 1000);
       } else {
-        setTimeout(this.showButtons, 1600);
+        setTimeout(this.showButtons, 1000);
         setTimeout(this.animacija, 1000);
         this.singleQuestion = this.questions[this.$store.state.qstNum];
-        setTimeout(this.getAnswers, 1500);
+        setTimeout(this.getAnswers, 1000);
       }
+    }
+
     },
     animacija() {
       var h6 = document.querySelector("h6");
@@ -319,6 +327,10 @@ export default {
 </script>
 
 <style scoped >
+#krajFaze{
+  margin: 100px auto;
+  animation-name: dugme1;
+}
 .vreme {
   position: absolute;
   background: black;
