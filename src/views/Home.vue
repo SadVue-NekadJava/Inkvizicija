@@ -1,9 +1,7 @@
 <template>
   <div class="home">
 
-    <audio controls autoplay hidden>
-    <source src="../assets/shortCut.mp3" type="audio/mp3">
-    </audio>
+    
     <hello-world></hello-world>
     <login-vue></login-vue>
 
