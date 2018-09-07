@@ -41,14 +41,15 @@ export default {
       }).then(response => {
         var sid = response.data.sid;
         window.localStorage.setItem("sessionid", sid);
-
+        console.log(response.data[0].usr_access);
         if(response.data.status=='ok'){
           this.logged = true;
           this.notlogged = false;
           this.$router.push('mainPage');
           this.$store.state.user = this.username;
           window.localStorage.setItem("username", this.username);
-          console.log(window.localStorage.getItem('username'));
+          if(response.data[0].usr_access==1)
+            window.localStorage.setItem("adminUser", true);
         }else{
         this.notlogged = true;
       }

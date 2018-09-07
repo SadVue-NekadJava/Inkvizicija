@@ -21,7 +21,8 @@
 
 
      <router-link to="/story"  class="gameMode">Story Mode</router-link> <br>
-     <router-link to="#" class="gameMode">Battle Mode</router-link><br>
+    <label v-if="!adminUser"><router-link to="#" class="gameMode">Battle Mode</router-link><br></label>
+     <label v-if="adminUser"><router-link to="#" class="gameMode">Edit Questions</router-link><br></label>
      <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Exit</router-link></label>
      </div>
      <div class="user">
@@ -41,6 +42,7 @@
 import HelloWorld from '../components/HelloWorld.vue'
 import LoginVue from '../components/login.vue'
 import RegisterVue from '../components/register.vue'
+
 export default {
   name: 'mainPage',
   components: {
@@ -50,7 +52,8 @@ export default {
   },
   data(){
     return{
-      name:window.localStorage.getItem('username')
+      name:window.localStorage.getItem('username'),
+      adminUser:window.localStorage.getItem('adminUser')
     }
   },
   methods:{
