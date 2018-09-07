@@ -47,7 +47,7 @@
       i više se ne uklapa u zadate okvire.
     </p>
     <p>
-      Sa dvadeset i sedam godina, 1575. godine, optužen za jeres (u 130 tačaka), napušta red i beži. 
+      Sa dvadeset i sedam godina, 1575. godine, optužen za jeres (u 130 tačaka), napušta red i beži.
       Tako počinje njegov život putnika.
     </p>
   </div>
@@ -306,6 +306,13 @@ export default {
   width: 100px;
   height: 100px;
   animation: pulse 1s infinite;
+  top: 90%;
+  left: 90%;
+  /* adjust as per your needs */
+  /* adjust as per your needs */
+  margin-left: -250px;
+  /* negative half of width above */
+  margin-top: -250px;
 
 }
 
@@ -332,9 +339,6 @@ export default {
   }
 }
 
-
-
-
 h1 {
   color: white;
 }
@@ -343,11 +347,11 @@ h1 {
   animation-name: coming;
   animation-duration: 3s;
   animation-delay: 1s;
-  width: 100vw;
-  height: 100vh;
   background-image: url('../assets/questionsBackground.jpg');
   background-repeat: no-repeat;
+  min-height: 974px;
   background-size: cover;
+  background-position: center;
 }
 
 @keyframes coming {

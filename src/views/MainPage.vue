@@ -61,16 +61,16 @@ export default {
 
     upali(){
       var nesto=document.getElementById('upali');
-  nesto.style.visibility="hidden";
+      nesto.style.visibility="hidden";
 
     },
 
-ugasi(){
-  var nesto=document.getElementById('ugasi');
-  nesto.style.visibility="hidden";
-  var nesto2=document.getElementById('upali');
-nesto2.style.visibility="visible";
-}
+    ugasi(){
+      var nesto=document.getElementById('ugasi');
+      nesto.style.visibility="hidden";
+      var nesto2=document.getElementById('upali');
+      nesto2.style.visibility="visible";
+            }
 
 
   },
@@ -82,23 +82,21 @@ nesto2.style.visibility="visible";
     //console.log(window.localStorage.getItem("sessionid"));
   },
   computed:{
-    user(){
-      return window.localStorage.getItem('username');
+      user(){
+        return window.localStorage.getItem('username');
+      }
+            },
+    beforeDestroy () {
+      this.$store.state.showTransition=true;
+    },
+    created(){
+      //check username
+      // if(this.$store.state.user=='')
+      // this.$router.push('/');
     }
-  },
-  beforeDestroy () {
-    this.$store.state.showTransition=true;
-  },
-  created(){
-    //check username
-    // if(this.$store.state.user=='')
-    // this.$router.push('/');
-  }
 
 
 }
-
-
 </script>
 
 <style scoped >
@@ -107,7 +105,6 @@ nesto2.style.visibility="visible";
   font: 400 1.5em/1.5 "Neuton";
   letter-spacing: 0;
   text-decoration: none;
-
   padding: 1.35em 0 .325em;
   display: block;
   margin: 0 auto;
@@ -123,7 +120,6 @@ nesto2.style.visibility="visible";
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
   text-decoration: none;
-
   padding: 1.35em 0 .325em;
   display: block;
   margin: 0 auto;
@@ -136,14 +132,8 @@ nesto2.style.visibility="visible";
 }
 .popup{
   -webkit-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
--moz-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
-
-
-
-
-
-
+  -moz-box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
+  box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
   border-radius: 15px;
   font-family: 'Cinzel', serif;
   letter-spacing: 3px;
@@ -163,37 +153,23 @@ box-shadow: 20px 6px 300px 200px rgba(0,0,0,1);
 @keyframes iz {
   from {
     opacity: 0;
-  transform: scale(0);
+    transform: scale(0);
   }
   to {
     opacity: 0.5;
-  transform: scale(1);
+    transform: scale(1);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 .main{
-
-background-image: url("../assets/edited.jpg");
-background-repeat: no-repeat;
-
-min-height: 974px;
-background-size: cover;
-background-position: center;
-}
+    background-image: url("../assets/edited.jpg");
+    background-repeat: no-repeat;
+    min-height: 974px;
+    background-size: cover;
+    background-position: center;
+    }
 
 
 
@@ -210,7 +186,7 @@ background-position: center;
     margin:0 auto;
     position: relative;
     top: -150px;
-  left: 89px;
+    left: 89px;
     width:100px;
     height:136px;
     background:url(http://sitepointstatic.com/examples/css3/animation/flame-sprite.png?r=3) 0px 0px no-repeat;
@@ -245,11 +221,8 @@ background-position: center;
     100% {
         background-position:-100px 0px;
         opacity:.8
+        }
 }
-}
-
-
-
 
 .user{
   color:white;
@@ -264,16 +237,14 @@ background-position: center;
 }
 
 .neka{
-background: transparent;
+  background: transparent;
 
 }
 
 .gameMode{
-
-  font: 400 1em/1.5 "Neuton";
+ font: 400 1em/1.5 "Neuton";
  letter-spacing: 0;
  text-decoration: none;
-
  padding: .25em 0 .325em;
  display: block;
  margin: 0 auto;
@@ -288,7 +259,6 @@ background: transparent;
  top: 18%;
  left: 50%;
  width:300px;
-  /* 40em; */
  margin: 15px auto;
  color: rgba(255,255,255,.25);
 }
@@ -297,10 +267,7 @@ background: transparent;
 {
   color: white;
   transition: all .2s ease-in-out;
- transform: scale(1.3);
-
-
-
+  transform: scale(1.3);
 }
 
 
