@@ -60,6 +60,7 @@ export default {
     izbrisiSid(){
       window.localStorage.removeItem("sessionid");
       window.localStorage.removeItem("username");
+      window.localStorage.removeItem("adminUser");
     },
 
     upali(){
