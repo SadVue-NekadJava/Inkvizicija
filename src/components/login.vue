@@ -103,14 +103,14 @@ font-size: 20px;
   text-transform: uppercase;
   letter-spacing: .5em;
   display: inline-block;
-  border: 4px double rgba(255,255,255,.25);
+  border: 4px double rgba(255,255,255,.5);
   border-width: 4px 0;
   padding: 1.5em 0em;
   top: 18%;
   left: 50%;
   width: 350px;
   margin: 0 auto;
-  color: rgba(255,255,255,.25);
+  color: rgba(255,255,255,.5);
 }
 
 
@@ -131,7 +131,7 @@ text-decoration: none;
  left: 50%;
  width: auto;
  margin: 0 auto;
- color: rgba(255,255,255,.25);
+ color: rgba(255,255,255,.5);
 }
 a:hover{
   transition: all .2s ease-in-out;

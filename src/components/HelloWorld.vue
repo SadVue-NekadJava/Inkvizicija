@@ -22,7 +22,7 @@ export default {
 .hello {
    font: 400 1em/1.5 "Neuton";
   //  background:#090d00;
-    color: rgba(255,255,255,.25);
+    color: rgba(255,255,255,.5);
      text-align: center;
     margin: 0 ;
     padding-bottom: 30px;
@@ -32,7 +32,7 @@ p {
 	text-transform: uppercase;
 	letter-spacing: .5em;
 	display: inline-block;
-	border: 4px double rgba(255,255,255,.25);
+	border: 4px double rgba(255,255,255,.5);
 	border-width: 4px 0;
 	padding: 1.5em 0em;
 	//position: absolute;

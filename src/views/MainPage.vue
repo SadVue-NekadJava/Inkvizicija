@@ -22,7 +22,7 @@
 
      <router-link to="/story"  class="gameMode">Story Mode</router-link> <br>
     <label v-if="!adminUser"><router-link to="#" class="gameMode">Battle Mode</router-link><br></label>
-     <label v-if="adminUser"><router-link to="#" class="gameMode">Edit Questions</router-link><br></label>
+     <label v-if="adminUser"><router-link to="/admin" class="gameMode">Edit Questions</router-link><br></label>
      <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Exit</router-link></label>
      </div>
      <div class="user">
@@ -260,7 +260,7 @@ export default {
  text-transform: uppercase;
  letter-spacing: .5em;
  display: inline-block;
- border: 4px double rgba(255,255,255,.25);
+ border: 4px double rgba(255,255,255,.5);
  border-width: 4px 0;
  padding: 1.5em 0em;
  //position: absolute;
@@ -268,7 +268,7 @@ export default {
  left: 50%;
  width:300px;
  margin: 15px auto;
- color: rgba(255,255,255,.25);
+ color: rgba(255,255,255,.5);
 }
 
 .gameMode:hover
