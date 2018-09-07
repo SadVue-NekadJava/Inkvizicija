@@ -12,7 +12,7 @@
 
      <!-- <router-link to="#"  class="gameMode">Dodaj nova pitanja</router-link> <br>
      <router-link to="#" class="gameMode">Izmeni/Izbrisi pitanja</router-link><br> -->
-     <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Izlaz</router-link></label>
+     <label  @click="izbrisiSid"><router-link to="/mainPage"  class="gameMode">Povratak</router-link></label>
 </div>
 
      <div class="user">
@@ -70,7 +70,7 @@ export default {
 
   },
   mounted(){
-    this.$store.state.showTransition=false;
+    this.$store.state.showTransition=true;
     if(window.localStorage.getItem("sessionid")==null)
     this.$router.push('/');
     //console.log(window.localStorage.getItem("sessionid"));
@@ -98,6 +98,22 @@ export default {
     min-height: 974px;
     background-size: cover;
     background-position: center;
+    animation-name: coming ;
+    transition-timing-function: ease-out;
+      animation-duration: 3s;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes coming {
+      from {
+        transform: translateY(200px);
+        opacity: 0;
+          }
+      to{
+        transform: translateY(0px);
+        opacity: 1;
+
+      }
     }
 .user{
   color:white;
