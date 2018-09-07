@@ -48,6 +48,8 @@ export default {
           this.$router.push('mainPage');
           this.$store.state.user = this.username;
           window.localStorage.setItem("username", this.username);
+          window.localStorage.setItem("poeni", 100);
+          window.localStorage.setItem('zlato', 0);
           if(response.data[0].usr_access==1)
             window.localStorage.setItem("adminUser", true);
         }else{

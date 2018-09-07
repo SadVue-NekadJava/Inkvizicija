@@ -1,7 +1,7 @@
 <template>
 <div class="story" @click.once="ugasi">
   <div class="main">
-    <audio controls autoplay hidden>
+    <audio controls autoplay loop hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
     <h1 v-if="stageOver">Sledeca Faza</h1>
@@ -10,8 +10,9 @@
       <div class="preText">
         <h6>{{check}}</h6>
       </div>
-      <div id="timer">
-
+      <div>
+        <h1>Poeni: {{poeni}}</h1>
+        <h1>Zlato: {{zlato}}</h1>
       </div>
       <!-- <button v-on:click="play" type="button">Click Me to Play Sound</button>
  <audio ref="audioElm" src="../assets/mainMenu.mp3"></audio> -->
@@ -72,11 +73,13 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage: false,
-      timer: 5,
+      timer: 25,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
-      tacniOdgovori: 0
+      tacniOdgovori: 0,
+      poen: window.localStorage.getItem('poeni'),
+      zlatnik: window.localStorage.getItem('zlato')
 
     }
   },
@@ -95,6 +98,12 @@ export default {
     },
     vreme() {
       return this.timer;
+    },
+    poeni(){
+      return this.poen;
+    },
+    zlato(){
+      return this.zlatnik;
     }
   },
   methods: {
@@ -199,10 +208,17 @@ export default {
       this.$store.state.qstNum += 1;
 
       if (buttonValue == this.ansTrue) {
+        this.poen = Number(window.localStorage.getItem('poeni'));
+        this.poen+=20;
+        window.localStorage.setItem('poeni', this.poen);
+        this.zlatnik = Number(window.localStorage.getItem('zlato'));
+        this.zlatnik+=1;
+        window.localStorage.setItem('zlato', this.zlatnik);
         this.$store.state.correct = true;
         setTimeout(this.trueAnswer, 1500);
         this.tacno.play();
         this.tacniOdgovori += 1;
+
       } else {
         this.ansFalse = true;
         setTimeout(this.falseAnswer, 1500);
@@ -311,7 +327,9 @@ export default {
   margin-left: -250px;
   margin-top: -250px;
 }
-
+h1{
+  color:white;
+}
 .vreme h1 {
   padding: 10px;
 }
