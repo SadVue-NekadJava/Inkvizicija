@@ -37,7 +37,7 @@
     </div>
 
   </div>
-  <div class="popup1" id="ugasi">
+  <div class="intro" id="ugasi">
     <h3>Djordano Bruno</h3>
     <p>Delo De revolutionibus orbium coelestium (O gibanju nebeskih tela) u kome Kopernik iznosi heliocentričnu sliku sveta,
       a koja tada još nije bila zabranjena, unosi nemir u njegov mladi duh.
@@ -308,19 +308,13 @@ export default {
   animation: pulse 1s infinite;
   top: 90%;
   left: 90%;
-  /* adjust as per your needs */
-  /* adjust as per your needs */
   margin-left: -250px;
-  /* negative half of width above */
   margin-top: -250px;
-
 }
-
 
 .vreme h1 {
   padding: 10px;
 }
-
 
 @keyframes pulse {
   0% {
@@ -339,10 +333,6 @@ export default {
   }
 }
 
-h1 {
-  color: white;
-}
-
 .story {
   animation-name: coming;
   animation-duration: 3s;
@@ -359,18 +349,16 @@ h1 {
     transform: translateY(-200px);
     opacity: 0;
   }
-
   to {
     transform: translateY(0px);
     opacity: 0.8;
   }
 }
 
-.popup1 h3 {
+.intro h3 {
   font: 400 1.5em/1.5 "Neuton";
   letter-spacing: 0;
   text-decoration: none;
-
   padding: 1.35em 0 .325em;
   display: block;
   margin: 0 auto;
@@ -382,11 +370,10 @@ h1 {
 
 }
 
-.popup1 p {
+.intro p {
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
   text-decoration: none;
-
   padding: 1.35em 0 .325em;
   display: block;
   margin: 0 auto;
@@ -398,7 +385,7 @@ h1 {
 
 }
 
-.popup1 {
+.intro {
   -webkit-box-shadow: 20px 6px 300px 200px rgba(0, 0, 0, 1);
   -moz-box-shadow: 20px 6px 300px 200px rgba(0, 0, 0, 1);
   box-shadow: 20px 6px 300px 200px rgba(0, 0, 0, 1);
@@ -412,46 +399,11 @@ h1 {
   top: 40%;
   left: 50%;
   width: 500px;
-  /* adjust as per your needs */
   height: 800px;
-  /* adjust as per your needs */
   margin-left: -250px;
-  /* negative half of width above */
   margin-top: -250px;
-  /* animation-name: iz;
-  animation-duration: 1.5s; */
+
 }
-
-@keyframes iz {
-  from {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  to {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -464,11 +416,8 @@ h1 {
   top: 77%;
   left: 50%;
   width: 400px;
-  /* adjust as per your needs */
   height: 200px;
-  /* adjust as per your needs */
   margin-left: -200px;
-  /* negative half of width above */
   margin-top: -200px;
   animation-name: iz;
   animation-duration: 1.5s;
@@ -535,7 +484,6 @@ button {
 button:hover {
   top: -10px;
   box-shadow: 0px 10px 10px rgba(15, 165, 60, 0.2);
-
   -webkit-transform: rotateX(20deg);
   -moz-transform: rotateX(20deg);
   -ms-transform: rotateX(20deg);
@@ -583,15 +531,9 @@ h6 {
   display: none;
 }
 
-/* .letter{
-  opacity:0;
-  font-size:1.3em;
-} */
-
 #div {
   width: 30%;
 }
-
 
 .animatedText {
   font-family: 'Cinzel', serif;
