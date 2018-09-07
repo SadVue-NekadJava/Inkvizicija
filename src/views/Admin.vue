@@ -3,8 +3,10 @@
     <audio controls autoplay hidden>
     <source src="../assets/mainMenu.mp3" type="audio/mp3">
     </audio>
-     <!-- <hello-world class="logo"></hello-world> -->
-     <div class="menuItems" v-if="!hideOptions" >
+
+         <div class="menuItems" v-if="!hideOptions" >
+     <hello-world class="logo"></hello-world>
+
 <label class="gameMode" @click="novaPitanja">Dodaj nova pitanja</label><br>
 <label class="gameMode" @click="izmeniIzbrisi">Izmeni/Izbrisi pitanja</label><br>
 

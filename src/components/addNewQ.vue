@@ -6,28 +6,29 @@
     <div class="pitanje">
 
 
-    <label>Pitanje</label><br>
+    <label class="tekst">Pitanje</label><br>
     <textarea  class="unosi pitanje" type="text" name="" value=""></textarea><br>
 
-  <label>Tezina pitanja</label><br>
-<select class="tezinaPitanja" name="">
-  <option class="tezinaPitanja opcija" value="">1</option>
-  <option value="">2</option>
-  <option value="">3</option>
-  <option value="">4</option>
-  <option value="">5</option>
+  <label class="tekst">Tezina pitanja</label><br>
+  <div class="radioDiv">
 
-</select>
+
+  <input type="radio" class="radio" name="gender" value="1"> <label class="radioB">1</label>
+  <input type="radio" class="radio" name="gender" value="2"><label class="radioB">2</label>
+  <input type="radio" class="radio" name="gender" value="3"> <label class="radioB">3</label>
+  <input type="radio" class="radio" name="gender" value="4"><label class="radioB">4</label>
+  <input type="radio" class="radio" name="gender" value="5"><label class="radioB">5</label>
+  </div>
 </div>
 <div class="odgovori">
-  <label>Tacan Odgovor</label><br>
-  <input  class="unosi" type="password" name="" value=""><br>
-  <label>Odgovor 2</label><br>
-  <input  class="unosi zadnji" type="password" name="" value=""><br>
-  <label>Odgovor 3</label><br>
-  <input  class="unosi zadnji" type="password" name="" value=""><br>
-  <label>Odgovor 4</label><br>
-  <input  class="unosi zadnji" type="password" name="" value=""><br>
+  <label class="tekst">Tacan Odgovor</label><br>
+  <input  class="unosi" type="text" name="" value=""><br>
+  <label class="tekst">Odgovor 2</label><br>
+  <input  class="unosi zadnji" type="text" name="" value=""><br>
+  <label class="tekst">Odgovor 3</label><br>
+  <input  class="unosi zadnji" type="text" name="" value=""><br>
+  <label class="tekst">Odgovor 4</label><br>
+  <input  class="unosi zadnji" type="text" name="" value=""><br>
 </div>
 
     <!-- <div class="wrap">
@@ -56,19 +57,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.radioDiv{
+  margin: 10px;
+}
 
+.radio{
+  height: 25px;
+  width: 25px;
+}
 
-// .odgovori{
-//
-//
-//   float: left;
-//
-// }
-// .pitanje{
-//
-//   float:left;
-//
-// }
+.radioB{
+  font-size: 25px;
+  margin:10px;
+  color: rgba(255,255,255,.5);
+    padding: 10px;
+}
+
 
 h3{
   color:white;
@@ -80,8 +84,9 @@ background: #523b30;
 opacity: 0.7;
 padding: 10px 50px;
 font-size: 20px;
+color: white;
 }
-label{
+.tekst{
 
    font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
