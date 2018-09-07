@@ -4,7 +4,7 @@
     <audio controls autoplay loop hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
-<button id="krajFaze" v-if="stageOver">Sledeca Faza</button>
+
     <div class="wrap" id="wrap">
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
@@ -33,7 +33,7 @@
         <h1>{{vreme}}</h1>
       </div>
     </div>
-
+<button id="krajFaze" v-if="stageOver">Sledeca Faza</button>
     <div class="user">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
@@ -136,7 +136,7 @@ export default {
       sve.style.visibility = 'hidden';
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
-        btns[i].style.visibility = 'hidden';
+        btns[i].style.display = 'none';
         this.nextStage = true;
         if (this.timer > 0) {
           console.log(this.tacniOdgovori);
@@ -328,7 +328,7 @@ export default {
 
 <style scoped >
 #krajFaze{
-  margin: 100px auto;
+   /* margin: 100px auto; */
   animation-name: dugme1;
 }
 .vreme {
