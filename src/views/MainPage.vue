@@ -83,7 +83,13 @@ export default {
     this.upali();
     if(window.localStorage.getItem("sessionid")==null)
     this.$router.push('/');
-    //console.log(window.localStorage.getItem("sessionid"));
+    //upisivanje poena i zlata u bazu
+    axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
+        poeni: window.localStorage.getItem('poeni'),
+        zlato: window.localStorage.getItem('zlato'),
+        user: window.localStorage.getItem('username')
+    });
+
   },
   computed:{
       user(){
@@ -94,9 +100,7 @@ export default {
       this.$store.state.showTransition=true;
     },
     created(){
-      //check username
-      // if(this.$store.state.user=='')
-      // this.$router.push('/');
+
     }
 
 

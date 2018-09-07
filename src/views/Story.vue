@@ -272,7 +272,12 @@ export default {
     }
   },
   mounted() {
-
+    //upisivanje poena i zlata u bazu
+    axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
+        poeni: window.localStorage.getItem('poeni'),
+        zlato: window.localStorage.getItem('zlato'),
+        user: window.localStorage.getItem('username')
+    });
     setTimeout(this.animacija, 3000);
     //setTimeout(this.getAnswers,1500);
     //  this.animacija();
