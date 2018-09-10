@@ -97,4 +97,30 @@ body{
     }
   }
 } */
+
+
+.korisnik{
+  color:white;
+  position:absolute;
+  bottom: 100px;
+  left: 100px;
+  opacity: 0.5;
+
+}
+
+
+@media screen and (max-width: 400px){
+  .korisnik h3{
+    display: none;
+  }
+}
+
+.ime{
+  color: orange;
+  font-size:26px;
+}
+
+.korisnik:hover{
+  transform: scale(1.2);
+  cursor:pointer; }
 </style>

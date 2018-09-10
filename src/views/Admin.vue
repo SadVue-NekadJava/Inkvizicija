@@ -15,9 +15,9 @@
      <label ><router-link to="/mainPage"  class="gameMode">Povratak</router-link></label>
 </div>
 
-     <div class="user">
+     <div class="korisnik">
      <h3>Korisnik: </h3>
-     <h3><span class="ime">{{user}}</span></h3>
+     <h2><span class="ime">{{user}}</span></h2>
    </div>
 <add-new v-if="newQ" ></add-new>
 <edit-delete v-if="editQ" ></edit-delete>
@@ -115,17 +115,8 @@ export default {
 
       }
     }
-.user{
-  color:white;
-  position:absolute;
-  bottom: 100px;
-  left: 100px;
-  opacity: 0.5;
-}
-.ime{
-  color: orange;
-  font-size:26px;
-}
+
+
 .logo{
   background: transparent;
 

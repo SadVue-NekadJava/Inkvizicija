@@ -35,7 +35,7 @@
     </div>
 <button id="krajFaze" v-if="stageOver">Sledeca Faza</button>
 <button id="krajFaze" v-if="gameover">KRAJ IGRE</button>
-    <div class="user">
+    <div class="korisnik">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
     </div>
@@ -552,18 +552,7 @@ button:active {
   }
 }
 
-.user {
-  color: white;
-  position: absolute;
-  bottom: 100px;
-  left: 100px;
-  opacity: 0.5;
-}
 
-.ime {
-  color: orange;
-  font-size: 26px;
-}
 
 /* body{
   background:#e74c3c;

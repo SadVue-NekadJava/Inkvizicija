@@ -220,17 +220,7 @@ export default {
               opacity:.8
               }
       }
-.korisnik{
-  color:white;
-  position:absolute;
-  top: 800px;
-  left: 100px;
-  opacity: 0.5;
-}
-.ime{
-  color: orange;
-  font-size:26px;
-}
+
 .logo{
   background: transparent;
 
