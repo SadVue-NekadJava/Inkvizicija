@@ -1,7 +1,7 @@
 <template>
-  <div class="hello">
-<label @click="nazad" class="nazad">Nazad</label>
-<label class="sacuvaj" @click="sacuvajQ">Sacuvaj pitanje</label>
+  <div class="hello"><label class="sacuvaj" @click="sacuvajQ">&rarr;<p>	Sacuvaj pitanje</p></label>
+<label @click="nazad" class="nazad">&larr;<p>Nazad</p> </label>
+
 
   <form class="">
     <div class="pitanje">
@@ -94,6 +94,10 @@ export default {
 
 <style scoped lang="scss">
 
+
+
+
+
 .nazad{
   text-decoration: none;
   font: 400 1em/1.5 "Neuton";
@@ -107,8 +111,8 @@ export default {
   border: 4px double rgba(255,255,255,.5);
   border-width: 4px 0;
   padding: 1.5em 0em;
-  width: 350px;
   margin: 0 auto;
+  width: 350px;
   color: rgba(255,255,255,.5);
   position: absolute;
      top: 200px;
@@ -127,7 +131,6 @@ export default {
   border: 4px double rgba(255,255,255,.5);
   border-width: 4px 0;
   padding: 1.5em 0em;
-  width: 350px;
   margin: 0 auto;
   color: rgba(255,255,255,.5);
   position: absolute;
@@ -139,21 +142,16 @@ export default {
 .radioDiv{
   margin: 10px;
 }
-
 .radio{
   height: 25px;
   width: 25px;
 }
-
 .radioB{
   font-size: 25px;
   margin:10px;
   color: rgba(255,255,255,.5);
     padding: 10px;
 }
-
-
-
 .unosi{
     width: 400px;
     background: #523b30;
@@ -173,17 +171,33 @@ export default {
 
   }
 }
-
-
-
-
-
-
 .zadnji{
-margin-top: 0;
+  margin-top: 0;
 
 }
 
 
+@media screen and (max-width: 1620px){
+
+
+p{
+display: none;
+}
+.sacuvaj{
+width: 20px;
+right:20px;
+border:0px;
+font-size: 30px;
+}
+.nazad{
+width: 20px;
+left:20px;
+border:0px;
+font-size: 30px;
+}
+.radioDiv{
+  margin-top:40px;
+}
+}
 </style>
 ``
