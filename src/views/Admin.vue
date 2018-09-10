@@ -8,7 +8,7 @@
      <hello-world class="logo"></hello-world>
 
 <label class="gameMode" @click="novaPitanja">Dodaj nova pitanja</label><br>
-<label class="gameMode" @click="izmeniIzbrisi">Izmeni/Izbrisi pitanja</label><br>
+<label class="gameMode" @click="izmeniIzbrisi">Izbrisi pitanja</label><br>
 
      <!-- <router-link to="#"  class="gameMode">Dodaj nova pitanja</router-link> <br>
      <router-link to="#" class="gameMode">Izmeni/Izbrisi pitanja</router-link><br> -->
