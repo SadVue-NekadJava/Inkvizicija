@@ -8,150 +8,10 @@
 
 
 <ul>
-  <li class="pitanje" v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
+  <li class="pitanje" v-for="pitanje in pitanja" v-on:click="izbrisi(pitanje.qst_id)">
+    {{pitanje.question}} X
   </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
-  <li v-for="" @click="izbrisi">{{parametar}}Klikni  </li>
-      <li v-for="" @click="izbrisi">{{parametar}}Klikni2
-  </li>
+
 </ul>
 
     </div>
@@ -164,15 +24,28 @@
 export default {
   data(){
     return{
-
+      pitanja:[],
+      pit:''
       }
   },
   methods:{
-
+      izbrisi(selectedId){
+        axios.delete('http://739k121.mars-e1.mars-hosting.com/inkvizicija/unosPitanja.js',{
+          params:{id:selectedId}
+        }).then(response => {
+          location.reload();
+        });
+      }
   },
   computed:{
 
-    }
+  },
+  mounted(){
+    axios.get('http://739k121.mars-e1.mars-hosting.com/inkvizicija/unosPitanja.js').then(
+      response => {
+      this.pitanja = response.data;
+    });
+  }
   }
 
 </script>
