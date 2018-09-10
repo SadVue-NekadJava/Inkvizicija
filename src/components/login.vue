@@ -50,12 +50,15 @@ export default {
           window.localStorage.setItem("username", this.username);
           window.localStorage.setItem("poeni", response.data[0].usr_points);
           window.localStorage.setItem("zlato", response.data[0].usr_gold);
-          if(window.localStorage.getItem('poeni')==null)
+          if(response.data[0].usr_points==null){
             window.localStorage.setItem("poeni", 0);
-
-          if(window.localStorage.getItem('zlato')==null)
+            
+          }
+          if(response.data[0].usr_gold==null){
             window.localStorage.setItem("zlato", 0);
-
+          }
+          console.log(window.localStorage.getItem('poeni'));
+          console.log(window.localStorage.getItem('zlato'));
           if(response.data[0].usr_access==1)
             window.localStorage.setItem("adminUser", true);
         }else{
