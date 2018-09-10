@@ -34,6 +34,7 @@
       </div>
     </div>
 <button id="krajFaze" v-if="stageOver">Sledeca Faza</button>
+<button id="krajFaze" v-if="gameover">KRAJ IGRE</button>
     <div class="user">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
@@ -50,7 +51,7 @@
       i više se ne uklapa u zadate okvire.
     </p>
     <p>
-      Sa dvadeset i sedam godina, 1575. godine, optužen za jeres (u 130 tačaka), napušta red i beži.
+      Sa dvadeset i sedam godina, 1575. godine, optužen je za jeres (u 130 tačaka), napušta red i beži.
       Tako počinje njegov život putnika.
     </p>
   </div>
@@ -80,9 +81,11 @@ export default {
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
       tacniOdgovori: 0,
+      netacniOdgovori: 0,
       poen: window.localStorage.getItem('poeni'),
       zlatnik: window.localStorage.getItem('zlato'),
-      processing: false
+      processing: false,
+      gameover:false
 
     }
   },
@@ -137,13 +140,15 @@ export default {
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
         btns[i].style.display = 'none';
+        console.log(this.netacniOdgovori);
+        if(this.netacniOdgovori<3)
         this.nextStage = true;
         if (this.timer > 0) {
-          console.log(this.tacniOdgovori);
+          //console.log(this.tacniOdgovori);
 
           this.timer = 0;
         } else {
-          console.log(this.tacniOdgovori);
+          //console.log(this.tacniOdgovori);
         }
       }
     },
@@ -229,9 +234,15 @@ export default {
         this.ansFalse = true;
         setTimeout(this.falseAnswer, 1000);
         this.greska.play();
+        this.netacniOdgovori += 1;
+        if(this.netacniOdgovori>=3){
+        console.log('GAME OVER');
+        this.gameover = true;
+        setTimeout(this.stageEnd, 1000);
+      }
       }
 
-      if (this.$store.state.qstNum >= 5) {
+      if (this.$store.state.qstNum >= 5 && this.netacniOdgovori<3) {
         //setTimeout(this.showButtons, 1500);
         setTimeout(this.stageEnd, 1000);
       } else {
