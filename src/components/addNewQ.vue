@@ -8,28 +8,29 @@
 
 
     <label class="tekst">Pitanje</label><br>
-    <textarea  class="unosi pitanje" type="text" name="" value=""></textarea><br>
+    <textarea v-model="tekstPitanja" class="unosi pitanje" type="text" name="" value=""></textarea><br>
 
   <label class="tekst">Tezina pitanja</label><br>
   <div class="radioDiv">
 
 
-  <input type="radio" class="radio" name="gender" value="1"> <label class="radioB">1</label>
-  <input type="radio" class="radio" name="gender" value="2"><label class="radioB">2</label>
-  <input type="radio" class="radio" name="gender" value="3"> <label class="radioB">3</label>
-  <input type="radio" class="radio" name="gender" value="4"><label class="radioB">4</label>
-  <input type="radio" class="radio" name="gender" value="5"><label class="radioB">5</label>
+  <input type="radio" class="radio" name="gender" value="1" v-model="izabran"> <label class="radioB">1</label>
+  <input type="radio" class="radio" name="gender" value="2" v-model="izabran"><label class="radioB">2</label>
+  <input type="radio" class="radio" name="gender" value="3" v-model="izabran"> <label class="radioB">3</label>
+  <input type="radio" class="radio" name="gender" value="4" v-model="izabran"><label class="radioB">4</label>
+  <input type="radio" class="radio" name="gender" value="5" v-model="izabran"><label class="radioB">5</label>
   </div>
 </div>
+<h1 v-if="popunjenaPolja">Popunite sva polja !</h1>
 <div class="odgovori">
   <label class="tekst">Tacan Odgovor</label><br>
-  <input  class="unosi" type="text" name="" value=""><br>
+  <input v-model="tacanOdgovor" class="unosi" type="text" name="" value=""><br>
   <label class="tekst">Odgovor 2</label><br>
-  <input  class="unosi zadnji" type="text" name="" value=""><br>
+  <input v-model="odgovor2" class="unosi zadnji" type="text" name="" value=""><br>
   <label class="tekst">Odgovor 3</label><br>
-  <input  class="unosi zadnji" type="text" name="" value=""><br>
+  <input v-model="odgovor3" class="unosi zadnji" type="text" name="" value=""><br>
   <label class="tekst">Odgovor 4</label><br>
-  <input  class="unosi zadnji" type="text" name="" value=""><br>
+  <input v-model="odgovor4" class="unosi zadnji" type="text" name="" value=""><br>
 </div>
 
     <!-- <div class="wrap">
@@ -44,24 +45,53 @@
 export default {
   data(){
     return{
-
+      tekstPitanja:"",
+      izabran:"",
+      tacanOdgovor:"",
+      odgovor2:"",
+      odgovor3:"",
+      odgovor4:"",
+      popunjeno:false
       }
   },
   methods:{
+    svePopunjeno(){
+      this.popunjeno = false;
+    },
+      sacuvajQ(){
+        if(this.tekstPitanja=="" || this.izabran=="" || this.tacanOdgovor==""
+         || this.odgovor2=="" || this.odgovor3=="" || this.odgovor4==""){
+           this.popunjeno = true;
+           setTimeout(this.svePopunjeno,3000);
+           return;
+         }
 
+         axios.post('http://739k121.mars-e1.mars-hosting.com/inkvizicija/register.js',{
+          username: this.username,
+          password1: this.password1
+         }).then(response => {
+           
+
+         });
+
+      },
       nazad(){
         location.reload();
       }
   },
   computed:{
-
+      popunjenaPolja(){
+        return this.popunjeno;
+      }
     }
   }
 
 </script>
 
 <style scoped lang="scss">
-
+h1{
+  color:white;
+}
 .nazad{
   text-decoration: none;
   font: 400 1em/1.5 "Neuton";
