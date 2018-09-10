@@ -48,16 +48,14 @@ export default {
           this.$router.push('mainPage');
           this.$store.state.user = this.username;
           window.localStorage.setItem("username", this.username);
-          if(response.data[0].usr_points!=null){
           window.localStorage.setItem("poeni", response.data[0].usr_points);
-          }else{
-            window.localStorage.setItem("poeni", 0);
-          }
-          if(response.data[0].usr_gold!=null){
           window.localStorage.setItem("zlato", response.data[0].usr_gold);
-          }else{
+          if(window.localStorage.getItem('poeni')==null)
+            window.localStorage.setItem("poeni", 0);
+
+          if(window.localStorage.getItem('zlato')==null)
             window.localStorage.setItem("zlato", 0);
-          }
+
           if(response.data[0].usr_access==1)
             window.localStorage.setItem("adminUser", true);
         }else{
