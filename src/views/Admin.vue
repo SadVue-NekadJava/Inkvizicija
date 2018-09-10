@@ -12,7 +12,7 @@
 
      <!-- <router-link to="#"  class="gameMode">Dodaj nova pitanja</router-link> <br>
      <router-link to="#" class="gameMode">Izmeni/Izbrisi pitanja</router-link><br> -->
-     <label  @click="izbrisiSid"><router-link to="/mainPage"  class="gameMode">Povratak</router-link></label>
+     <label ><router-link to="/mainPage"  class="gameMode">Povratak</router-link></label>
 </div>
 
      <div class="user">
@@ -130,27 +130,7 @@ export default {
   background: transparent;
 
 }
-.gameMode{
-     font: 400 1em/1.5 "Neuton";
-     letter-spacing: 0;
-     text-decoration: none;
-     padding: .25em 0 .325em;
-     display: block;
-     margin: 0 auto;
-     text-shadow: 0 0 80px rgba(255,255,255,.5);
-     text-transform: uppercase;
-     letter-spacing: .5em;
-     display: inline-block;
-     border: 4px double rgba(255,255,255,.5);
-     border-width: 4px 0;
-     padding: 1.5em 0em;
-     //position: absolute;
-     top: 18%;
-     left: 50%;
-     width:300px;
-     margin: 15px auto;
-     color: rgba(255,255,255,.5);
-    }
+
 .gameMode:hover
     {
       color: white;

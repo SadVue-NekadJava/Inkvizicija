@@ -7,7 +7,7 @@
     <div class="pitanje">
 
 
-    <label class="tekst">Pitanje</label><br>
+    <label class="gameMode">Pitanje</label><br>
     <textarea v-model="tekstPitanja" class="unosi pitanje" type="text" name="" value=""></textarea><br>
 
   <label class="tekst">Tezina pitanja</label><br>
@@ -23,13 +23,13 @@
 </div>
 <h1 v-if="popunjenaPolja">Popunite sva polja !</h1>
 <div class="odgovori">
-  <label class="tekst">Tacan Odgovor</label><br>
+  <label class="gameMode">Tacan Odgovor</label><br>
   <input v-model="tacanOdgovor" class="unosi" type="text" name="" value=""><br>
-  <label class="tekst">Odgovor 2</label><br>
+  <label class="gameMode">Odgovor 2</label><br>
   <input v-model="odgovor2" class="unosi zadnji" type="text" name="" value=""><br>
-  <label class="tekst">Odgovor 3</label><br>
+  <label class="gameMode">Odgovor 3</label><br>
   <input v-model="odgovor3" class="unosi zadnji" type="text" name="" value=""><br>
-  <label class="tekst">Odgovor 4</label><br>
+  <label class="gameMode">Odgovor 4</label><br>
   <input v-model="odgovor4" class="unosi zadnji" type="text" name="" value=""><br>
 </div>
 
@@ -93,14 +93,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h1{
-  color:white;
-}
+
 .nazad{
   text-decoration: none;
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
-  // padding: .25em 0 .325em;
   display: block;
   margin: 0 auto;
   text-shadow: 0 0 80px rgba(255,255,255,.5);
@@ -117,7 +114,6 @@ h1{
      top: 200px;
      left: 200px;
 }
-
 .sacuvaj{
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
@@ -138,12 +134,8 @@ h1{
      top: 200px;
      right: 200px;
 }
-
-
-
 .nazad:hover { transform: scale(1.3); }
 .sacuvaj:hover { transform: scale(1.3); }
-
 .radioDiv{
   margin: 10px;
 }
@@ -161,43 +153,16 @@ h1{
 }
 
 
-h3{
-  color:white;
-}
+
 .unosi{
-width: 400px;
-background: #523b30;
- margin: 26px;
-opacity: 0.7;
-padding: 10px 50px;
-font-size: 20px;
-color: white;
-}
-.tekst{
-
-   font: 400 1em/1.5 "Neuton";
-  letter-spacing: 0;
-  // padding: .25em 0 .325em;
-  display: block;
-  margin: 0 auto;
-  text-shadow: 0 0 80px rgba(255,255,255,.5);
-  text-transform: uppercase;
-  letter-spacing: .5em;
-  display: inline-block;
-  border: 4px double rgba(255,255,255,.5);
-  border-width: 4px 0;
-  padding: 1.5em 0em;
-  //position: absolute;
-  top: 18%;
-  left: 50%;
-  width: 350px;
-  margin: 0 auto;
-  color: rgba(255,255,255,.5);
-}
-
-
-
-
+    width: 400px;
+    background: #523b30;
+     margin: 26px;
+    opacity: 0.7;
+    padding: 10px 50px;
+    font-size: 20px;
+    color: white;
+    }
 .wrap{
   position: relative;
   width: 120px;

@@ -5,7 +5,7 @@
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
 
-    <div class="wrap" id="wrap">
+    <div id="wrap">
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>

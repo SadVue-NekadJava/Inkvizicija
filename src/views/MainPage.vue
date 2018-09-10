@@ -16,7 +16,7 @@
       Posebno snažan uticaj na Bruna izvršilo je učenje Nikole Kuzanskog, a preko filozofa Frane Petrića, profesora na platonskoj akademiji u Ferari, upoznaje se s neoplatonizmom i pitagorejskim učenjem.
     </p>
 </div>
-     <hello-world class="neka"></hello-world>
+     <hello-world class="logo"></hello-world>
      <div id="upali">
 
 
@@ -25,7 +25,7 @@
      <label v-if="adminUser"><router-link to="/admin" class="gameMode">Izmeni pitanja</router-link><br></label>
      <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Izlaz</router-link></label>
      </div>
-     <div class="user">
+     <div class="korisnik">
      <h3>Korisnik: </h3>
      <h3><span class="ime">{{user}}</span></h3>
    </div>
@@ -108,7 +108,6 @@ export default {
 </script>
 
 <style scoped >
-
 .popup h3{
   font: 400 1.5em/1.5 "Neuton";
   letter-spacing: 0;
@@ -123,7 +122,6 @@ export default {
   color:white;
 
 }
-
 .popup p{
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
@@ -157,8 +155,8 @@ export default {
   margin-top:-250px;
    animation-name: iz;
   animation-duration: 1.5s;
-}
-@keyframes iz {
+  }
+  @keyframes iz {
   from {
     opacity: 0;
     transform: scale(0);
@@ -168,9 +166,6 @@ export default {
     transform: scale(1);
   }
 }
-
-
-
 .main{
     background-image: url("../assets/edited.jpg");
     background-repeat: no-repeat;
@@ -178,10 +173,6 @@ export default {
     background-size: cover;
     background-position: center;
     }
-
-
-
-
 #flamegroup {
     margin:0 auto;
     position:relative;
@@ -189,7 +180,6 @@ export default {
     width:100px;
     height:136px;
 }
-
 .flame {
     margin:0 auto;
     position: relative;
@@ -199,43 +189,41 @@ export default {
     height:136px;
     background:url(http://sitepointstatic.com/examples/css3/animation/flame-sprite.png?r=3) 0px 0px no-repeat;
     animation: flicker .4s infinite;
-}
+    }
+    @keyframes flicker { /* flame pulses */
+          0% {
+              background-position:0px 0px;
+              opacity:.8
+      }
+          25% {
+              background-position:0px 0px;
+      }
+          25.1% {
+              background-position:-100px 0px;
+      }
+          50% {
+              background-position:-100px 0px;
+              opacity:.4
+      }
+          50.1% {
+              background-position:-200px 0px;
+      }
+          75% {
+              background-position:-200px 0px;
 
-@keyframes flicker { /* flame pulses */
-    0% {
-        background-position:0px 0px;
-        opacity:.8
-}
-    25% {
-        background-position:0px 0px;
-}
-    25.1% {
-        background-position:-100px 0px;
-}
-    50% {
-        background-position:-100px 0px;
-        opacity:.4
-}
-    50.1% {
-        background-position:-200px 0px;
-}
-    75% {
-        background-position:-200px 0px;
-
-}
-    75.1% {
-        background-position:-100px 0px;
-}
-    100% {
-        background-position:-100px 0px;
-        opacity:.8
-        }
-}
-
-.user{
+      }
+          75.1% {
+              background-position:-100px 0px;
+      }
+          100% {
+              background-position:-100px 0px;
+              opacity:.8
+              }
+      }
+.korisnik{
   color:white;
   position:absolute;
-  bottom: 100px;
+  top: 800px;
   left: 100px;
   opacity: 0.5;
 }
@@ -243,45 +231,14 @@ export default {
   color: orange;
   font-size:26px;
 }
-
-.neka{
+.logo{
   background: transparent;
 
 }
-
-.gameMode{
- font: 400 1em/1.5 "Neuton";
- letter-spacing: 0;
- text-decoration: none;
- padding: .25em 0 .325em;
- display: block;
- margin: 0 auto;
- text-shadow: 0 0 80px rgba(255,255,255,.5);
- text-transform: uppercase;
- letter-spacing: .5em;
- display: inline-block;
- border: 4px double rgba(255,255,255,.5);
- border-width: 4px 0;
- padding: 1.5em 0em;
- //position: absolute;
- top: 18%;
- left: 50%;
- width:300px;
- margin: 15px auto;
- color: rgba(255,255,255,.5);
-}
-
 .gameMode:hover
-{
-  color: white;
-  transition: all .2s ease-in-out;
-  transform: scale(1.3);
-}
-
-
-
-
-
-
-
+    {
+      color: white;
+      transition: all .2s ease-in-out;
+      transform: scale(1.3);
+    }
 </style>
