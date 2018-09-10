@@ -3,15 +3,14 @@
 
     <h1>Brisanje Pitanja</h1>
 
-    <input type="text" class="unosi" name="" value="">
+    <input type="text" class="unosi" placeholder="pretrazi pitanja" id="input" v-model="search">
     <div class="svaPitanja">
 
 
 <ul>
-  <li class="pitanje" v-for="pitanje in pitanja" v-on:click="izbrisi(pitanje.qst_id)">
+  <li class="pitanje" v-for="pitanje in filtriranaPitanja" v-on:click="izbrisi(pitanje.qst_id)">
     {{pitanje.question}} X
   </li>
-
 </ul>
 
     </div>
@@ -21,11 +20,12 @@
 </template>
 
 <script>
+
 export default {
   data(){
     return{
       pitanja:[],
-      pit:''
+      search:''
       }
   },
   methods:{
@@ -38,12 +38,27 @@ export default {
       }
   },
   computed:{
+    filtriranaPitanja(){
+      console.log(this.pitanja);
+
+    return this.pitanja.filter((pitanje)=>{
+
+      return pitanje.question.toLowerCase().match(this.search);
+    });
+  }
+
+
 
   },
   mounted(){
     axios.get('http://739k121.mars-e1.mars-hosting.com/inkvizicija/unosPitanja.js').then(
       response => {
-      this.pitanja = response.data;
+      //  var str = 'Koji';
+      // this.pitanja = response.data;
+      this.pitanja = [];
+      for(var i = 0;i<response.data.data.length;i++){
+        this.pitanja.push(response.data.data[i]);
+      }console.log(this.pitanja);
     });
   }
   }
