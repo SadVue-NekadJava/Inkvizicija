@@ -66,11 +66,15 @@ export default {
            return;
          }
 
-         axios.post('http://739k121.mars-e1.mars-hosting.com/inkvizicija/register.js',{
-          username: this.username,
-          password1: this.password1
+         axios.post('http://739k121.mars-e1.mars-hosting.com/inkvizicija/unosPitanja.js',{
+          question: this.tekstPitanja,
+          qst_level: this.izabran,
+          tacanOdgovor: this.tacanOdgovor,
+          odgovor2: this.odgovor2,
+          odgovor3: this.odgovor3,
+          odgovor4: this.odgovor4
          }).then(response => {
-           
+           location.reload();
 
          });
 
