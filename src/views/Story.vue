@@ -33,8 +33,8 @@
         <h1>{{vreme}}</h1>
       </div>
     </div>
-<button id="krajFaze" v-if="stageOver">Sledeca Faza</button>
-<button id="krajFaze" v-if="gameover">KRAJ IGRE</button>
+<button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button>
+<button id="krajFaze"   v-if="gameover">KRAJ IGRE</button>
     <div class="korisnik">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
@@ -55,14 +55,15 @@
       Tako počinje njegov život putnika.
     </p>
   </div>
+
+  <!-- <bonus-game></bonus-game> -->
 </div>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld.vue'
-import LoginVue from '../components/login.vue'
-import RegisterVue from '../components/register.vue'
 
+
+import BonusGame from '../components/bonusGame.vue'
 
 export default {
   name: 'story',
@@ -85,12 +86,13 @@ export default {
       poen: window.localStorage.getItem('poeni'),
       zlatnik: window.localStorage.getItem('zlato'),
       processing: false,
-      gameover:false
+      gameover:false,
+      igrica:true
 
     }
   },
   components: {
-
+'bonus-game':BonusGame
   },
   computed: {
     check() {
