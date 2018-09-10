@@ -2,10 +2,13 @@
   <div class="hello">
 
     <p>
-Najbolji kviz svih vremena      <span>
+      Opšte mišljenje nije najmerodavnije
+      <span>
             Inkvizicija
       </span>
-      &mdash; Igraj i pobedi &mdash;
+      <!-- &mdash;  -->
+      Ako nije istinito, dobro je smišljeno
+      <!-- &mdash; -->
     </p>
   </div>
 </template>
