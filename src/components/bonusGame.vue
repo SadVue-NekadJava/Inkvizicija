@@ -1,5 +1,8 @@
 <template>
 <div class="hello">
+  <audio controls autoplay loop hidden>
+    <source src="../assets/bonusGameMusic.mp3" type="audio/mp3">
+    </audio>
   <div class="score">
     <input @click="igricaPoen" type="checkbox" id="nr1" />
     <span></span>
@@ -160,9 +163,12 @@ export default {
 
 
 
+
+
   data(){
     return{
-        score:0
+        score:0,
+        hitSound: new Audio(require('../assets/bonusGameHit1.mp3'))
 
     }
   },
@@ -170,11 +176,13 @@ export default {
       igricaPoen(){
           this.score++;
           console.log(this.score);
+          this.hitSound.play();
 
       },
       igricaPoenVeliki(){
         this.score+=5;
           console.log(this.score);
+            this.hitSound.play();
       }
 
 
@@ -195,15 +203,29 @@ export default {
     height: 100%;
     width: 100%;
     overflow: hidden;
-}
-
-.hello {
+    position: absolute;
+    position: absolute;
+    background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    -webkit-box-shadow: inset 1px 13px 299px 104px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 1px 13px 299px 104px rgba(0,0,0,0.75);
+    box-shadow: inset 1px 13px 299px 104px rgba(0,0,0,0.75);
+    animation-name: bonusIgrica;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
     counter-reset: number;
     font-family: sans-serif;
-    background: url("https://cdn.pixabay.com/photo/2015/04/23/12/32/hell-735995_960_720.jpg") no-repeat center;
-    background-size: cover;
     cursor: crosshair;
 }
+
+@keyframes bonusIgrica{
+
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+}
+
 
 input[type=checkbox]:checked + span {
     counter-increment: number 1;
@@ -221,6 +243,8 @@ input[type=checkbox]:checked + span {
     margin: auto;
     z-index: 1000000;
     transform-origin: 100% 0;
+    background: #b3a8a8;
+    border-radius: 50px;
     -webkit-touch-callout: none;
     /* iOS Safari */
     -webkit-user-select: none;
@@ -250,7 +274,7 @@ input {
 
 input:checked + span:before {
     content: counter(number);
-    color:green;
+    color:black;
 }
 
 .cover {
@@ -293,7 +317,7 @@ input:checked + span + label > span {
         display: block;
         cursor: crosshair;
         transition: all 0.6s;
-        background: no-repeat center url("http://pluspng.com/img-png/devil-head-png-hd-devil-face-png-photos-1374.png");
+        background: no-repeat center url("https://www.freeiconspng.com/uploads/space-planet-earth-png-19.png");
         background-size: cover;
         &:after {
             content: "";
@@ -304,7 +328,7 @@ input:checked + span + label > span {
 }
 
 .score.special em {
-    background-image: url("http://www.clker.com/cliparts/B/1/K/I/9/M/blue-devil-face-md.png");
+    background-image: url("http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-Globe-Burning-PNG-Transparent-Image.png");
 }
 
 @keyframes result {

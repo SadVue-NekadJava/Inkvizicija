@@ -5,7 +5,7 @@
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
 
-    <div id="wrap">
+    <div id="wrap" v-if="!igrica">
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>
@@ -56,7 +56,7 @@
     </p>
   </div>
 
-  <!-- <bonus-game></bonus-game> -->
+  <bonus-game v-if="igrica"></bonus-game>
 </div>
 </template>
 
@@ -87,7 +87,7 @@ export default {
       zlatnik: window.localStorage.getItem('zlato'),
       processing: false,
       gameover:false,
-      igrica:true
+      igrica:false
 
     }
   },
@@ -115,6 +115,11 @@ export default {
     }
   },
   methods: {
+    upaliIgricu(){
+      this.igrica=true;
+
+    },
+
     smanjiVreme() {
       this.timer--;
     },
@@ -293,6 +298,7 @@ export default {
     }
   },
   mounted() {
+    setTimeout(this.upaliIgricu,5000);
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
