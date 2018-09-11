@@ -1,6 +1,6 @@
 <template>
   <div class="main"  @click="ugasi">
-    <audio controls autoplay hidden>
+    <audio controls autoplay hidden loop>
     <source src="../assets/mainMenu.mp3" type="audio/mp3">
     </audio>
 <div class="popup" id="ugasi" >

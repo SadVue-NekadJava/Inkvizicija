@@ -6,17 +6,18 @@
       </audio>
 
 
-<div class="score">
-  <p><img src="https://services.google.com/fh/files/helpcenter/points-badges_level_six.png">   1200 </p>
-   <hr>
-  <p> <img src="https://www.freepngimg.com/download/money/25591-4-cartoon-coin-transparent.png">
-     120</p>
-   <hr>
-   <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  3</p>
-   <hr>
-  <p><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  60</p>
+      <div class="score">
+        <p><img src="https://services.google.com/fh/files/helpcenter/points-badges_level_six.png">   {{poeni}} </p>
+         <hr>
+        <p> <img src="https://www.freepngimg.com/download/money/25591-4-cartoon-coin-transparent.png">
+           {{zlato}}</p>
+         <hr>
+         <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  3</p>
+         <hr>
+        <p><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  {{vreme}}</p>
 
-</div>
+      </div>
+
 
 
 
@@ -36,10 +37,7 @@
         <h6>{{check}}</h6>
       </div>
 
-      <div>
-        <h1>Poeni: {{poeni}}</h1>
-        <h1>Zlato: {{zlato}}</h1>
-      </div>
+
       <!-- <button v-on:click="play" type="button">Click Me to Play Sound</button>
  <audio ref="audioElm" src="../assets/mainMenu.mp3"></audio> -->
 
@@ -52,11 +50,7 @@
       <h1 class="popup greska" v-if="ansFalse">GRESKA !!!</h1>
       <div id="div"></div>
       <div id="h"></div>
-      <div class="vreme">
 
-
-        <h1>{{vreme}}</h1>
-      </div>
     </div>
 <button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button>
 <!-- <button id="krajFaze"   v-if="gameover">KRAJ IGRE</button> -->
@@ -399,21 +393,21 @@ img{
 
 @media screen and (max-width: 1000px){
 .score{
-  top: 1%;
-  left:0%;
-  width: 80px;
+    top: 1%;
+    left:0%;
+    width: 80px;
 
-}
-.score p{
+  }
+  .score p{
 
-  font-size: 10px;
-}
-img{width: 15px;}
+    font-size: 10px;
+  }
+  img{width: 15px;}
 
-}
-hr{
-  display: none;
-}
+  }
+  hr{
+    display: none;
+  }
 
 
 
@@ -473,25 +467,7 @@ hr{
    /* margin: 100px auto; */
   animation-name: dugme1;
 }
-.vreme {
-  position: absolute;
-  background: black;
-  opacity: 0.4;
-  border-radius: 60px;
-  width: 100px;
-  height: 100px;
-  animation: pulse 1s infinite;
-  top: 90%;
-  left: 90%;
-  margin-left: -250px;
-  margin-top: -250px;
-}
-h1{
-  color:white;
-}
-.vreme h1 {
-  padding: 10px;
-}
+
 
 @keyframes pulse {
   0% {
@@ -514,7 +490,7 @@ h1{
   animation-name: coming;
   animation-duration: 3s;
   animation-delay: 1s;
-  background-image: url('../assets/questionsBackground.jpg');
+  background-image: url('../assets/questionBackground1.jpg');
   background-repeat: no-repeat;
   min-height: 974px;
   background-size: cover;
