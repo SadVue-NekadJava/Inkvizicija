@@ -31,7 +31,7 @@
 
 
 
-    <div id="wrap" v-if="!igrica">
+    <div id="wrap" v-if="!gameover" >
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>
@@ -434,7 +434,7 @@ img{
   margin-top: -200px;
   animation-name: krajIgreAnim;
   animation-duration: 2s;
-  animation-delay: 6s;
+
 
 
 }
@@ -573,7 +573,7 @@ img{
   margin-left: -200px;
   margin-top: -200px;
   animation-name: iz;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
 }
 
 @keyframes iz {
