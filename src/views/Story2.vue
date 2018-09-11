@@ -43,16 +43,16 @@
   </div>
   <div class="intro" id="ugasi">
     <h3>Djordano Bruno</h3>
-    <p>Delo De revolutionibus orbium coelestium (O gibanju nebeskih tela) u kome Kopernik iznosi heliocentričnu sliku sveta,
-      a koja tada još nije bila zabranjena, unosi nemir u njegov mladi duh.
+    <p>Putuje po celoj Evropi, gotovo bez odmora: Venecija, Ženeva, Tuluz…
+      U Parizu stiče slavu kao predavač i naklonost francuskog kralja Henrika III.
+      Izdaje nekoliko dela koja posvećuje kralju, i s njegovim poslanikom odlazi u London.
     </p>
     <p>
-      Kao istinski filozof sledi vlastiti put u traganju za istinom,
-      i više se ne uklapa u zadate okvire.
+       U Oksfordu i Londonu izaziva bunu svojim raspravama i knjigama.
     </p>
     <p>
-      Sa dvadeset i sedam godina, 1575. godine, optužen je za jeres (u 130 tačaka), napušta red i beži.
-      Tako počinje njegov život putnika.
+      Vraća se u Pariz gde se sukobljava s aristotelovcima, a onda preko Nemačke stiže u Prag.
+      Par godina kasnijeplemić Močenigo poziva ga u Veneciju kao privatnog učitelja...
     </p>
   </div>
 
