@@ -2,7 +2,7 @@
 <div class="story" @click.once="ugasi">
   <div class="main">
     <audio controls autoplay loop hidden>
-      <source src="../assets/questions.mp3" type="audio/mp3">
+      <source src="../assets/story2Music.wav" type="audio/mp3">
       </audio>
 
     <div id="wrap" >
@@ -52,7 +52,7 @@
     </p>
     <p>
       Vraća se u Pariz gde se sukobljava s aristotelovcima, a onda preko Nemačke stiže u Prag.
-      Par godina kasnijeplemić Močenigo poziva ga u Veneciju kao privatnog učitelja...
+      Par godina kasnije plemić Močenigo poziva ga u Veneciju kao privatnog učitelja...
     </p>
   </div>
 
