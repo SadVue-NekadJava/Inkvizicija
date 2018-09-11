@@ -1,10 +1,15 @@
 <template>
 <div class="hiscore">
 
-<h1 class="gameMode">Informacije o igracu</h1>
+<h1 class="gameMode">Najbolji igraci</h1>
 
 
-
+<table>
+  <th></th>
+  <tr>
+    <td></td>
+  </tr>
+</table>
 
 
 

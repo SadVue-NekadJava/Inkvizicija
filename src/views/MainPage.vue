@@ -21,7 +21,7 @@
 
 
      <router-link to="/story"  class="gameMode">Zapocni igru</router-link> <br>
-    <label v-if="!adminUser"><router-link to="#" class="gameMode">Duel</router-link><br></label>
+    <label v-if="!adminUser"><router-link to="/score" class="gameMode">Najbolji igraci</router-link><br></label>
      <label v-if="adminUser"><router-link to="/admin" class="gameMode">Izmeni pitanja</router-link><br></label>
      <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Izlaz</router-link></label>
      </div>

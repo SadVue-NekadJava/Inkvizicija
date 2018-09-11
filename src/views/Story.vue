@@ -685,5 +685,6 @@ h6 {
   font-size: 30px;
   color: white;
   margin-top: 0px;
+  max-width: 85%;
 }
 </style>
