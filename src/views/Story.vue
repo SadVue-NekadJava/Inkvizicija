@@ -6,6 +6,21 @@
       </audio>
 
 
+<div class="score">
+  <p><img src="https://services.google.com/fh/files/helpcenter/points-badges_level_six.png">   1200 </p>
+   <hr>
+  <p> <img src="https://www.freepngimg.com/download/money/25591-4-cartoon-coin-transparent.png">
+     120</p>
+   <hr>
+   <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  3</p>
+   <hr>
+  <p><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  60</p>
+
+</div>
+
+
+
+
 <div class="krajIgre" v-if="gameover"   >
 
 <h1>Kraj Igre</h1>
@@ -356,6 +371,59 @@ export default {
 </script>
 
 <style scoped >
+.score{
+  position: absolute;
+  top:2%;
+  right:2%;
+
+  height:200px;
+  width:200px;
+  background:transparent;
+  border-radius:30px;
+  padding:20px 10px;
+}
+
+.score p{
+  font-size:20px;
+  color:white;
+  padding-bottom: 5px;
+
+}
+
+img{
+  width:30px;
+  margin-bottom: -9px;
+}
+
+
+
+@media screen and (max-width: 1000px){
+.score{
+  top: 1%;
+  left:0%;
+  width: 80px;
+
+}
+.score p{
+
+  font-size: 10px;
+}
+img{width: 15px;}
+
+}
+hr{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 .krajIgre{
