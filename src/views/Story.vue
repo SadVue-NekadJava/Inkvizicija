@@ -12,7 +12,7 @@
         <p> <img src="https://www.freepngimg.com/download/money/25591-4-cartoon-coin-transparent.png">
            {{zlato}}</p>
          <hr>
-         <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  3</p>
+         <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  {{netacniOdgovori}}</p>
          <hr>
         <p><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  {{vreme}}</p>
 
