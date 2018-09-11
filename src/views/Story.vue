@@ -5,6 +5,16 @@
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
 
+
+<div class="krajIgre" v-if="gameover"   >
+
+<h1>Kraj Igre</h1>
+
+</div>
+
+
+
+
     <div id="wrap" v-if="!igrica">
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
@@ -34,7 +44,7 @@
       </div>
     </div>
 <button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button>
-<button id="krajFaze"   v-if="gameover">KRAJ IGRE</button>
+<!-- <button id="krajFaze"   v-if="gameover">KRAJ IGRE</button> -->
     <div class="korisnik">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
@@ -56,7 +66,7 @@
     </p>
   </div>
 
-  <bonus-game v-if="igrica"></bonus-game>
+  <!-- <bonus-game v-if="igrica"></bonus-game> -->
 </div>
 </template>
 
@@ -346,6 +356,51 @@ export default {
 </script>
 
 <style scoped >
+
+
+.krajIgre{
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
+  position: absolute;
+    font-size: 100px;
+  top: 37%;
+  left: 50%;
+  width: 400px;
+  height: 200px;
+  margin-left: -200px;
+  margin-top: -200px;
+  animation-name: krajIgreAnim;
+  animation-duration: 2s;
+  animation-delay: 6s;
+
+
+}
+
+@keyframes krajIgreAnim{
+
+  from{
+    transform: scale(0);
+  }
+  to{
+  transform: scale(1);
+  }
+}
+
+
+
+
+.krajIgre h1{
+  font-family: 'Acme', sans-serif;
+  color:transparent;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: orange;
+   line-height: 1.1;
+
+
+}
+
+
 #krajFaze{
    /* margin: 100px auto; */
   animation-name: dugme1;
