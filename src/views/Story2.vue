@@ -89,7 +89,7 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage: false,
-      timer: 25,
+      timer: 5,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
@@ -203,7 +203,8 @@ export default {
           this.timer = 0;
           } else {
           console.log('isteklo vreme');
-          this.gameover=true
+          this.gameover=true;
+          setTimeout(()=>{this.$router.push('/mainPage');},3000)
           }
         }
     },

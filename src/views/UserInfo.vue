@@ -1,7 +1,7 @@
 <template>
 <div class="userInfo">
 
-<h1 class="gameMode">Statistika</h1>
+<h1 class="gameMode Naslov">Statistika</h1>
 
 
 <div class="info">
@@ -67,8 +67,8 @@ export default {
 <style scoped >
 .info h1{
   display: inline;
-
-  font-size: 100px;
+  color: rgba(255,255,255,.6);
+  font: 400 4em/0.5 "Neuton";
 }
 .info{
 margin-top:200px;
@@ -84,7 +84,10 @@ margin-left:500px;
   background-size: cover;
   background-position: center;
 }
-
+.Naslov{
+  color: rgba(255,255,255,.6);
+  font: 400 1em/1.5 "Neuton";
+}
 
 
 img{
