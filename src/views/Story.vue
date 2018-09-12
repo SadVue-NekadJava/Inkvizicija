@@ -14,7 +14,7 @@
          <hr>
          <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  {{netacniOdgovori}}</p>
          <hr>
-        <p><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  {{vreme}}</p>
+        <p v-if="sat"><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  {{vreme}}</p>
 
       </div>
 
@@ -22,7 +22,7 @@
 
 
 
-<div class="krajIgre" v-if="gameover"   >
+<div class="krajIgre" v-if="gameover">
 
 <h1>Kraj Igre</h1>
 
@@ -52,7 +52,7 @@
       <div id="h"></div>
 
     </div>
-<button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button>
+<!-- <button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button> -->
 <!-- <button id="krajFaze"   v-if="gameover">KRAJ IGRE</button> -->
     <div class="korisnik">
       <h3>Korisnik: </h3>
@@ -75,7 +75,7 @@
     </p>
   </div>
 
-  <bonus-game v-if="igrica"></bonus-game>
+  <bonus-game v-if="perfect"></bonus-game>
 </div>
 </template>
 
@@ -106,7 +106,9 @@ export default {
       zlatnik: window.localStorage.getItem('zlato'),
       processing: false,
       gameover:false,
-      igrica:false
+      igrica:false,
+      stagePerfect:false,
+      sat:true
 
     }
   },
@@ -131,6 +133,9 @@ export default {
     },
     zlato(){
       return this.zlatnik;
+    },
+    perfect(){
+      return this.stagePerfect;
     }
   },
   methods: {
@@ -166,17 +171,31 @@ export default {
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
         btns[i].style.display = 'none';
-        console.log(this.netacniOdgovori);
-        if(this.netacniOdgovori<3)
+        //console.log(this.netacniOdgovori);
+        }
+        if(this.stagePerfect == true || this.nextStage == true){
+          return;
+        }
+
+        if(this.stagePerfect == false && this.nextStage == false){
+          if(this.netacniOdgovori<3 && this.timer>0){
+            this.sat=false;
+            if(this.netacniOdgovori<1){
+            console.log('perfektna faza');
+            this.stagePerfect=true;
+            setTimeout(()=>this.stagePerfect=false,30000);
+            }else{
+            console.log('zavrsena faza');
         this.nextStage = true;
-        if (this.timer > 0) {
-          //console.log(this.tacniOdgovori);
+            }
+          console.log('');
 
           this.timer = 0;
-        } else {
-          //console.log(this.tacniOdgovori);
+          } else {
+          console.log('isteklo vreme');
+          this.gameover=true
+          }
         }
-      }
     },
     hideButtons(id) {
       var btns = document.getElementsByName('button');
@@ -317,7 +336,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(this.upaliIgricu,7000);
+    //setTimeout(this.upaliIgricu,7000);
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
