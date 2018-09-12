@@ -25,10 +25,10 @@
      <label v-if="adminUser"><router-link to="/admin" class="gameMode">Izmeni pitanja</router-link><br></label>
      <label  @click="izbrisiSid"><router-link to="/"  class="gameMode">Izlaz</router-link></label>
      </div>
-     <div class="korisnik">
-     <h3>Korisnik: </h3>
-     <h3><span class="ime">{{user}}</span></h3>
-   </div>
+     <router-link to="/usrInfo">  <div class="korisnik">
+         <h3>Korisnik: </h3>
+         <h3><span class="ime">{{name}}</span></h3>
+       </div></router-link>
    <!-- <div id="logfire"> -->
     <div id="flamegroup">
            <div class="flame"></div>
