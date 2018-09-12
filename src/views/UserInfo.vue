@@ -4,16 +4,16 @@
 <h1 class="gameMode">Statistika</h1>
 
 
-<table>
-  <tr>
-<th><img src="../assets/points.png">{{users.usr_points}}</th>
-<th> <img src="../assets/coins.png">{{users.usr_gold}}</th>
-  </tr>
-  <tr v-for="">
-    <td></td>
-  </tr>
-</table>
+<div class="info">
 
+
+
+<img src="http://www.sperling.it/risorse/GiordanoBruno/img/bruno1.png"><h1>{{users.usr_name}}</h1><br>
+<img src="../assets/points.png"><h1>{{users.usr_points}}</h1><br>
+ <img src="../assets/coins.png"><h1>{{users.usr_gold}}</h1>
+
+
+</div>
 
 
 
@@ -65,7 +65,18 @@ export default {
 
 
 <style scoped >
+.info h1{
+  display: inline;
 
+  font-size: 100px;
+}
+.info{
+margin-top:200px;
+text-align: left;
+margin-left:500px;
+
+
+}
 .userInfo{
   background-image: url("../assets/userInfoBack.png");
   background-repeat: no-repeat;
@@ -74,19 +85,10 @@ export default {
   background-position: center;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
 
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
 
 img{
   width: 100px;
+  margin-right: 50px;
 }
 </style>

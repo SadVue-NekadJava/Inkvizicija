@@ -4,11 +4,14 @@
 <h1 class="gameMode">Najbolji igraci</h1>
 
 
-<table v-for="user in users">
-  <th>{{user.usr_name}}</th>
-  <tr>
-    <td>{{user.usr_points}}</td>
-    <td>{{user.usr_gold}}</td>
+<table class="tabela">
+  <th class="gameMode">Ime</th>
+  <th class="gameMode">Poeni</th>
+  <th class="gameMode">Zlato</th>
+  <tr v-for="user in users">
+    <td class="gameMode">{{user.usr_name}}</td>
+    <td class="gameMode">{{user.usr_points}}</td>
+    <td class="gameMode">{{user.usr_gold}}</td>
   </tr>
 </table>
 
@@ -63,7 +66,22 @@ export default {
 
 
 <style scoped >
+.tabela{
+margin-left: auto;
+margin-right: auto;
+padding-top: 100px;
 
+}
+th,tr,td{
+  border: 0;
+  font-size: 20px;
+}
+
+
+
+th{
+  color: white;
+}
 .hiscore{
   background-image: url("../assets/scoreBackground.jpg");
   background-repeat: no-repeat;

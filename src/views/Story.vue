@@ -39,8 +39,7 @@
       </div>
 
 
-      <!-- <button v-on:click="play" type="button">Click Me to Play Sound</button>
- <audio ref="audioElm" src="../assets/mainMenu.mp3"></audio> -->
+    
 
       <button @click="pitanje" id="0" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
       <button @click="pitanje" id="1" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
@@ -54,11 +53,7 @@
 
     </div>
 <button  id="krajFaze"  v-if="stageOver" @click="story2">Sledeca Faza </button>
-<!-- <button id="krajFaze"   v-if="gameover">KRAJ IGRE</button> -->
-    <div class="korisnik">
-      <h3>Korisnik: </h3>
-      <h3><span class="ime">{{name}}</span></h3>
-    </div>
+
 
   </div>
   <div class="intro" id="ugasi">
