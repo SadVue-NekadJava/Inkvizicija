@@ -6,8 +6,8 @@
 
 <table>
   <tr>
-<th></th>
-<th></th>
+<th><img src="../assets/points.png"></th>
+<th> <img src="../assets/coins.png"></th>
   </tr>
   <tr v-for="">
     <td></td>
@@ -79,4 +79,7 @@ th, td {
     padding: 8px;
 }
 
+img{
+  width: 100px;
+}
 </style>
