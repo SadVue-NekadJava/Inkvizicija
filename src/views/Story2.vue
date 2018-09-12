@@ -32,7 +32,7 @@
         <h6>{{check}}</h6>
       </div>
 
-    
+
       <!-- <button v-on:click="play" type="button">Click Me to Play Sound</button>
  <audio ref="audioElm" src="../assets/mainMenu.mp3"></audio> -->
 
@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       name: window.localStorage.getItem('username'),
-      level: this.$store.state.questionLevel,
+      level:2,
       questions: [],
       number: 0,
       answers: ['A', 'B', 'C', 'D'],
@@ -194,6 +194,7 @@ export default {
           question: this.singleQuestion
         }
       }).then(response => {
+        console.log(response);
         for (var i = 0; i < 4; i++) {
           if (response.data[i].ans_true == 1)
             this.ansTrue = response.data[i].ans_text;
@@ -312,7 +313,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(this.upaliIgricu,5000);
+    //setTimeout(this.upaliIgricu,5000);
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
@@ -328,6 +329,7 @@ export default {
       this.$router.push('/');
   },
   created() {
+    console.log(this.level);
     // get question
     axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js", {
       params: {

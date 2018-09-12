@@ -90,7 +90,7 @@ export default {
   data() {
     return {
       name: window.localStorage.getItem('username'),
-      level: this.$store.state.questionLevel,
+      level:1,
       questions: [],
       number: 0,
       answers: ['A', 'B', 'C', 'D'],
