@@ -31,7 +31,7 @@
 
 
 
-    <div id="wrap" v-if="!gameover" >
+    <div id="wrap" v-if="!igrica" >
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>
@@ -75,7 +75,7 @@
     </p>
   </div>
 
-  <!-- <bonus-game v-if="igrica"></bonus-game> -->
+  <bonus-game v-if="igrica"></bonus-game>
 </div>
 </template>
 
@@ -317,7 +317,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(this.upaliIgricu,5000);
+    setTimeout(this.upaliIgricu,7000);
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
