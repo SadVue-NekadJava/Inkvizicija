@@ -167,20 +167,19 @@ export default {
 
   data(){
     return{
-        score:0,
         hitSound: new Audio(require('../assets/bonusGameHit1.mp3'))
 
     }
   },
   methods:{
       igricaPoen(){
-          this.score++;
+          this.$store.state.bonusPoints++;
           console.log(this.score);
           this.hitSound.play();
 
       },
       igricaPoenVeliki(){
-        this.score+=5;
+        this.$store.state.bonusPoints+=5;
           console.log(this.score);
             this.hitSound.play();
       }

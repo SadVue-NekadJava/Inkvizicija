@@ -53,7 +53,7 @@
       <div id="h"></div>
 
     </div>
-<!-- <button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button> -->
+<button  id="krajFaze"  v-if="stageOver" @click="story2">Sledeca Faza </button>
 <!-- <button id="krajFaze"   v-if="gameover">KRAJ IGRE</button> -->
     <div class="korisnik">
       <h3>Korisnik: </h3>
@@ -140,6 +140,13 @@ export default {
     }
   },
   methods: {
+    story2(){
+      this.poen = Number(window.localStorage.getItem('poeni'));
+      this.poen+=this.$store.state.bonusPoints*10;
+      window.localStorage.setItem('poeni', this.poen);
+      this.$router.push('/story2');
+      this.$store.state.questionLevel=2;
+    },
     upaliIgricu(){
       this.igrica=true;
 
@@ -185,6 +192,16 @@ export default {
             console.log('perfektna faza');
             this.stagePerfect=true;
             setTimeout(()=>this.stagePerfect=false,30000);
+            setTimeout(()=>this.nextStage=true,30000);
+            setTimeout(()=>{
+              var sve = document.getElementById('wrap');
+              sve.style.visibility = 'hidden';
+              var btns = document.getElementsByName('button');
+              for (var i = 0; i < 4; i++) {
+                btns[i].style.display = 'none';
+                //console.log(this.netacniOdgovori);
+                }
+            },30000);
             }else{
             console.log('zavrsena faza');
         this.nextStage = true;
