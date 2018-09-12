@@ -207,6 +207,7 @@ export default {
           } else {
           console.log('isteklo vreme');
           this.gameover=true;
+          this.$store.state.qstNum=0;
           setTimeout(()=>{this.$router.push('/mainPage');},3000)
           }
         }
