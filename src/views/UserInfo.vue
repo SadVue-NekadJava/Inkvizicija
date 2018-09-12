@@ -1,8 +1,8 @@
 <template>
 <div class="userInfo">
 
-<h1 class="gameMode Naslov">Statistika</h1>
-
+<h1 class="gameMode Naslov">Statistika</h1><br>
+<router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
 
 <div class="info">
 
@@ -64,7 +64,18 @@ export default {
 
 
 
+
 <style scoped >
+
+
+.nazad:hover{
+  color: white;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.3);
+}
+
+
+
 .info h1{
   display: inline;
   color: rgba(255,255,255,.6);

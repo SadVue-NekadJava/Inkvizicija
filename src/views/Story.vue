@@ -52,7 +52,7 @@
       <div id="h"></div>
 
     </div>
-<button  id="krajFaze"  v-if="stageOver" @click="story2">Sledeca Faza </button>
+<div  id="krajFaze"  v-if="stageOver" @click="story2">Sledeca Faza </div>
 
 
   </div>
@@ -92,7 +92,7 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage: false,
-      timer: 45,
+      timer: 25,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
@@ -505,8 +505,7 @@ img{
 
 
 #krajFaze{
-   /* margin: 100px auto; */
-  animation-name: dugme1;
+
 }
 
 

@@ -1,9 +1,9 @@
 <template>
 <div class="hiscore">
 
-<h1 class="gameMode">Najbolji igraci</h1>
+<h1 class="gameMode">Najbolji igraci</h1><br>
 
-
+<router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
 <table class="tabela">
   <th class="gameMode">Ime</th>
   <th class="gameMode">Poeni</th>
@@ -66,6 +66,17 @@ export default {
 
 
 <style scoped >
+
+.nazad:hover{
+  color: white;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.3);
+}
+
+
+
+
+
 .tabela{
 margin-left: auto;
 margin-right: auto;
