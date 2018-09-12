@@ -4,7 +4,7 @@
     <source src="../assets/shortCut.mp3" type="audio/mp3">
     </audio>
 
-  <form class="">
+  <form >
     <h3 v-if="registered">USPESNA REGISTRACIJA</h3>
     <h3 v-if="notlogged">POGRESNI PODACI</h3>
     <label class="gameMode">Korisnicko ime</label><br>
@@ -73,14 +73,20 @@ export default {
     }
   },
   mounted() {
-    if (window.localStorage.getItem('sessionid') != null) {
-      this.$router.push('mainPage');
-    }
+    // if (window.localStorage.getItem('sessionid') != null) {
+    //   this.$router.push('home');
+    // }
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+h3{
+    color: rgba(255,255,255,.8);
+}
+
+
 .unosi {
     margin: 30px;
     padding: 10px 50px;

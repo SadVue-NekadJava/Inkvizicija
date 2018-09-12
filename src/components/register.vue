@@ -2,6 +2,8 @@
   <div class="hello">
 
 
+
+
   <form class="">
     <h3 v-if="samePass">UNELI STE RAZLICITE LOZINKE ILI PREKRATKU LOZINKU !</h3>
     <h3 v-if="blankUser">PRAZNO ILI POSTOJECE KORISNICKO IME !</h3>
@@ -11,7 +13,7 @@
     <input v-model="password1" class="unosi" type="password" name="" value=""><br>
 
     <input v-model="password2" class="unosi zadnji" type="password" name="" value=""><br>
-      <label class="gameMode">Potvrdi lozinku</label><br>
+    <router-link to="/" class="gameMode nazad">Nazad</router-link><br>
     <div class="wrap">
     <button v-on:click.prevent="register" class="clicker right">Registruj se</button>
     <div class="circle angled right"></div>
@@ -67,6 +69,13 @@ export default {
 
 <style scoped lang="scss">
 
+.nazad:hover {
+    color: white;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.3);
+
+}
+
 .unosi{
     margin: 26px;
     padding: 10px 50px;
@@ -76,7 +85,9 @@ export default {
         margin-top: 0;
 
         }
-
+h3{
+    color: rgba(255,255,255,.8);
+}
 
 
 
