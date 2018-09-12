@@ -95,26 +95,25 @@ export default {
 .main{
     background-image: url("../assets/adminMode.jpg");
     background-repeat: no-repeat;
+    opacity: 0;
     min-height: 974px;
     background-size: cover;
     background-position: center;
-    animation-name: coming ;
-    transition-timing-function: ease-out;
-      animation-duration: 3s;
-      animation-delay: 1.5s;
-    }
+    animation-name: ulaz;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 
-    @keyframes coming {
-      from {
-        transform: translateY(200px);
-        opacity: 0;
-          }
-      to{
-        transform: translateY(0px);
-        opacity: 1;
+}
+@keyframes ulaz{
 
-      }
-    }
+from{
+  opacity: 0;
+}
+  to{
+    opacity: 1;
+  }
+}
 
 
 .logo{

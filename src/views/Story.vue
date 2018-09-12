@@ -39,7 +39,7 @@
       </div>
 
 
-    
+
 
       <button @click="pitanje" id="0" type="button" name="button" :value="answers[0]">{{answers[0]}}</button>
       <button @click="pitanje" id="1" type="button" name="button" :value="answers[1]">{{answers[1]}}</button><br>
@@ -458,6 +458,7 @@ img{
   text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
   position: absolute;
     font-size: 100px;
+    opacity: 0;
   top: 37%;
   left: 50%;
   width: 400px;
@@ -466,6 +467,8 @@ img{
   margin-top: -200px;
   animation-name: krajIgreAnim;
   animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 
 
 
@@ -475,9 +478,11 @@ img{
 
   from{
     transform: scale(0);
+    opacity: 0;
   }
   to{
   transform: scale(1);
+  opacity: 1;
   }
 }
 
@@ -520,24 +525,26 @@ img{
 
 .story {
   animation-name: coming;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-delay: 1s;
+  opacity: 0;
   background-image: url('../assets/questionBackground1.jpg');
   background-repeat: no-repeat;
   min-height: 974px;
-  background-size: cover;
-  background-position: center;
-}
+  animation-name: ulaz;
+  animation-duration:1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 
-@keyframes coming {
-  from {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 0.8;
-  }
+}
+@keyframes ulaz{
+
+from{
+opacity: 0;
+}
+to{
+  opacity: 1;
+}
 }
 
 .intro h3 {
@@ -606,6 +613,8 @@ img{
   margin-top: -200px;
   animation-name: iz;
   animation-duration: 1s;
+
+
 }
 
 @keyframes iz {

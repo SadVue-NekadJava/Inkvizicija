@@ -49,7 +49,7 @@
   opacity: 0;
 } */
 .router-anim-leave-active {
-  animation: going 2s;
+  animation: going 1s;
     }
 
     @keyframes going {
