@@ -6,8 +6,8 @@
 
 <table>
   <tr>
-<th><img src="../assets/points.png"></th>
-<th> <img src="../assets/coins.png"></th>
+<th><img src="../assets/points.png">{{users.usr_points}}</th>
+<th> <img src="../assets/coins.png">{{users.usr_gold}}</th>
   </tr>
   <tr v-for="">
     <td></td>
@@ -33,7 +33,8 @@ export default {
     name: 'score',
     data() {
       return {
-
+        user:window.localStorage.getItem('username'),
+        users:[]
 
         }
       },
@@ -50,7 +51,13 @@ export default {
 
       },
     created() {
-
+      axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/register.js", {
+        params: {
+          username: this.user
+        }
+      }).then(response => {
+        this.users = response.data.user[0];
+      });
   }
 }
 </script>
