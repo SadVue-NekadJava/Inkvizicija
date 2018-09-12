@@ -1,32 +1,38 @@
 <template>
 <div class="story" @click.once="ugasi">
-  <div class="main">
+  <div  class="main" >
     <audio controls autoplay loop hidden>
       <source src="../assets/story2Music.wav" type="audio/mp3">
       </audio>
 
 
-      <div class="score">
-        <p><img src="https://services.google.com/fh/files/helpcenter/points-badges_level_six.png">   {{poeni}} </p>
+
+
+      <div class="score"  >
+        <p><img src="../assets/points.png">   {{poeni}} </p>
          <hr>
-        <p> <img src="https://www.freepngimg.com/download/money/25591-4-cartoon-coin-transparent.png">
+        <p> <img src="../assets/coins.png">
            {{zlato}}</p>
          <hr>
-         <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  3</p>
+         <p><img v-if="this.netacniOdgovori<=2" src="../assets/heart.png"><img  v-if="this.netacniOdgovori<=1" src="../assets/heart.png"><img  v-if="this.netacniOdgovori<=0" src="../assets/heart.png">  </p>
          <hr>
-        <p><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  {{vreme}}</p>
+        <p v-if="sat"><img src="../assets/clock.png">  {{vreme}}</p>
 
       </div>
 
 
 
 
+<div class="krajIgre" v-if="gameover">
+
+<h1>Kraj Igre</h1>
+
+</div>
 
 
 
 
-
-    <div id="wrap" >
+    <div id="wrap" v-if="!perfect||stageOver " >
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>
@@ -47,8 +53,8 @@
       <div id="h"></div>
 
     </div>
-<button  id="krajFaze"  v-if="stageOver">Sledeca Faza</button>
-<button id="krajFaze"   v-if="gameover">KRAJ IGRE</button>
+<button  id="krajFaze"  v-if="stageOver" @click="story2">Sledeca Faza </button>
+<!-- <button id="krajFaze"   v-if="gameover">KRAJ IGRE</button> -->
     <div class="korisnik">
       <h3>Korisnik: </h3>
       <h3><span class="ime">{{name}}</span></h3>
@@ -57,20 +63,20 @@
   </div>
   <div class="intro" id="ugasi">
     <h3>Djordano Bruno</h3>
-    <p>Putuje po celoj Evropi, gotovo bez odmora: Venecija, Ženeva, Tuluz…
-      U Parizu stiče slavu kao predavač i naklonost francuskog kralja Henrika III.
-      Izdaje nekoliko dela koja posvećuje kralju, i s njegovim poslanikom odlazi u London.
+    <p>Delo De revolutionibus orbium coelestium (O gibanju nebeskih tela) u kome Kopernik iznosi heliocentričnu sliku sveta,
+      a koja tada još nije bila zabranjena, unosi nemir u njegov mladi duh.
     </p>
     <p>
-       U Oksfordu i Londonu izaziva bunu svojim raspravama i knjigama.
+      Kao istinski filozof sledi vlastiti put u traganju za istinom,
+      i više se ne uklapa u zadate okvire.
     </p>
     <p>
-      Vraća se u Pariz gde se sukobljava s aristotelovcima, a onda preko Nemačke stiže u Prag.
-      Par godina kasnije plemić Močenigo poziva ga u Veneciju kao privatnog učitelja...
+      Sa dvadeset i sedam godina, 1575. godine, optužen je za jeres (u 130 tačaka), napušta red i beži.
+      Tako počinje njegov život putnika.
     </p>
   </div>
 
-  <!-- <bonus-game v-if="igrica"></bonus-game> -->
+  <bonus-game v-if="perfect"></bonus-game>
 </div>
 </template>
 
@@ -80,11 +86,11 @@
 import BonusGame from '../components/bonusGame.vue'
 
 export default {
-  name: 'story2',
+  name: 'story',
   data() {
     return {
       name: window.localStorage.getItem('username'),
-      level:2,
+      level:1,
       questions: [],
       number: 0,
       answers: ['A', 'B', 'C', 'D'],
@@ -101,7 +107,9 @@ export default {
       zlatnik: window.localStorage.getItem('zlato'),
       processing: false,
       gameover:false,
-      igrica:false
+      igrica:false,
+      stagePerfect:false,
+      sat:true
 
     }
   },
@@ -126,9 +134,19 @@ export default {
     },
     zlato(){
       return this.zlatnik;
+    },
+    perfect(){
+      return this.stagePerfect;
     }
   },
   methods: {
+    story2(){
+      this.poen = Number(window.localStorage.getItem('poeni'));
+      this.poen+=this.$store.state.bonusPoints*10;
+      window.localStorage.setItem('poeni', this.poen);
+      this.$router.push('/story2');
+      this.$store.state.questionLevel=2;
+    },
     upaliIgricu(){
       this.igrica=true;
 
@@ -161,17 +179,41 @@ export default {
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
         btns[i].style.display = 'none';
-        console.log(this.netacniOdgovori);
-        if(this.netacniOdgovori<3)
+        //console.log(this.netacniOdgovori);
+        }
+        if(this.stagePerfect == true || this.nextStage == true){
+          return;
+        }
+
+        if(this.stagePerfect == false && this.nextStage == false){
+          if(this.netacniOdgovori<3 && this.timer>0){
+            this.sat=false;
+            if(this.netacniOdgovori<1){
+            console.log('perfektna faza');
+            this.stagePerfect=true;
+            setTimeout(()=>this.stagePerfect=false,30000);
+            setTimeout(()=>this.nextStage=true,30000);
+            setTimeout(()=>{
+              var sve = document.getElementById('wrap');
+              sve.style.visibility = 'hidden';
+              var btns = document.getElementsByName('button');
+              for (var i = 0; i < 4; i++) {
+                btns[i].style.display = 'none';
+                //console.log(this.netacniOdgovori);
+                }
+            },30000);
+            }else{
+            console.log('zavrsena faza');
         this.nextStage = true;
-        if (this.timer > 0) {
-          //console.log(this.tacniOdgovori);
+            }
+          console.log('');
 
           this.timer = 0;
-        } else {
-          //console.log(this.tacniOdgovori);
+          } else {
+          console.log('isteklo vreme');
+          this.gameover=true
+          }
         }
-      }
     },
     hideButtons(id) {
       var btns = document.getElementsByName('button');
@@ -188,13 +230,13 @@ export default {
       this.processing=false;
     },
     getAnswers() {
+      console.log(this.singleQuestion);
       //get answers
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js", {
         params: {
           question: this.singleQuestion
         }
       }).then(response => {
-        console.log(response);
         for (var i = 0; i < 4; i++) {
           if (response.data[i].ans_true == 1)
             this.ansTrue = response.data[i].ans_text;
@@ -313,7 +355,7 @@ export default {
     }
   },
   mounted() {
-    //setTimeout(this.upaliIgricu,5000);
+    //setTimeout(this.upaliIgricu,7000);
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
@@ -329,13 +371,13 @@ export default {
       this.$router.push('/');
   },
   created() {
-    console.log(this.level);
     // get question
     axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/inkvizicija.js", {
       params: {
-        level: this.level
+        level: 2
       }
     }).then(response => {
+      //console.log(response);
       var temp = response.data;
       Object.size = function(obj) {
         var size = 0,
@@ -349,10 +391,14 @@ export default {
       this.size = Object.size(temp);
       for (var i = 0; i < this.size; i++) {
         this.questions.push(response.data[i].question);
+
       }
       this.shuffle(this.questions);
 
+
       this.singleQuestion = this.questions[this.$store.state.qstNum];
+      //console.log(this.singleQuestion);
+      //console.log(this.$store.state.qstNum);
     });
 
     setTimeout(this.getAnswers, 1500);
@@ -362,7 +408,6 @@ export default {
 </script>
 
 <style scoped >
-
 .score{
   position: absolute;
   top:2%;
@@ -377,7 +422,7 @@ export default {
 
 .score p{
   font-size:20px;
-  color:black;
+  color:white;
   padding-bottom: 5px;
 
 }
@@ -391,31 +436,97 @@ img{
 
 @media screen and (max-width: 1000px){
 .score{
-  top: 1%;
-  left:0%;
-  width: 80px;
+    top: 1%;
+    left:0%;
+    width: 80px;
+
+  }
+  .score p{
+
+    font-size: 10px;
+  }
+  img{width: 15px;}
+
+  }
+  hr{
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+.krajIgre{
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
+  position: absolute;
+    font-size: 100px;
+  top: 37%;
+  left: 50%;
+  width: 400px;
+  height: 200px;
+  margin-left: -200px;
+  margin-top: -200px;
+  animation-name: krajIgreAnim;
+  animation-duration: 2s;
+
+
 
 }
-.score p{
 
-  font-size: 10px;
+@keyframes krajIgreAnim{
+
+  from{
+    transform: scale(0);
+  }
+  to{
+  transform: scale(1);
+  }
 }
-img{width: 15px;}
+
+
+
+
+.krajIgre h1{
+  font-family: 'Acme', sans-serif;
+  color:transparent;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: orange;
+   line-height: 1.1;
+
 
 }
-hr{
-  display: none;
-}
-
-
-
-
-
 
 
 #krajFaze{
    /* margin: 100px auto; */
   animation-name: dugme1;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+
+  }
+
+  50% {
+    transform: scale(1.14);
+
+  }
+
+  100% {
+    transform: scale(1);
+
+  }
 }
 
 .story {
@@ -428,6 +539,7 @@ hr{
   background-size: cover;
   background-position: center;
 }
+
 @keyframes coming {
   from {
     transform: translateY(-200px);
@@ -438,6 +550,7 @@ hr{
     opacity: 0.8;
   }
 }
+
 .intro h3 {
   font: 400 1.5em/1.5 "Neuton";
   letter-spacing: 0;
@@ -452,6 +565,7 @@ hr{
   color: white;
 
 }
+
 .intro p {
   font: 400 1em/1.5 "Neuton";
   letter-spacing: 0;
@@ -466,6 +580,7 @@ hr{
   color: white;
 
 }
+
 .intro {
   -webkit-box-shadow: 20px 6px 300px 200px rgba(0, 0, 0, 1);
   -moz-box-shadow: 20px 6px 300px 200px rgba(0, 0, 0, 1);
@@ -485,6 +600,10 @@ hr{
   margin-top: -250px;
 
 }
+
+
+
+
 .popup {
   font-family: 'Cinzel', serif;
   letter-spacing: 3px;
@@ -497,8 +616,9 @@ hr{
   margin-left: -200px;
   margin-top: -200px;
   animation-name: iz;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
 }
+
 @keyframes iz {
   from {
     opacity: 0;
@@ -510,12 +630,15 @@ hr{
     transform: scale(2);
   }
 }
+
 .tacno {
   color: #d49d1e;
 }
+
 .greska {
   color: red;
 }
+
 button {
   width: 300px;
   height: 100px;
@@ -530,6 +653,7 @@ button {
   animation-delay: 2s;
   margin: 40px 60px;
 }
+
 /* Custom */
 button {
   display: inline-block;
@@ -552,6 +676,7 @@ button {
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
+
 button:hover {
   top: -10px;
   box-shadow: 0px 10px 10px rgba(15, 165, 60, 0.2);
@@ -560,11 +685,13 @@ button:hover {
   -ms-transform: rotateX(20deg);
   transform: rotateX(20deg);
 }
+
 button:active {
   top: 0px;
   box-shadow: 0px 0px 0px rgba(15, 165, 60, 0.0);
   background: rgba(20, 224, 133, 1);
 }
+
 @keyframes dugme {
   from {
     opacity: 0;
@@ -574,6 +701,9 @@ button:active {
     opacity: 1;
   }
 }
+
+
+
 /* body{
   background:#e74c3c;
   color:white;
@@ -585,9 +715,11 @@ h6 {
   width: 30%;
   display: none;
 }
+
 #div {
   width: 30%;
 }
+
 .animatedText {
   font-family: 'Cinzel', serif;
   letter-spacing: 4px;
@@ -596,5 +728,6 @@ h6 {
   font-size: 30px;
   color: white;
   margin-top: 0px;
+  max-width: 85%;
 }
 </style>

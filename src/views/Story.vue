@@ -145,7 +145,7 @@ export default {
       this.poen+=this.$store.state.bonusPoints*10;
       window.localStorage.setItem('poeni', this.poen);
       this.$router.push('/story2');
-      this.$store.state.questionLevel=2;
+      this.$store.state.qstNum=0;
     },
     upaliIgricu(){
       this.igrica=true;
