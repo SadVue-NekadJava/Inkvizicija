@@ -1,23 +1,24 @@
 <template>
 <div class="story" @click.once="ugasi">
-  <div class="main">
+  <div  class="main" >
     <audio controls autoplay loop hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
 
 
-      <div class="score">
-        <p><img src="https://services.google.com/fh/files/helpcenter/points-badges_level_six.png">   {{poeni}} </p>
+
+
+      <div class="score"  >
+        <p><img src="../assets/points.png">   {{poeni}} </p>
          <hr>
-        <p> <img src="https://www.freepngimg.com/download/money/25591-4-cartoon-coin-transparent.png">
+        <p> <img src="../assets/coins.png">
            {{zlato}}</p>
          <hr>
-         <p><img src="https://www.freeiconspng.com/uploads/heart-png-31.png">  {{netacniOdgovori}}</p>
+         <p><img v-if="this.netacniOdgovori<=2" src="../assets/heart.png"><img  v-if="this.netacniOdgovori<=1" src="../assets/heart.png"><img  v-if="this.netacniOdgovori<=0" src="../assets/heart.png">  </p>
          <hr>
-        <p v-if="sat"><img src="http://files.softicons.com/download/web-icons/hand-drawing-icon-set-by-aleksandra-wolska/png/256/clock.png">  {{vreme}}</p>
+        <p v-if="sat"><img src="../assets/clock.png">  {{vreme}}</p>
 
       </div>
-
 
 
 
@@ -31,7 +32,7 @@
 
 
 
-    <div id="wrap" v-if="!igrica" >
+    <div id="wrap" v-if="!perfect||stageOver " >
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>

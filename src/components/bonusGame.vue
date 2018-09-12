@@ -204,7 +204,6 @@ export default {
     width: 100%;
     overflow: hidden;
     position: absolute;
-    position: absolute;
     background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     -webkit-box-shadow: inset 1px 13px 299px 104px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 1px 13px 299px 104px rgba(0,0,0,0.75);
