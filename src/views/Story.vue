@@ -141,6 +141,8 @@ export default {
       window.localStorage.setItem('poeni', this.poen);
       this.$router.push('/story2');
       this.$store.state.qstNum=0;
+      this.$store.state.lives=this.netacniOdgovori;
+
     },
     upaliIgricu(){
       this.igrica=true;

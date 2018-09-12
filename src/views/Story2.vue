@@ -94,7 +94,7 @@ export default {
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
       tacniOdgovori: 0,
-      netacniOdgovori: 0,
+      netacniOdgovori: this.$store.state.lives,
       poen: window.localStorage.getItem('poeni'),
       zlatnik: window.localStorage.getItem('zlato'),
       processing: false,
