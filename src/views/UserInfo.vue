@@ -1,12 +1,15 @@
 <template>
 <div class="userInfo">
 
-<h1 class="gameMode">Statistika/h1>
+<h1 class="gameMode">Statistika</h1>
 
 
 <table>
-  <th></th>
   <tr>
+<th></th>
+<th></th>
+  </tr>
+  <tr v-for="">
     <td></td>
   </tr>
 </table>
@@ -56,12 +59,24 @@ export default {
 
 <style scoped >
 
-.hiscore{
-  background-image: url("../assets/scoreBackground.jpg");
+.userInfo{
+  background-image: url("../assets/userInfoBack.png");
   background-repeat: no-repeat;
   min-height: 974px;
   background-size: cover;
   background-position: center;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
 }
 
 </style>
