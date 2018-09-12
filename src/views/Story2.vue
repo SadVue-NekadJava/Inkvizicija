@@ -524,26 +524,29 @@ img{
 }
 
 .story {
-  animation-name: coming;
-  animation-duration: 3s;
-  animation-delay: 1s;
   background-image: url('../assets/story2.jpg');
+  opacity: 0;
   background-repeat: no-repeat;
   min-height: 974px;
   background-size: cover;
   background-position: center;
+  animation-name: ulaz;
+  animation-duration:1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+
+}
+@keyframes ulaz{
+
+from{
+opacity: 0;
+}
+to{
+  opacity: 1;
+}
 }
 
-@keyframes coming {
-  from {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 0.8;
-  }
-}
+
 
 .intro h3 {
   font: 400 1.5em/1.5 "Neuton";
