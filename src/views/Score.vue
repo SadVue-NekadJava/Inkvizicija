@@ -85,7 +85,7 @@ padding-top: 100px;
 }
 th,tr,td{
   border: 0;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 

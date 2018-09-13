@@ -55,7 +55,7 @@ p {
 
 /* Clip Background Image */
 
-	  background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+	  background: url("../assets/logo.png") repeat-y;
 	  -webkit-background-clip: text;
 	  background-clip: text;
 
