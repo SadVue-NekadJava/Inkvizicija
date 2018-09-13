@@ -365,7 +365,7 @@ export default {
     var strana =  Number(window.localStorage.getItem("story"));
     window.localStorage.setItem("story", (strana+1));
     console.log(window.localStorage.getItem("story"));
-    if(window.localStorage.getItem("story")>1){
+    if(window.localStorage.getItem("story")>2){
       this.$router.push('/mainPage');
     }
     //upisivanje poena i zlata u bazu
