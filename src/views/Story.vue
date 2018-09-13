@@ -1,7 +1,7 @@
 <template>
 <div class="story" @click.once="ugasi">
   <div  class="main" >
-    <audio controls autoplay loop hidden>
+    <audio id="mySound" controls autoplay loop hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
       </audio>
 
@@ -24,7 +24,9 @@
 
 
 <div class="krajIgre" v-if="gameover">
-
+  <audio  controls autoplay  hidden>
+    <source src="../assets/krajIgre.mp3" type="audio/mp3">
+    </audio>
 <h1>Kraj Igre</h1>
 
 </div>
@@ -106,6 +108,7 @@ export default {
       stagePerfect:false,
       sat:true
 
+
     }
   },
   components: {
@@ -135,6 +138,12 @@ export default {
     }
   },
   methods: {
+
+    stopMusic(){
+
+        document.getElementById("mySound").volume=0.2;
+      },
+
     story2(){
       this.poen = Number(window.localStorage.getItem('poeni'));
       this.poen+=this.$store.state.bonusPoints*10;
@@ -209,6 +218,7 @@ export default {
           } else {
           console.log('isteklo vreme');
           this.gameover=true;
+          this.stopMusic();
           this.$store.state.qstNum=0;
           setTimeout(()=>{this.$router.push('/mainPage');},3000)
           }
