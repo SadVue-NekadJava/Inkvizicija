@@ -1,7 +1,7 @@
 <template>
 <div class="story" @click.once="ugasi">
   <div  class="main" >
-    <audio controls autoplay loop hidden>
+    <audio id="mySound" controls autoplay loop hidden>
       <source src="../assets/story2Music.mp3" type="audio/mp3">
       </audio>
 
@@ -24,7 +24,9 @@
 
 
 <div class="krajIgre" v-if="gameover">
-
+  <audio  controls autoplay  hidden>
+    <source src="../assets/krajIgre.mp3" type="audio/mp3">
+    </audio>
 <h1>Kraj Igre</h1>
 
 </div>
@@ -132,6 +134,8 @@ export default {
     }
   },
   methods: {
+    stopMusic(){
+        document.getElementById("mySound").volume=0.2;},
     story2(){
       this.poen = Number(window.localStorage.getItem('poeni'));
       this.poen+=this.$store.state.bonusPoints*10;
@@ -204,6 +208,7 @@ export default {
           } else {
           console.log('isteklo vreme');
           this.gameover=true;
+            this.stopMusic();
           this.$store.state.qstNum=0;
           setTimeout(()=>{this.$router.push('/mainPage');},3000)
           }
@@ -413,7 +418,6 @@ export default {
   position: absolute;
   top:2%;
   right:2%;
-
   height:200px;
   width:200px;
   background:transparent;
@@ -423,7 +427,7 @@ export default {
 
 .score p{
   font-size:20px;
-  color:white;
+  color:black;
   padding-bottom: 5px;
 
 }
@@ -470,6 +474,7 @@ img{
   text-shadow: 2px 2px 20px red, 0 0 1em blue, 0 0 0.2em blue;
   position: absolute;
     font-size: 100px;
+    opacity: 0;
   top: 37%;
   left: 50%;
   width: 400px;
@@ -478,6 +483,8 @@ img{
   margin-top: -200px;
   animation-name: krajIgreAnim;
   animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 
 
 
@@ -490,6 +497,7 @@ img{
   }
   to{
   transform: scale(1);
+  opacity: 1;
   }
 }
 
@@ -647,13 +655,13 @@ button {
   width: 300px;
   height: 100px;
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid gray;
   padding: 0;
   cursor: pointer;
   outline: 0;
   -webkit-appearance: none;
   animation-name: dugme;
-  animation-duration: 8s;
+  animation-duration: 3s;
   animation-delay: 2s;
   margin: 40px 60px;
 }
@@ -664,11 +672,12 @@ button {
   position: relative;
   top: 0;
   font-size: 25px;
+  font-weight: 600;
   font-family: 'Cinzel', serif;
   letter-spacing: 3px;
   border-radius: 4px;
   border-bottom: 1px solid rgba(28, 227, 125, 0.5);
-  background: transparent;
+  background: rgba(156, 167, 186, 0.5);
   color: white;
   box-shadow: 0px 0px 0px rgba(15, 165, 60, 0.1);
   -webkit-transform: translateZ(0);

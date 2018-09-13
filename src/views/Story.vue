@@ -54,7 +54,7 @@
       <div id="h"></div>
 
     </div>
-<div  id="krajFaze"  v-if="stageOver" @click="story2">Sledeca Faza </div>
+<div  id="krajFaze" v-if="stageOver"   @click="story2"><h1>Nastavi igru!</h1> </div>
 
 
   </div>
@@ -519,7 +519,16 @@ img{
 
 
 #krajFaze{
+  font-family: 'Acme', sans-serif;
+  color:transparent;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: white;
+   line-height: 1.1;
 
+}
+#krajFaze h1{
+  font-size: 80px;
+  cursor:pointer;
 }
 
 
