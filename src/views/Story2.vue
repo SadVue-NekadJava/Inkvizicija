@@ -349,7 +349,7 @@ export default {
     }
   },
   mounted() {
-
+    //provera da li je korisnik pritisnuo back ili refresh
     var strana =  Number(window.localStorage.getItem("story2"));
     window.localStorage.setItem("story2", (strana+1));
     console.log(window.localStorage.getItem("story2"));

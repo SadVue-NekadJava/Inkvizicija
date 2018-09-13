@@ -138,12 +138,11 @@ export default {
     }
   },
   methods: {
-
+    //smanjivanje muzike pred kraj igre
     stopMusic(){
-
         document.getElementById("mySound").volume=0.2;
       },
-
+    //prebacivanje na sledecu fazu igre
     story2(){
       this.poen = Number(window.localStorage.getItem('poeni'));
       this.poen+=this.$store.state.bonusPoints*10;
@@ -151,23 +150,21 @@ export default {
       this.$router.push('/story2');
       this.$store.state.qstNum=0;
       this.$store.state.lives=this.netacniOdgovori;
-
     },
+    //gasenje uvodnog teksta i start kviza
     upaliIgricu(){
       this.igrica=true;
-
     },
 
     smanjiVreme() {
       this.timer--;
     },
-
+    //gasenje diva igre po zavrsetku faze
     upali() {
       var nesto = document.getElementById('wrap');
       nesto.style.visibility = "hidden";
-
     },
-
+    //start kviza
     ugasi() {
       var nesto = document.getElementById('ugasi');
       nesto.style.visibility = "hidden";
@@ -179,6 +176,7 @@ export default {
       }
       setTimeout(this.stageEnd, this.timer * 1000);
     },
+    //provera parametara po isteku vremena ili poslednjem pitanju
     stageEnd() {
       var sve = document.getElementById('wrap');
       sve.style.visibility = 'hidden';
@@ -224,6 +222,7 @@ export default {
           }
         }
     },
+    //sakrivanje dugmica nakon odgovora
     hideButtons(id) {
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
@@ -231,6 +230,7 @@ export default {
           btns[i].style.visibility = 'hidden';
       }
     },
+    //prikazivanje dugmica sa odgovorima
     showButtons() {
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
@@ -238,6 +238,7 @@ export default {
       }
       this.processing=false;
     },
+    //uzimanje odgovora iz baze
     getAnswers() {
       //get answers
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js", {
@@ -256,25 +257,21 @@ export default {
         this.shuffle(this.answers);
       });
     },
+    //dobijanje nasumicnog niza
     shuffle(array) {
       var currentIndex = array.length,
         temporaryValue, randomIndex;
 
-      // While there remain elements to shuffle...
 
       for (var i = 0; i < currentIndex; i++) {
 
-        // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
 
-        // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
       }
-      //console.log(array);
-      //  return array;
     },
     trueAnswer() {
       this.$store.state.correct = false;
@@ -282,6 +279,7 @@ export default {
     falseAnswer() {
       this.ansFalse = false;
     },
+    //provera podataka nakon pritisnutog odgovora
     pitanje(e) {
       if(this.processing===false){
         this.processing=true;
@@ -363,7 +361,7 @@ export default {
     }
   },
   mounted() {
-
+    //provera da li je korisnik pritisnuo back ili refresh
     var strana =  Number(window.localStorage.getItem("story"));
     window.localStorage.setItem("story", (strana+1));
     console.log(window.localStorage.getItem("story"));
@@ -391,6 +389,7 @@ export default {
         level: this.level
       }
     }).then(response => {
+      //dobijanje velicine objekta
       var temp = response.data;
       Object.size = function(obj) {
         var size = 0,
@@ -400,7 +399,6 @@ export default {
         }
         return size;
       };
-      // Get the size of an object
       this.size = Object.size(temp);
       for (var i = 0; i < this.size; i++) {
         this.questions.push(response.data[i].question);
