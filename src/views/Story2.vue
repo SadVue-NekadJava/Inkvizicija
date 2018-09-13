@@ -2,7 +2,7 @@
 <div class="story" @click.once="ugasi">
   <div  class="main" >
     <audio controls autoplay loop hidden>
-      <source src="../assets/story2Music.wav" type="audio/mp3">
+      <source src="../assets/story2Music.mp3" type="audio/mp3">
       </audio>
 
 
