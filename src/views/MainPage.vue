@@ -100,7 +100,9 @@ export default {
       this.$store.state.showTransition=true;
     },
     created(){
-
+      window.localStorage.setItem('story',0);
+      window.localStorage.setItem('story2',0);
+      console.log(window.localStorage.getItem('story'));
     }
 
 

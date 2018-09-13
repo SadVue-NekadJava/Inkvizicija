@@ -349,7 +349,14 @@ export default {
     }
   },
   mounted() {
-    //setTimeout(this.upaliIgricu,7000);
+
+    var strana =  Number(window.localStorage.getItem("story2"));
+    window.localStorage.setItem("story2", (strana+1));
+    console.log(window.localStorage.getItem("story2"));
+    if(window.localStorage.getItem("story2")>1){
+      this.$router.push('/mainPage');
+    }
+
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
