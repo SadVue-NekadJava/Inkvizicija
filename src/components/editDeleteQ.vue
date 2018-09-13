@@ -1,17 +1,18 @@
 <template>
   <div class="brisanje">
 
-    <h1>Brisanje Pitanja</h1>
-
+    <h1 class="gameMode">Brisanje Pitanja</h1><br>
+<label @click="nazad" class="gameMode nazad"><p>Nazad</p> </label><br>
     <input type="text" class="unosi" placeholder="pretrazi pitanja" id="input" v-model="search">
     <div class="svaPitanja">
 
 
-<ul>
-  <li class="pitanje" v-for="pitanje in filtriranaPitanja" v-on:click="izbrisi(pitanje.qst_id)">
-    {{pitanje.question}} X
-  </li>
-</ul>
+<table>
+
+  <tr class="pitanje" v-for="pitanje in filtriranaPitanja" v-on:click="izbrisi(pitanje.qst_id)">
+  <td>  {{pitanje.question}}  </td><td><img src="../assets/minus.png" alt=""></td>
+  </tr>
+</table>
 
     </div>
 
@@ -30,12 +31,20 @@ export default {
   },
   methods:{
       izbrisi(selectedId){
+        if (confirm("Da li zelite da obrisete pitanje?")) {
+
         axios.delete('http://739k121.mars-e1.mars-hosting.com/inkvizicija/unosPitanja.js',{
           params:{id:selectedId}
         }).then(response => {
           location.reload();
         });
+      }},
+      nazad(){
+        location.reload();
       }
+
+
+
   },
   computed:{
     filtriranaPitanja(){
@@ -67,48 +76,48 @@ export default {
 
 <style scoped>
 
-.brisanje{
 
-  font: 400 1em/1.5 "Neuton";
- letter-spacing: 0;
- // padding: .25em 0 .325em;
- display: block;
- margin: 0 auto;
- text-shadow: 0 0 80px rgba(255,255,255,.5);
- text-transform: uppercase;
- letter-spacing: .5em;
- display: inline-block;
- border: 4px double rgba(255,255,255,.5);
- border-width: 4px 0;
- padding: 1.5em 0em;
- //position: absolute;
- top: 18%;
- left: 50%;
- width: 350px;
- margin: 0 auto;
- color: rgba(255,255,255,.5);
+.nazad:hover {
+  color: white;
+   transform: scale(1.3);
+  }
+
+table{
+  max-width: 700px;
+  margin-top:70px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
 }
 
 .unosi{
-width: 400px;
-background: #523b30;
- margin: 26px;
-opacity: 0.7;
-padding: 10px 50px;
-font-size: 20px;
-color: white;
-}
+    width: 400px;
+    background: #523b30;
+     margin: 26px;
+    opacity: 0.7;
+    padding: 10px 50px;
+    font-size: 20px;
+    color: white;
 
-.svaPitanja{
-overflow: auto;
-}
-.pitanje{
+    }
+
+td{
+  color:rgba(255,255,255,.7);
+  text-align: left;
+  font-size: 30px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid gray;
   cursor: pointer;
 }
-.pitanje:hover{
+img{
+  height: 30px;
+text-align: right;
 
- color: rgba(255,255,255,1);
 }
+td:hover{
+  color:white;
+}
+
 
 </style>
 ``
