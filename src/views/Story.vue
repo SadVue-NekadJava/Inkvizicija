@@ -173,6 +173,7 @@ export default {
 
       for (var i = 1; i <= this.timer; i++) {
         setTimeout(this.smanjiVreme, 1000 * i);
+
       }
       setTimeout(this.stageEnd, this.timer * 1000);
     },
@@ -210,15 +211,15 @@ export default {
             console.log('zavrsena faza');
         this.nextStage = true;
             }
-          console.log('');
-
-          this.timer = 0;
+          // console.log('');
+          //
+          // this.timer = 0;
           } else {
           console.log('isteklo vreme');
           this.gameover=true;
           this.stopMusic();
           this.$store.state.qstNum=0;
-          setTimeout(()=>{this.$router.push('/mainPage');},3000)
+          setTimeout(()=>{location.reload();},3000);
           }
         }
     },
