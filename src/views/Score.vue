@@ -11,8 +11,8 @@
   <th class="gameMode prvi">Ime</th>
   <th class="gameMode drugi">Poeni</th>
   <th class="gameMode gold">Zlato</th>
-  <tr v-for="user in users">
-    <td class="gameMode">{{user.usr_name}}</td>
+  <tr v-for="(user,index) in users">
+    <td class="gameMode ime">{{index+1}}.{{user.usr_name}}</td>
     <td class="gameMode">{{user.usr_points}}</td>
     <td class="gameMode gold">{{user.usr_gold}}</td>
   </tr>
@@ -69,6 +69,11 @@ export default {
 
 
 <style scoped >
+.ime{
+  text-align: left;
+  padding-left: 20px;
+}
+
 .prvi{
 
   padding-left: 30px;
