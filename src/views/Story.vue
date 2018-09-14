@@ -98,6 +98,7 @@ export default {
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
+      odbrojavanje: new Audio(require('../assets/countDown.wav')),
       tacniOdgovori: 0,
       netacniOdgovori: 0,
       poen: window.localStorage.getItem('poeni'),
@@ -172,6 +173,7 @@ export default {
     },
     //start kviza
     ugasi() {
+    setTimeout(this.odbrojavanje.play(),35000);
       var nesto = document.getElementById('ugasi');
       nesto.style.visibility = "hidden";
       var nesto2 = document.getElementById('wrap');
