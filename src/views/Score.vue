@@ -105,10 +105,31 @@ padding-left: 65px;
 background-image: url("../assets/hiscore1.png");
 background-repeat: no-repeat;
 background-size: cover;
-
+padding-bottom: 150px;
+opacity: 0;
+animation-name: tabel;
+animation-duration: 2s;
+animation-delay: 1s;
+animation-fill-mode: forwards;
 
 
 }
+
+
+@keyframes tabel {
+
+  from{
+    opacity: 0;
+
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
 th,tr,td{
   border: 0;
   font-size: 25px;
@@ -116,11 +137,13 @@ th,tr,td{
  font-family: 'Caveat', cursive;
  font-weight: 700;
  text-transform: none;
-
+text-shadow: 0px 0px 10px white;
 
 }
 
-
+td{
+  padding-bottom: 10px;
+}
 
 th{
   color: white;
