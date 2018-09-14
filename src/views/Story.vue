@@ -153,6 +153,9 @@ export default {
       this.$router.push('/story2');
       this.$store.state.qstNum=0;
       this.$store.state.lives=this.netacniOdgovori;
+
+      var strana =  Number(window.localStorage.getItem("story"));
+      window.localStorage.setItem("story", (strana+1));
     },
     //gasenje uvodnog teksta i start kviza
     upaliIgricu(){

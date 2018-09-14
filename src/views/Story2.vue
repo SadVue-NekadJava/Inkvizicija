@@ -364,8 +364,9 @@ export default {
     //provera da li je korisnik pritisnuo back ili refresh
     var strana =  Number(window.localStorage.getItem("story2"));
     window.localStorage.setItem("story2", (strana+1));
-    console.log(window.localStorage.getItem("story2"));
-    if(window.localStorage.getItem("story2")>1){
+    console.log('story2'+window.localStorage.getItem("story2"));
+    console.log('story'+window.localStorage.getItem("story"));
+    if(window.localStorage.getItem("story2")>1 || window.localStorage.getItem("story")!=2){
       this.$router.push('/mainPage');
     }
 
