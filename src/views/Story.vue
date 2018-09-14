@@ -525,6 +525,7 @@ img{
    -webkit-text-stroke-width: 2px;
    -webkit-text-stroke-color: white;
    line-height: 1.1;
+   text-shadow: 0px 0px 10px white;
 
 }
 #krajFaze h1{
