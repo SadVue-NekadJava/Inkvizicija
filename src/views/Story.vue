@@ -107,7 +107,8 @@ export default {
       gameover:false,
       igrica:false,
       stagePerfect:false,
-      sat:true
+      sat:true,
+      zaustaviTajmer:null
 
 
     }
@@ -154,6 +155,7 @@ export default {
       this.$router.push('/story2');
       this.$store.state.qstNum=0;
       this.$store.state.lives=this.netacniOdgovori;
+      clearTimeout(this.zaustaviTajmer);
 
       var strana =  Number(window.localStorage.getItem("story"));
       window.localStorage.setItem("story", (strana+1));
@@ -173,7 +175,7 @@ export default {
     },
     //start kviza
     ugasi() {
-    setTimeout(()=>{this.odbrojavanje.play()},(this.timer-10.3)*1000);
+    this.zaustaviTajmer = setTimeout(()=>{this.odbrojavanje.play()},(this.timer-10.3)*1000);
       var nesto = document.getElementById('ugasi');
       nesto.style.visibility = "hidden";
       var nesto2 = document.getElementById('wrap');
