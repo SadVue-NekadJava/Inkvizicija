@@ -57,9 +57,9 @@ export default {
       axios.get("http://739k121.mars-e1.mars-hosting.com/inkvizicija/scores.js", {
 
       }).then(response => {
-        console.log(response.data.data.slice(0,10));
+        // console.log(response.data.data.slice(0,10));
         this.users = response.data.data.slice(0,10);
-        console.log(this.users[0].usr_name);
+        // console.log(this.users[0].usr_name);
 
       });
   }
@@ -154,8 +154,20 @@ th{
   background-image: url("../assets/scoreBackground.jpg");
   background-repeat: no-repeat;
   min-height: 974px;
+  opacity: 0;
   background-size: cover;
   background-position: center;
+  animation-name: pauza;
+  animation-duration: 0.2s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+@keyframes pauza {
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
 }
 
 </style>

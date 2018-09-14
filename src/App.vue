@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-   <router-view v-if="prikazi"/>
-    <transition v-if="!prikazi" name="router-anim">
+   <!-- <router-view v-if="prikazi"/>
+    <transition v-if="!prikazi" name="router-anim"> -->
      <router-view/>
-  </transition>
+  <!-- </transition> -->
   </div>
 </template>
 
@@ -48,7 +48,7 @@
   animation-delay: .5s;
   opacity: 0;
 } */
-.router-anim-leave-active {
+/* .router-anim-leave-active {
   animation: going 1s;
     }
 
@@ -60,7 +60,7 @@
         transform: translateY(250px);
         opacity: 0;
       }
-    }
+    } */
 /* @keyframes coming {
   from {
     transform: translateX(-50px);
