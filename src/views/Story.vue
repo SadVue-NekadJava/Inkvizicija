@@ -94,7 +94,7 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage: false,
-      timer: 15,
+      timer: 45,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
