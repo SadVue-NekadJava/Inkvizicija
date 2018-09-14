@@ -41,7 +41,7 @@ export default {
       }).then(response => {
         var sid = response.data.sid;
         window.localStorage.setItem("sessionid", sid);
-        console.log(response.data[0].usr_access);
+        //console.log(response.data[0].usr_access);
         if (response.data.status == 'ok') {
           this.logged = true;
           this.notlogged = false;

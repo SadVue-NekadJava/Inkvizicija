@@ -34,7 +34,7 @@
 
 
 
-    <div id="wrap" v-if="!perfect||stageOver " >
+    <div id="wrap2" v-if="!perfect||stageOver " >
       <h2 class="animatedText" id="h2"></h2>
       <div class="preText">
         <h6>{{check}}</h6>
@@ -90,7 +90,7 @@ export default {
       answers: ['A', 'B', 'C', 'D'],
       size: 0,
       ansFalse: false,
-      nextStage: false,
+      nextStage2: false,
       timer: 45,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
@@ -118,7 +118,7 @@ export default {
       return this.$store.state.correct;
     },
     stageOver() {
-      return this.nextStage;
+      return this.nextStage2;
     },
     vreme() {
       return this.timer;
@@ -153,7 +153,7 @@ export default {
     },
 
     upali() {
-      var nesto = document.getElementById('wrap');
+      var nesto = document.getElementById('wrap2');
       nesto.style.visibility = "hidden";
 
     },
@@ -161,7 +161,7 @@ export default {
     ugasi() {
       var nesto = document.getElementById('ugasi');
       nesto.style.visibility = "hidden";
-      var nesto2 = document.getElementById('wrap');
+      var nesto2 = document.getElementById('wrap2');
       nesto2.style.visibility = "visible";
 
       for (var i = 1; i <= this.timer; i++) {
@@ -170,27 +170,27 @@ export default {
       setTimeout(this.stageEnd, this.timer * 1000);
     },
     stageEnd() {
-      var sve = document.getElementById('wrap');
+      var sve = document.getElementById('wrap2');
       sve.style.visibility = 'hidden';
       var btns = document.getElementsByName('button');
       for (var i = 0; i < 4; i++) {
         btns[i].style.display = 'none';
         //console.log(this.netacniOdgovori);
         }
-        if(this.stagePerfect == true || this.nextStage == true){
+        if(this.stagePerfect == true || this.nextStage2 == true){
           return;
         }
 
-        if(this.stagePerfect == false && this.nextStage == false){
+        if(this.stagePerfect == false && this.nextStage2 == false){
           if(this.netacniOdgovori<3 && this.timer>0){
             this.sat=false;
             if(this.netacniOdgovori<1){
             console.log('perfektna faza');
             this.stagePerfect=true;
             setTimeout(()=>this.stagePerfect=false,30000);
-            setTimeout(()=>this.nextStage=true,30000);
+            setTimeout(()=>this.nextStage2=true,30000);
             setTimeout(()=>{
-              var sve = document.getElementById('wrap');
+              var sve = document.getElementById('wrap2');
               sve.style.visibility = 'hidden';
               var btns = document.getElementsByName('button');
               for (var i = 0; i < 4; i++) {
@@ -200,7 +200,7 @@ export default {
             },30000);
             }else{
             console.log('zavrsena faza');
-        this.nextStage = true;
+        this.nextStage2 = true;
             }
           console.log('');
 
