@@ -4,14 +4,17 @@
 <h1 class="gameMode">Najbolji igraci</h1><br>
 
 <router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
+
+
+
 <table class="tabela">
-  <th class="gameMode">Ime</th>
-  <th class="gameMode">Poeni</th>
-  <th class="gameMode">Zlato</th>
+  <th class="gameMode prvi">Ime</th>
+  <th class="gameMode drugi">Poeni</th>
+  <th class="gameMode gold">Zlato</th>
   <tr v-for="user in users">
     <td class="gameMode">{{user.usr_name}}</td>
     <td class="gameMode">{{user.usr_points}}</td>
-    <td class="gameMode">{{user.usr_gold}}</td>
+    <td class="gameMode gold">{{user.usr_gold}}</td>
   </tr>
 </table>
 
@@ -28,7 +31,7 @@
 <script>
 
 
-import BonusGame from '../components/bonusGame.vue'
+
 
 export default {
     name: 'score',
@@ -66,6 +69,21 @@ export default {
 
 
 <style scoped >
+.prvi{
+
+  padding-left: 30px;
+}
+.drugi{
+
+text-align: left;
+padding-left: 80px;
+width: 200px;
+}
+
+.gold{
+  width: 150px;
+  padding-right: 80px;
+}
 
 .nazad:hover{
   color: white;
@@ -74,24 +92,34 @@ export default {
 }
 
 
-
-
-
 .tabela{
 margin-left: auto;
 margin-right: auto;
-padding-top: 100px;
+padding-top: 200px;
+padding-left: 65px;
+background-image: url("../assets/hiscore1.png");
+background-repeat: no-repeat;
+background-size: cover;
+
+
 
 }
 th,tr,td{
   border: 0;
-  font-size: 30px;
+  font-size: 25px;
+  color: black;
+ font-family: 'Caveat', cursive;
+ font-weight: 700;
+ text-transform: none;
+
+
 }
 
 
 
 th{
   color: white;
+
 }
 .hiscore{
   background-image: url("../assets/scoreBackground.jpg");
