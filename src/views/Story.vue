@@ -16,7 +16,7 @@
          <hr>
          <p><img v-if="this.netacniOdgovori<=2" src="../assets/heart.png"><img  v-if="this.netacniOdgovori<=1" src="../assets/heart.png"><img  v-if="this.netacniOdgovori<=0" src="../assets/heart.png">  </p>
          <hr>
-        <p v-if="sat"><img src="../assets/clock.png">  {{vreme}}</p>
+        <p v-if="gotovoVreme"><img src="../assets/clock.png">  {{vreme}}</p>
 
       </div>
 
@@ -94,7 +94,7 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage: false,
-      timer: 25,
+      timer: 45,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
@@ -135,6 +135,9 @@ export default {
     },
     perfect(){
       return this.stagePerfect;
+    },
+    gotovoVreme(){
+      return this.sat;
     }
   },
   methods: {
@@ -217,6 +220,7 @@ export default {
           } else {
           console.log('isteklo vreme');
           this.gameover=true;
+          this.sat=false;
           this.stopMusic();
           this.$store.state.qstNum=0;
           setTimeout(()=>{location.reload();},3000);
@@ -309,6 +313,7 @@ export default {
         if(this.netacniOdgovori>=3){
         console.log('GAME OVER');
         this.gameover = true;
+        this.sat=false;
         setTimeout(this.stageEnd, 1000);
       }
       }
