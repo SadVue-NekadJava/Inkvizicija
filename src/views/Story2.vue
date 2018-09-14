@@ -91,10 +91,11 @@ export default {
       size: 0,
       ansFalse: false,
       nextStage2: false,
-      timer: 45,
+      timer: 15,
       singleQuestion: '',
       tacno: new Audio(require('../assets/bell.mp3')),
       greska: new Audio(require('../assets/dungeonDoor.mp3')),
+      odbrojavanje: new Audio(require('../assets/countDown.wav')),
       tacniOdgovori: 0,
       netacniOdgovori: this.$store.state.lives,
       poen: window.localStorage.getItem('poeni'),
@@ -162,6 +163,7 @@ export default {
     },
 
     ugasi() {
+      setTimeout(()=>{this.odbrojavanje.play()},(this.timer-10.3)*1000);
       var nesto = document.getElementById('ugasi');
       nesto.style.visibility = "hidden";
       var nesto2 = document.getElementById('wrap2');
@@ -191,6 +193,7 @@ export default {
             if(this.netacniOdgovori<1){
             console.log('perfektna faza');
             this.stagePerfect=true;
+            this.odbrojavanje.pause();
             setTimeout(()=>this.stagePerfect=false,30000);
             setTimeout(()=>this.nextStage2=true,30000);
             setTimeout(()=>{
@@ -205,6 +208,7 @@ export default {
             }else{
             console.log('zavrsena faza');
         this.nextStage2 = true;
+        this.odbrojavanje.pause();
             }
           console.log('');
 
@@ -212,6 +216,7 @@ export default {
           } else {
           console.log('isteklo vreme');
           this.gameover=true;
+          this.odbrojavanje.pause();
           this.sat=false;
           this.timer = 0;
             this.stopMusic();
@@ -307,6 +312,7 @@ export default {
         if(this.netacniOdgovori>=3){
         console.log('GAME OVER');
         this.gameover = true;
+        this.odbrojavanje.pause();
         this.sat=false;
         setTimeout(this.stageEnd, 1000);
       }
