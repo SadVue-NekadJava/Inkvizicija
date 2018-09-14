@@ -1,5 +1,5 @@
 <template>
-<div class="story" @click.once="ugasi">
+<div class="story" @click.once="ugasi2">
   <div  class="main" >
     <audio id="mySound" controls autoplay loop hidden>
       <source src="../assets/questions.mp3" type="audio/mp3">
@@ -58,7 +58,7 @@
 
 
   </div>
-  <div class="intro" id="ugasi">
+  <div class="intro" id="ugasi2">
     <h3>Djordano Bruno</h3>
     <p>Delo De revolutionibus orbium coelestium (O gibanju nebeskih tela) u kome Kopernik iznosi heliocentričnu sliku sveta,
       a koja tada još nije bila zabranjena, unosi nemir u njegov mladi duh.
@@ -174,9 +174,9 @@ export default {
       nesto.style.visibility = "hidden";
     },
     //start kviza
-    ugasi() {
+    ugasi2() {
     this.zaustaviTajmer = setTimeout(()=>{this.odbrojavanje.play()},(this.timer-10.3)*1000);
-      var nesto = document.getElementById('ugasi');
+      var nesto = document.getElementById('ugasi2');
       nesto.style.visibility = "hidden";
       var nesto2 = document.getElementById('wrap');
       nesto2.style.visibility = "visible";
@@ -385,6 +385,10 @@ export default {
     if(window.localStorage.getItem("story")>1){
       this.$router.push('/mainPage');
     }
+
+    var nesto = document.getElementById('ugasi2');
+    nesto.style.visibility = "visible";
+
     //upisivanje poena i zlata u bazu
     axios.put('http://739k121.mars-e1.mars-hosting.com/inkvizicija/odgovori.js',{
         poeni: window.localStorage.getItem('poeni'),
