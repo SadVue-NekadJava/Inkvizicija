@@ -3,7 +3,7 @@
 
 <h1 class="gameMode">Najbolji igraci</h1><br>
 
-<router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
+
 
 
 
@@ -18,7 +18,7 @@
   </tr>
 </table>
 
-
+<router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
 
 
 </div>
@@ -98,6 +98,7 @@ width: 200px;
 
 
 .tabela{
+margin-top: -100px;
 margin-left: auto;
 margin-right: auto;
 padding-top: 200px;

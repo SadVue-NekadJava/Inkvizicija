@@ -2,7 +2,7 @@
 <div class="userInfo">
 
 <h1 class="gameMode Naslov">Statistika</h1><br>
-<router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
+
 
 
 
@@ -25,14 +25,12 @@
   </tr>
 </table>
 
-<br>
-<br>
 
 
 
 
 
-
+<router-link to="/mainPage" class="gameMode nazad">Nazad</router-link>
 
 </div>
 
@@ -104,6 +102,10 @@ th{
   padding-right: 22px;
   padding-bottom: 29px;
 
+}
+
+.nazad{
+  margin-top: 222px;
 }
 
 .nazad:hover{
