@@ -51,30 +51,49 @@ p {
   	padding: .25em 0 .325em;
 	  display: block;
 	  margin: 0 auto;
-  	text-shadow: 0 0 80px rgba(255,255,255,.5);
 
+    
+    color: red;
+    background:url("../assets/logo.png") repeat-y;
+    background: -o-linear-gradient(transparent, transparent);
+  	text-shadow: 0 0 20px rgba(255,255,255,.5);
+-webkit-text-fill-color: transparent;
+ -webkit-background-clip: text;
 /* Clip Background Image */
 
-	  background: url("../assets/logo.png") repeat-y;
-	  -webkit-background-clip: text;
-	  background-clip: text;
+	  // background: url("../assets/logo.png") repeat-y;
+    // -webkit-background-clip: text;
+    //  -moz-background-clip: text;
+    //  background-clip: text;
+     // color: transparent;
+
+
+
+
 
 /* Animate Background Image */
 
-	  -webkit-text-fill-color: transparent;
-	  -webkit-animation: aitf 80s linear infinite;
+// -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 80s linear infinite;
+    animation: aitf 80s linear infinite;
+
 
 /* Activate hardware acceleration for smoother animations */
 
 	  -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 	  -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 
   }
 }
 
 /* Animate Background Image */
-
 @-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
+@keyframes aitf {
 	0% { background-position: 0% 50%; }
 	100% { background-position: 100% 50%; }
 }
